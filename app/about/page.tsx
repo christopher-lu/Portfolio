@@ -1,17 +1,8 @@
 import Link from "next/link";
 
-// const technologies = [
-//   "JavaScript",
-//   "TypeScript",
-//   "React",
-//   "Next.js",
-//   "Node.js",
-//   "Tailwind CSS",
-// ];
 const languages = [
   "JavaScript",
-  "TypeScript"
-
+  "TypeScript",
 ];
 
 const frontend = [
@@ -20,7 +11,6 @@ const frontend = [
   "Redux",
   "Tailwind CSS",
   "SASS",
-
 ];
 
 const backend = [
@@ -29,8 +19,6 @@ const backend = [
   "NoSQL - MongoDB",
   "SQL - PostgreSQL",
   "GraphQL",
-
-
 ];
 
 const devops = [
@@ -38,59 +26,105 @@ const devops = [
   "Kubernetes",
   "Grafana",
   "Prometheus",
-]
+];
 
-function techStack(stack : Array) {
+function TechStack({ stack }: { stack: string[] }) {
   return (
-    <ul>
-      {stack.map((tech : string) => (
+    <ul className="mt-3 space-y-2">
+      {stack.map((tech) => (
         <li key={tech}>{tech}</li>
       ))}
     </ul>
   );
 }
+
 export default function Page() {
-  return ( <main>
-            <h1>Christopher Lu</h1>
-            <h2>About Me</h2>
+  return (
+    <main className="min-h-screen flex flex-col px-6 py-10">
+      {/* Header */}
+      <section className="text-center">
+        <h1 className="text-4xl md:text-6xl font-bold">
+          Christopher Lu
+        </h1>
 
-              <p>I am a fullstack software engineer based in NYC.</p>
+        <h2 className="mt-3 text-2xl md:text-3xl font-semibold">
+          About Me
+        </h2>
 
-            <h2>Tech Stack</h2>
+        <p className="mt-6 max-w-2xl mx-auto text-gray-700">
+          I am a full-stack software engineer based in New York City.
+        </p>
+      </section>
 
-              <h3>Languages</h3>
-                <h3></h3>
-                  {techStack(languages)}
+      {/* Tech Stack */}
+      <section className="mt-12">
+        <h2 className="text-3xl font-bold text-center mb-8">
+          Tech Stack
+        </h2>
 
-              <h3>Frontend</h3>
-                <h3></h3>
-                  {techStack(frontend)}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+          <div>
+            <h3 className="text-xl font-semibold border-b pb-2">
+              Languages
+            </h3>
+            <TechStack stack={languages} />
+          </div>
 
-              <h3>Backend</h3>
-                <h3></h3>
-                  {techStack(backend)}
+          <div>
+            <h3 className="text-xl font-semibold border-b pb-2">
+              Frontend
+            </h3>
+            <TechStack stack={frontend} />
+          </div>
 
-              <h3>DevOps</h3>
-                <h3></h3>
-                  {techStack(devops)}
+          <div>
+            <h3 className="text-xl font-semibold border-b pb-2">
+              Backend
+            </h3>
+            <TechStack stack={backend} />
+          </div>
 
+          <div>
+            <h3 className="text-xl font-semibold border-b pb-2">
+              DevOps
+            </h3>
+            <TechStack stack={devops} />
+          </div>
+        </div>
+      </section>
 
-
-
-            <footer>
-              <Link href="/">
+      {/* Footer */}
+      <footer className="mt-auto pt-12">
+        <nav className="flex flex-wrap justify-center gap-6 text-blue-600">
+          <Link
+            href="/"
+            className="underline hover:text-blue-800 transition-colors"
+          >
             Back Home
-              </Link>
-              <Link href="/experience">
+          </Link>
+
+          <Link
+            href="/experience"
+            className="underline hover:text-blue-800 transition-colors"
+          >
             Experience
-              </Link>
-              <Link href="/publications">
+          </Link>
+
+          <Link
+            href="/publications"
+            className="underline hover:text-blue-800 transition-colors"
+          >
             Publications
-              </Link>
-            </footer>
-              <Link href="/contact">
-              Contact Information
-              </Link>
-            </main>
-        );
+          </Link>
+
+          <Link
+            href="/contact"
+            className="underline hover:text-blue-800 transition-colors"
+          >
+            Contact Information
+          </Link>
+        </nav>
+      </footer>
+    </main>
+  );
 }

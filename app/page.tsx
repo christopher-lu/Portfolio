@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Page() {
   return (
         <main>
-          <h1>Hello There!</h1>
+          <h1 className="text-3xl font-bold underline">Hello There!</h1>
 
           <ul>
             <li><Link href="/about">
