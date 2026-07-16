@@ -1,28 +1,18 @@
-import Link from "next/link";
-
 export default function Page() {
   return (
-        <main>
-          <h1 className="text-3xl font-bold underline">Hello There!</h1>
+    <main className="flex min-h-screen flex-col items-center justify-center gap-6 px-6 pt-24">
+      <h1 className="text-6xl font-bold">
+        Christopher Lu
+      </h1>
 
-          <ul>
-            <li><Link href="/about">
-                  About Me
-                </Link>
-            </li>
-            <li><Link href="/experience">
-                  Experience
-                </Link>
-            </li>
-            <li><Link href="/publications">
-                  Publications
-                </Link>
-            </li>
-            <li><Link href="/contact">
-                  Contact Me
-                </Link>
-            </li>
-          </ul>
-        </main>
-        );
+      <p className="text-xl text-[var(--muted)]">
+        Full Stack Software Engineer
+      </p>
+
+      <p className="text-center max-w-xl">
+        Building scalable, cloud-native web applications with React,
+        Next.js, TypeScript, Node.js, and modern DevOps technologies.
+      </p>
+    </main>
+  );
 }

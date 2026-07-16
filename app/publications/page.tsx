@@ -17,20 +17,38 @@ export default function Page() {
                     <p>Panel discussion on utilization of GraphQL and Representational State Transfer use cases and benefits of each.</p>
                 
 
-            <footer>
-              <Link href="/">
-            Back Home
-              </Link>
-              <Link href="/about">
-            About Me
-              </Link>
-              <Link href="/experience">
-            Experience
-              </Link>
-              <Link href="/contact">
-            Contact Me
-              </Link>
+            <footer className="mt-auto pt-12">
+                <nav className="flex flex-wrap justify-center gap-6 text-blue-600">
+                    <Link
+                     href="/"
+                    className="underline hover:text-blue-800 transition-colors"
+                >
+                        Back Home
+                    </Link>
+
+                    <Link
+                     href="/about"
+                    className="underline hover:text-blue-800 transition-colors"
+                    >
+                        About Me
+                    </Link>
+
+                    <Link
+                    href="/experience"
+                    className="underline hover:text-blue-800 transition-colors"
+                    >
+                        Experience
+                    </Link>
+
+
+                    <Link
+                    href="/contact"
+                    className="underline hover:text-blue-800 transition-colors"
+                    >
+                    Contact Information
+                    </Link>
+                </nav>
             </footer>
-            </main>
+        </main>
         );
 }
