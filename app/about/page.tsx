@@ -1,5 +1,6 @@
 import Link from "next/link";
-
+import {SiTypescript, SiJavascript, SiReact,  SiNextdotjs, SiRedux, SiTailwindcss, SiSass,SiNodedotjs, SiExpress, SiMongodb, SiPostgresql, SiGraphql, SiDocker, SiKubernetes, SiGrafana, SiPrometheus} from "react-icons/si"
+//implement icons for each of the technologies to render of the left side of each 
 const languages = [
   "JavaScript",
   "TypeScript",

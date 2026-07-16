@@ -33,14 +33,14 @@ export default function ThemeToggle() {
         transition-all
         duration-300
         hover:scale-110
-        hover:rotate-12
+        hover:rotate-180
         active:scale-95
       "
     >
       {theme === "dark" ? (
         <Sun className="h-5 w-5 text-yellow-400" />
       ) : (
-        <Moon className="h-5 w-5 text-slate-700 dark:text-slate-200" />
+        <Moon className="h-5 w-5 text-slate-700 dark:text-black-200" />
       )}
     </button>
   );

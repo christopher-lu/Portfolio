@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
+//change background color within dark mode to contrast with white font
 type Contact = {
   id: string;
   label: string;
@@ -159,7 +160,7 @@ export default function Page() {
 
         <p className="mt-6 max-w-2xl text-lg text-gray-600">
           Feel free to reach out using any of the contact methods below.
-          I'm always happy to discuss software engineering,
+          I&apos;m always happy to discuss software engineering,
           new opportunities, or interesting projects.
         </p>
 

@@ -1,9 +1,8 @@
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import Section from "@/components/ui/Section";
-import Card from "@/components/ui/Card";
 
-export default function Page() {
+export default function HomePage() {
   return (
     <Container>
       <Section className="text-center">
@@ -11,26 +10,24 @@ export default function Page() {
           Christopher Lu
         </h1>
 
-        <p className="mt-6 text-lg text-[var(--muted)]">
+        <p className="mt-6 text-xl text-[var(--muted)]">
           Full Stack Software Engineer
         </p>
 
-        <div className="mt-10 flex justify-center">
+        <p className="mx-auto mt-6 max-w-2xl text-lg">
+          Building scalable web applications with React,
+          Next.js, TypeScript, Node.js and modern cloud
+          technologies.
+        </p>
+
+        <div className="mt-10 flex justify-center gap-4">
           <Button href="/about">
-            Learn More
+            About Me
           </Button>
-        </div>
 
-        <div className="mt-16">
-          <Card>
-            <h2 className="text-2xl font-semibold">
-              Design System Test
-            </h2>
-
-            <p className="mt-4 text-[var(--muted)]">
-              This card is using the reusable Card component.
-            </p>
-          </Card>
+          <Button href="/projects">
+            View Projects
+          </Button>
         </div>
       </Section>
     </Container>

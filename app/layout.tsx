@@ -1,9 +1,12 @@
 import "./globals.css";
 
-import ThemeProvider from "@/providers/ThemeProvider";
-import ThemeToggle from "@/components/navigation/ThemeToggle";
+import type { Metadata } from "next";
 
-export const metadata = {
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import ThemeProvider from "@/providers/ThemeProvider";
+
+export const metadata: Metadata = {
   title: "Christopher Lu",
   description: "Full Stack Software Engineer",
 };
@@ -17,12 +20,14 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body>
         <ThemeProvider>
-          <div className="min-h-screen flex flex-col">
-            <header className="fixed top-4 right-4 z-50">
-              <ThemeToggle />
-            </header>
+          <div className="flex min-h-screen flex-col">
+            <Navbar />
 
-            <main className="flex-1">{children}</main>
+            <main className="flex-1">
+              {children}
+            </main>
+
+            <Footer />
           </div>
         </ThemeProvider>
       </body>
