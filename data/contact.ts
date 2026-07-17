@@ -1,8 +1,9 @@
 export const contact = {
-    email: "...",
-    github: "...",
-    linkedin: "...",
-    location: "...",
-    availability: "...",
-    resume: "...",
+  email: "...",
+  phone: "...",
+  location: "...",
+  linkedin: "...",
+  github: "...",
+  resume: "...",
+  availability: "Open to full-time opportunities",
 };
