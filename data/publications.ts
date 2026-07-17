@@ -2,27 +2,31 @@ import type { Publication } from "@/types/publication";
 
 export const publications: Publication[] = [
   {
-    id: "nextjs-portfolio",
+    id: "klusterbud-medium",
 
-    title: "Building a Scalable Portfolio with Next.js",
+    title: "KlusterBud: K8s anomaly detection made simple",
 
     type: "Technical Article",
 
-    publisher: "Personal Publication",
+    publisher: "Medium",
 
-    published: "2026",
+    published: "2023",
 
     summary:
-      "An overview of building a reusable component architecture using Next.js, TypeScript, and Tailwind CSS.",
+      "How the developer tool Klusterbud supports a more streamlined workflow for detecting anomolies within your Kubernetes cluster.",
 
     technologies: [
-      "Next.js",
+      "Kubernetes",
+      "Docker",
+      "Helm",
+      "Grafana",
+      "Prometheus",
       "React",
-      "TypeScript",
-      "Tailwind CSS",
+      "Node.js",
+      "Express",
     ],
 
-    url: "https://example.com",
+    url: "https://medium.com/@AMitchell-Smith/klusterbud-k8s-anomaly-detection-made-simple-060ca496aebc",
 
     featured: true,
   },

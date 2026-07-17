@@ -3,10 +3,10 @@ import type { Personal } from "@/types/personal";
 export const personal: Personal = {
   name: "Christopher Lu",
 
-  title: "Software Engineer",
+  title: "Full Stack Software Engineer",
 
   tagline:
-    "Building scalable cloud-native applications, AI-powered solutions, and healthcare technology that improve people's lives.",
+    "Building scalable cloud-native applications, AI-powered solutions that improve people's lives.",
 
   bio: `
 I am a full-stack software engineer passionate about designing scalable,
@@ -35,19 +35,19 @@ learning and sharing knowledge with others.
   stats: [
     {
       label: "Years Experience",
-      value: "8+",
+      value: "3+",
     },
     {
       label: "Projects",
-      value: "20+",
+      value: "5+",
     },
     {
       label: "Publications",
-      value: "6",
+      value: "2",
     },
     {
       label: "Certifications",
-      value: "10+",
+      value: "0+",
     },
   ],
 };

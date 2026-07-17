@@ -11,8 +11,6 @@ export const projects: Project[] = [
     description:
       "A responsive developer portfolio showcasing projects, technical skills, and professional experience.",
 
-    
-
     technologies: [
       "Next.js",
       "React",
@@ -39,33 +37,41 @@ export const projects: Project[] = [
   {
     id: "staffing-platform",
 
-    title: "Healthcare Staffing Platform",
+    title: "Klusterbud",
 
-    tagline: "Full-stack staffing management system",
+    tagline: "Kubernetes monitoring tool",
 
     description:
-      "Platform for managing healthcare professionals, scheduling, and staffing workflows.",
+      "Monitoring tool for detecting anomolies within replica sets of Kubernetes clusters.",
 
     
 
     technologies: [
+      "Kubernetes",
+      "Docker",
+      "Helm",
+      "Grafana",
+      "Prometheus",
       "React",
       "Node.js",
       "Express",
-      "PostgreSQL",
+      "AWS",
+      
+      
     ],
 
     highlights: [
-      "Role-based authentication",
-      "Scheduling dashboard",
-      "REST API architecture",
+      "Custom PromQL queries to running Prometheus instances",
+      "Visulaization of replica set anomlies detected",
+      "Continuous monitoring of selected replica sets"
+      
     ],
 
-    github: "https://github.com/yourusername/staffing-platform",
+    github: "https://github.com/oslabs-beta/KlusterBud",
 
     featured: true,
 
-    status: "In Progress",
+    status: "Completed",
 
     category: "Full Stack",
   },

@@ -7,7 +7,7 @@ export default function ExperiencePage() {
     <PageLayout
       eyebrow="Experience"
       title="Professional Experience"
-      description="A timeline of my professional journey, highlighting leadership, technical expertise, and measurable impact across healthcare, technology, and enterprise environments."
+      description="A timeline of my professional journey, highlighting leadership, technical expertise, and measurable impact across technology,  start up and enterprise environments."
     >
       <ExperienceTimeline />
     </PageLayout>
