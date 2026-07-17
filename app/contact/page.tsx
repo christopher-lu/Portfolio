@@ -1,22 +1,14 @@
-import Container from "@/components/ui/Container";
-import Section from "@/components/ui/Section";
-
-import PageHeader from "@/components/sections/PageHeader";
-
+import PageLayout from "@/components/layouts/PageLayout";
 import ContactMethods from "@/components/contact/ContactMethods";
 
 export default function ContactPage() {
   return (
-    <Container>
-      <Section>
-        <PageHeader
-          eyebrow="Contact"
-          title="Let's Connect"
-          description="I'm always interested in discussing software engineering, cloud architecture, healthcare technology, and new opportunities."
-        />
-
-        <ContactMethods />
-      </Section>
-    </Container>
+    <PageLayout
+      eyebrow="Contact"
+      title="Let's Connect"
+      description="Whether you're looking to collaborate on a project, discuss software engineering, healthcare technology, cloud architecture, or AI, I'd love to hear from you."
+    >
+      <ContactMethods />
+    </PageLayout>
   );
 }

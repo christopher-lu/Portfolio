@@ -1,63 +1,41 @@
-import {
-  FaEnvelope,
-  FaGithub,
-  FaLinkedin,
-  FaFilePdf,
-} from "react-icons/fa";
-
-import type { ContactInfo } from "@/types/contact";
-
-export const contact: ContactInfo = {
+export const contact = {
   availability:
-    "Open to Software Engineering, AI, and Cloud opportunities.",
+    "I'm currently open to software engineering, cloud architecture, AI engineering, healthcare technology, and full-stack development opportunities.",
 
   methods: [
     {
       id: "email",
-
+      type: "mail",
       label: "Email",
-
-      value: "you@email.com",
-
-      href: "mailto:you@email.com",
-
-      icon: FaEnvelope,
+      value: "lu.christopher.m@gmail.com",
+      href: "mailto:lu.christopher.m@gmail.com",
     },
-
-    {
-      id: "linkedin",
-
-      label: "LinkedIn",
-
-      value: "linkedin.com/in/username",
-
-      href: "https://linkedin.com/in/username",
-
-      icon: FaLinkedin,
-    },
-
     {
       id: "github",
-
+      type: "github",
       label: "GitHub",
-
-      value: "github.com/username",
-
-      href: "https://github.com/username",
-
-      icon: FaGithub,
+      value: "github.com/christopher-lu",
+      href: "https://github.com/christopher-lu",
     },
-
+    {
+      id: "linkedin",
+      type: "linkedin",
+      label: "LinkedIn",
+      value: "linkedin.com/in/christopher-lu19",
+      href: "https://www.linkedin.com/in/christopher-lu19/",
+    },
+    {
+      id: "location",
+      type: "location",
+      label: "Location",
+      value: "New York, NY",
+    },
     {
       id: "resume",
-
+      type: "resume",
       label: "Resume",
-
       value: "Download PDF",
-
-      href: "/resume.pdf",
-
-      icon: FaFilePdf,
+      href: "/Christopher_Lu_Resume.pdf",
     },
   ],
 };

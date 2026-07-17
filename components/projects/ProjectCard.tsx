@@ -1,3 +1,8 @@
+import Image from "next/image";
+
+import { ExternalLink } from "lucide-react";
+import { FaGithub } from "react-icons/fa6";
+
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 
@@ -14,10 +19,60 @@ export default function ProjectCard({
   project,
 }: ProjectCardProps) {
   return (
-    <Card className="flex h-full flex-col">
+    <Card
+      className="
+        flex
+        h-full
+        flex-col
+        overflow-hidden
+        transition-all
+        duration-300
+        hover:-translate-y-1
+        hover:shadow-xl
+      "
+    >
+      {/* Project Image */}
+
+      {project.image ? (
+        <Image
+          src={project.image}
+          alt={project.title}
+          width={800}
+          height={450}
+          className="
+            mb-6
+            w-full
+            rounded-xl
+            object-cover
+            transition-transform
+            duration-300
+            hover:scale-[1.02]
+          "
+        />
+      ) : (
+        <div
+          className="
+            mb-6
+            flex
+            aspect-video
+            items-center
+            justify-center
+            rounded-xl
+            border
+            border-dashed
+            border-[var(--border)]
+            bg-[var(--surface)]
+            text-sm
+            text-[var(--muted-foreground)]
+          "
+        >
+          Project Preview Coming Soon
+        </div>
+      )}
+
       {/* Header */}
 
-      <div className="flex items-start justify-between">
+      <div className="flex items-center justify-between">
         <ProjectStatus status={project.status} />
 
         <span className="text-sm text-[var(--muted-foreground)]">
@@ -31,13 +86,15 @@ export default function ProjectCard({
         {project.title}
       </h3>
 
+      {/* Tagline */}
+
       <p className="mt-2 font-medium text-[var(--accent)]">
         {project.tagline}
       </p>
 
       {/* Description */}
 
-      <p className="mt-5 text-[var(--muted-foreground)]">
+      <p className="mt-5 flex-grow text-[var(--muted-foreground)]">
         {project.description}
       </p>
 
@@ -70,28 +127,30 @@ export default function ProjectCard({
         ))}
       </div>
 
-      {/* Links */}
+      {/* Footer */}
 
-      <div className="mt-auto flex gap-3 pt-8">
-        {project.github && (
-          <Button
-            href={project.github}
-            variant="secondary"
-            external
-          >
-            GitHub
-          </Button>
-        )}
+      {(project.github || project.demo) && (
+        <div className="mt-8 flex gap-3">
+          {project.github && (
+            <Button
+              href={project.github}
+              variant="github"
+              external
+              
+            >
+              <FaGithub className="h-4 w-4" />
+              GitHub
+            </Button>
+          )}
 
-        {project.demo && (
-          <Button
-            href={project.demo}
-            external
-          >
-            Live Demo
-          </Button>
-        )}
-      </div>
+          {project.demo && (
+            <Button href={project.demo} external>
+              <ExternalLink className=" h-4 w-4" />
+              Live Demo
+            </Button>
+          )}
+        </div>
+      )}
     </Card>
   );
 }

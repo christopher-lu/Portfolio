@@ -1,4 +1,4 @@
-import { Project } from "@/types/project";
+import type { Project } from "@/types/project";
 
 export const projects: Project[] = [
   {
@@ -11,7 +11,7 @@ export const projects: Project[] = [
     description:
       "A responsive developer portfolio showcasing projects, technical skills, and professional experience.",
 
-    image: "/images/projects/portfolio.png",
+    
 
     technologies: [
       "Next.js",
@@ -26,9 +26,8 @@ export const projects: Project[] = [
       "Responsive Design",
     ],
 
-    github: "https://github.com/yourusername/portfolio",
+    github: "https://github.com/christopher-lu/portfolio",
 
-    demo: "https://yourportfolio.com",
 
     featured: true,
 
@@ -47,7 +46,7 @@ export const projects: Project[] = [
     description:
       "Platform for managing healthcare professionals, scheduling, and staffing workflows.",
 
-    image: "/images/projects/staffing.png",
+    
 
     technologies: [
       "React",

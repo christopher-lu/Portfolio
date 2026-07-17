@@ -1,30 +1,29 @@
 export type ProjectStatus =
   | "Completed"
-  | "In Progress";
+  | "In Progress"
+  | "Planned";
 
 export type ProjectCategory =
   | "Frontend"
   | "Backend"
   | "Full Stack"
-  | "Cloud";
+  | "Mobile"
+  | "AI"
+  | "Healthcare";
 
 export interface Project {
   id: string;
 
   title: string;
-
   tagline: string;
-
   description: string;
 
-  image: string;
+  image?: string;
 
   technologies: string[];
-
   highlights: string[];
 
   github?: string;
-
   demo?: string;
 
   featured: boolean;

@@ -1,21 +1,15 @@
-import Container from "@/components/ui/Container";
-import Section from "@/components/ui/Section";
+import PageLayout from "@/components/layouts/PageLayout";
 
-import PageHeader from "@/components/sections/PageHeader";
 import PublicationsList from "@/components/publications/PublicationsList";
 
 export default function PublicationsPage() {
   return (
-    <Container>
-      <Section>
-        <PageHeader
-          eyebrow="Publications"
-          title="Publications"
-          description="Research, technical writing, and professional publications."
-        />
-
-        <PublicationsList />
-      </Section>
-    </Container>
+    <PageLayout
+      eyebrow="Publications"
+      title="Publications"
+      description="Research, technical writing, and professional publications."
+    >
+      <PublicationsList />
+    </PageLayout>
   );
 }

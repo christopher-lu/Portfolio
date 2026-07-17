@@ -1,10 +1,17 @@
-import {
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
-} from "react-icons/fa";
+import { Mail } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
 
-export const socialConfig = {
+import { SocialId } from "@/types/social";
+
+export const socialConfig: Record<
+  SocialId,
+  {
+    icon: React.ComponentType<{
+      className?: string;
+    }>;
+    hover: string;
+  }
+> = {
   github: {
     icon: FaGithub,
     hover:
@@ -18,8 +25,8 @@ export const socialConfig = {
   },
 
   email: {
-    icon: FaEnvelope,
+    icon: Mail,
     hover:
       "group-hover:bg-red-500 group-hover:text-white",
   },
-} as const;
+};

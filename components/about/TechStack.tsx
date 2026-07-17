@@ -1,6 +1,6 @@
 import PageLayout from "@/components/layouts/PageLayout";
 
-import TechStack from "@/components/sections/TechStack";
+import AboutContent from "@/components/about/AboutContent";
 
 import { personal } from "@/data/personal";
 
@@ -12,7 +12,7 @@ export default function AboutPage() {
       subtitle={personal.title}
       description={personal.tagline}
     >
-      <TechStack />
+      <AboutContent />
     </PageLayout>
   );
 }

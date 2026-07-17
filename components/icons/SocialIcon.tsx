@@ -1,13 +1,17 @@
 import { socialConfig } from "./socialConfig";
 
+import { SocialId } from "@/types/social";
+
 type Props = {
-  id: keyof typeof socialConfig;
+  id: SocialId;
+  className?: string;
 };
 
 export default function SocialIcon({
   id,
+  className,
 }: Props) {
   const Icon = socialConfig[id].icon;
 
-  return <Icon size={22} />;
+  return <Icon className={className} />;
 }

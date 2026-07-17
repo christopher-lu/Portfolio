@@ -1,4 +1,4 @@
-import { personal } from "@/data/personal";
+import { social } from "@/data/social";
 
 import SocialIcon from "@/components/icons/SocialIcon";
 import { socialConfig } from "@/components/icons/socialConfig";
@@ -18,9 +18,8 @@ export default function SocialLinks({
           : "flex flex-wrap justify-center gap-6"
       }
     >
-      {personal.social.map((contact) => {
-        const hover =
-          socialConfig[contact.id].hover;
+      {social.map((contact) => {
+        const hover = socialConfig[contact.id].hover;
 
         const external =
           contact.href.startsWith("http");
@@ -39,24 +38,16 @@ export default function SocialLinks({
             }
             className="
               group
-
               flex
               items-center
-
               w-fit
-
               rounded-full
-
               border
               border-[var(--border)]
-
               bg-[var(--card)]
-
               shadow-sm
-
               transition-all
               duration-300
-
               hover:shadow-lg
             "
           >
@@ -68,12 +59,9 @@ export default function SocialLinks({
                 shrink-0
                 items-center
                 justify-center
-
                 rounded-full
-
                 transition-all
                 duration-300
-
                 ${hover}
               `}
             >
@@ -83,22 +71,17 @@ export default function SocialLinks({
             <div
               className="
                 overflow-hidden
-
                 max-w-0
-
                 transition-all
                 duration-300
-
                 group-hover:max-w-xs
               "
             >
               <span
                 className="
                   whitespace-nowrap
-
                   pl-4
                   pr-5
-
                   font-medium
                 "
               >
