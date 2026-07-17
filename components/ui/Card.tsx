@@ -13,15 +13,22 @@ export default function Card({
     <div
       className={`
         rounded-2xl
+
         border
         border-[var(--border)]
+
         bg-[var(--card)]
+
         p-6
-        shadow-md
+
+        shadow-sm
+
         transition-all
         duration-300
-        hover:-translate-y-1
+
+        hover:-translate-y-2
         hover:shadow-xl
+
         ${className}
       `}
     >

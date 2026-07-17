@@ -8,6 +8,8 @@
 
   --card: #ffffff;
 
+  --card-hover: #f4f4f5;
+
   --border: #d4d4d8;
 
   --muted: #71717a;
@@ -23,6 +25,8 @@
   --foreground: #fafafa;
 
   --card: #18181b;
+
+   --card-hover: #27272a;
 
   --border: #3f3f46;
 
