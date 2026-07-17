@@ -15,6 +15,15 @@
   --github: #24292f;
   --github-hover: #1b1f23;
 
+  --status-success-bg: #bbf7d0;
+  --status-success-fg: #14532d;
+
+  --status-warning-bg: #fde68a;
+  --status-warning-fg: #78350f;
+
+  --status-neutral-bg: #27272a;
+  --status-neutral-fg: #fafafa;
+
   --border: #d4d4d8;
 
   --muted: #71717a;
