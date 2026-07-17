@@ -13,35 +13,54 @@ export default function ExperienceCard({
   experience,
 }: Props) {
   return (
-    <Card>
+    <Card className="relative w-full">
       <CardHeader>
         <CardTitle>{experience.role}</CardTitle>
 
-        <p className="mt-2 font-medium">
+        <p className="mt-2 text-lg font-semibold">
           {experience.company}
         </p>
 
-        <p className="text-sm text-[var(--muted)]">
-          {experience.location}
-        </p>
+        <div
+          className="
+            mt-3
 
-        <p className="mt-2 text-sm text-[var(--muted)]">
-          {experience.start} — {experience.end}
-        </p>
+            flex
+            flex-wrap
+            gap-4
+
+            text-sm
+
+            text-[var(--muted)]
+          "
+        >
+          <span>{experience.location}</span>
+
+          <span>
+            {experience.start} — {experience.end}
+          </span>
+        </div>
       </CardHeader>
 
       <CardContent>
-        <ul className="space-y-3">
+        <ul className="space-y-4">
           {experience.bullets.map((bullet) => (
             <li
               key={bullet}
-              className="
-                flex
-                items-start
-                gap-3
-              "
+              className="flex items-start gap-4"
             >
-              <span className="mt-2 h-2 w-2 rounded-full bg-[var(--accent)]" />
+              <span
+                className="
+                  mt-2
+
+                  h-2.5
+                  w-2.5
+
+                  rounded-full
+
+                  bg-[var(--accent)]
+                "
+              />
 
               <span>{bullet}</span>
             </li>

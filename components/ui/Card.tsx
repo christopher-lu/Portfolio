@@ -27,6 +27,7 @@ export default function Card({
         duration-300
 
         hover:-translate-y-2
+        hover:scale-[1.01]
         hover:shadow-xl
 
         ${className}
