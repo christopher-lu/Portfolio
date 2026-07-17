@@ -6,24 +6,18 @@ type ProjectStatusProps = {
 
 const statusStyles: Record<ProjectStatusType, string> = {
   Completed: `
-    bg-emerald-200
-    text-emerald-900
-    dark:bg-emerald-900/40
-    dark:text-emerald-300
+    bg-[var(--status-success-bg)]
+    text-[var(--status-success-fg)]
   `,
 
   "In Progress": `
-    bg-amber-200
-    text-amber-900
-    dark:bg-amber-900/40
-    dark:text-amber-300
+    bg-[var(--status-warning-bg)]
+    text-[var(--status-warning-fg)]
   `,
 
   Planned: `
-    bg-zinc-800
-    text-white
-    dark:bg-zinc-700
-    dark:text-zinc-100
+    bg-[var(--status-neutral-bg)]
+    text-[var(--status-neutral-fg)]
   `,
 };
 
@@ -40,6 +34,8 @@ export default function ProjectStatus({
         "py-1",
         "text-xs",
         "font-semibold",
+        "transition-colors",
+        "duration-300",
         statusStyles[status],
       ].join(" ")}
     >

@@ -46,6 +46,15 @@
   --github: #f3f4f6;
   --github-hover: #ffffff;
 
+  --status-success-bg: rgba(6, 95, 70, 0.4);
+  --status-success-fg: #86efac;
+
+  --status-warning-bg: rgba(120, 53, 15, 0.4);
+  --status-warning-fg: #fcd34d;
+
+--status-neutral-bg: #3f3f46;
+--status-neutral-fg: #f4f4f5;
+
   --border: #3f3f46;
 
   --muted: #a1a1aa;
