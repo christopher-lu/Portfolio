@@ -2,7 +2,7 @@ import Container from "@/components/ui/Container";
 import Section from "@/components/ui/Section";
 
 import PageHeader from "@/components/sections/PageHeader";
-import PublicationsList from "@/components/sections/PublicationsList";
+import PublicationsList from "@/components/publications/PublicationsList";
 
 export default function PublicationsPage() {
   return (

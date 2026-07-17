@@ -2,7 +2,7 @@ import Container from "@/components/ui/Container";
 import Section from "@/components/ui/Section";
 
 import PageHeader from "@/components/sections/PageHeader";
-import ExperienceTimeline from "@/components/sections/ExperienceTimeline";
+import ExperienceTimeline from "@/components/experience/ExperienceTimeline";
 
 export default function ExperiencePage() {
   return (
@@ -11,7 +11,7 @@ export default function ExperiencePage() {
         <PageHeader
           eyebrow="Experience"
           title="Professional Experience"
-          description="Building scalable software across healthcare, cloud infrastructure, and modern web technologies."
+          description="A timeline of my professional journey, highlighting leadership, technical expertise, and measurable impact across healthcare, technology, and enterprise environments."
         />
 
         <ExperienceTimeline />

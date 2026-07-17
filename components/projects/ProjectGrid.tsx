@@ -1,5 +1,6 @@
 import { projects } from "@/data/projects";
-import ProjectCard from "@/components/cards/ProjectCard";
+
+import ProjectCard from "./ProjectCard";
 
 export default function ProjectGrid() {
   const sortedProjects = [...projects].sort((a, b) => {

@@ -1,5 +1,5 @@
-import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
+import Card from "@/components/ui/Card";
 
 import type { Publication } from "@/types/publication";
 
@@ -12,37 +12,59 @@ export default function PublicationCard({
 }: Props) {
   return (
     <Card className="flex h-full flex-col">
-      <div className="mb-3">
-        <span className="text-sm text-[var(--muted-foreground)]">
+      {/* Header */}
+
+      <div className="flex items-start justify-between">
+        <span className="text-sm font-medium text-[var(--accent)]">
           {publication.type}
+        </span>
+
+        <span className="text-sm text-[var(--muted-foreground)]">
+          {publication.published}
         </span>
       </div>
 
-      <h3 className="text-2xl font-bold">
+      {/* Title */}
+
+      <h3 className="mt-5 text-2xl font-bold">
         {publication.title}
       </h3>
 
-      <p className="mt-2 text-sm text-[var(--muted-foreground)]">
+      <p className="mt-2 font-medium text-[var(--muted-foreground)]">
         {publication.publisher}
       </p>
 
-      <p className="mt-4 flex-1">
+      {/* Summary */}
+
+      <p className="mt-5 text-[var(--muted-foreground)]">
         {publication.summary}
       </p>
+
+      {/* Technologies */}
 
       <div className="mt-6 flex flex-wrap gap-2">
         {publication.technologies.map((tech) => (
           <span
             key={tech}
-            className="rounded-full border border-[var(--border)] px-3 py-1 text-sm"
+            className="
+              rounded-full
+              border
+              border-[var(--border)]
+              bg-[var(--surface)]
+              px-3
+              py-1
+              text-sm
+            "
           >
             {tech}
           </span>
         ))}
       </div>
 
+      {/* Link */}
+
       {publication.url && (
-        <div className="mt-8">
+        <div className="mt-auto pt-8">
           <Button
             href={publication.url}
             external

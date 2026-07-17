@@ -2,7 +2,7 @@ import Container from "@/components/ui/Container";
 import Section from "@/components/ui/Section";
 
 import PageHeader from "@/components/sections/PageHeader";
-import ProjectGrid from "@/components/sections/ProjectGrid";
+import ProjectGrid from "@/components/projects/ProjectGrid";
 
 export default function ProjectsPage() {
   return (

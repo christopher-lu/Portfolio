@@ -1,14 +1,6 @@
-export type Experience = {
-  id: string;
-  company: string;
- role: string;
-  location: string;
-  start: string;
-  end: string;
-  bullets: string[];
-};
+import type { Experience } from "@/types/experience";
 
-export const experience: Experience[] = [
+export const experiences: Experience[] = [
   {
     id: "current",
 
@@ -18,14 +10,27 @@ export const experience: Experience[] = [
 
     location: "New York, NY",
 
-    start: "Jan 2024",
+    startDate: "2024",
 
-    end: "Present",
+    endDate: "Present",
 
-    bullets: [
-      "Accomplished X by doing Y resulting in Z.",
-      "Built scalable cloud-native applications.",
-      "Improved deployment efficiency through automation.",
+    current: true,
+
+    description:
+      "Developing scalable web applications using modern frontend and backend technologies.",
+
+    achievements: [
+      "Built reusable React component libraries",
+      "Improved application performance",
+      "Designed RESTful APIs",
+    ],
+
+    technologies: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "AWS",
     ],
   },
 ];
