@@ -2,9 +2,8 @@ import Container from "@/components/ui/Container";
 import Section from "@/components/ui/Section";
 
 import PageHeader from "@/components/sections/PageHeader";
-import ContactMethods from "@/components/sections/ContactMethods";
 
-import { personal } from "@/data/personal";
+import ContactMethods from "@/components/contact/ContactMethods";
 
 export default function ContactPage() {
   return (
@@ -12,9 +11,8 @@ export default function ContactPage() {
       <Section>
         <PageHeader
           eyebrow="Contact"
-          title={personal.name}
-          subtitle="Let's Connect"
-          description="Feel free to reach out through any of the platforms below."
+          title="Let's Connect"
+          description="I'm always interested in discussing software engineering, cloud architecture, healthcare technology, and new opportunities."
         />
 
         <ContactMethods />
