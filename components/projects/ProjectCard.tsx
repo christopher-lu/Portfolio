@@ -3,8 +3,11 @@ import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 
+import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
+import Heading from "@/components/ui/Heading";
+import Text from "@/components/ui/Text";
 
 import ProjectHighlights from "./ProjectHighlights";
 import ProjectStatus from "./ProjectStatus";
@@ -27,11 +30,11 @@ export default function ProjectCard({
         overflow-hidden
         transition-all
         duration-300
-        hover:-translate-y-1
-        hover:shadow-xl
+        hover:-translate-y-0.5
+        hover:shadow-lg
       "
     >
-      {/* Project Image */}
+      {/* Project Preview */}
 
       {project.image ? (
         <Image
@@ -63,7 +66,7 @@ export default function ProjectCard({
             border-[var(--border)]
             bg-[var(--surface)]
             text-sm
-            text-[var(--muted-foreground)]
+            text-[var(--muted)]
           "
         >
           Project Preview Coming Soon
@@ -75,28 +78,40 @@ export default function ProjectCard({
       <div className="flex items-center justify-between">
         <ProjectStatus status={project.status} />
 
-        <span className="text-sm text-[var(--muted-foreground)]">
+        <Text variant="small">
           {project.category}
-        </span>
+        </Text>
       </div>
 
       {/* Title */}
 
-      <h3 className="mt-5 text-2xl font-bold">
+      <Heading
+        level={3}
+        className="mt-5"
+      >
         {project.title}
-      </h3>
+      </Heading>
 
       {/* Tagline */}
 
-      <p className="mt-2 font-medium text-[var(--accent)]">
+      <Text
+        className="
+          mt-2
+          font-medium
+          text-[var(--accent)]
+        "
+      >
         {project.tagline}
-      </p>
+      </Text>
 
       {/* Description */}
 
-      <p className="mt-5 flex-grow text-[var(--muted-foreground)]">
+      <Text
+        variant="muted"
+        className="mt-5 flex-grow"
+      >
         {project.description}
-      </p>
+      </Text>
 
       {/* Highlights */}
 
@@ -110,24 +125,21 @@ export default function ProjectCard({
 
       <div className="mt-6 flex flex-wrap gap-2">
         {project.technologies.map((tech) => (
-          <span
+          <Badge
             key={tech}
             className="
-              rounded-full
-              border
-              border-[var(--border)]
-              bg-[var(--surface)]
-              px-3
-              py-1
-              text-sm
+              transition-colors
+              duration-200
+              hover:border-[var(--accent)]
+              hover:text-[var(--accent)]
             "
           >
             {tech}
-          </span>
+          </Badge>
         ))}
       </div>
 
-      {/* Footer */}
+      {/* Actions */}
 
       {(project.github || project.demo) && (
         <div className="mt-8 flex gap-3">
@@ -136,7 +148,6 @@ export default function ProjectCard({
               href={project.github}
               variant="github"
               external
-              
             >
               <FaGithub className="h-4 w-4" />
               GitHub
@@ -144,8 +155,12 @@ export default function ProjectCard({
           )}
 
           {project.demo && (
-            <Button href={project.demo} external>
-              <ExternalLink className=" h-4 w-4" />
+            <Button
+              href={project.demo}
+              variant="primary"
+              external
+            >
+              <ExternalLink className="h-4 w-4" />
               Live Demo
             </Button>
           )}

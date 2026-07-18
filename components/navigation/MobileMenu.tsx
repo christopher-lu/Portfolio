@@ -1,18 +1,43 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
-import ThemeToggle from "./ThemeToggle";
 import Brand from "./Brand";
 import NavLinks from "./NavLinks";
+import ThemeToggle from "./ThemeToggle";
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
 
+  const closeMenu = () => setOpen(false);
+
+  useEffect(() => {
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    }
+
+    if (open) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [open]);
+
   return (
     <>
-      {/* Mobile Header Controls */}
+      {/* Mobile Controls */}
+
       <div className="flex items-center gap-3 md:hidden">
         <button
           aria-label="Open navigation menu"
@@ -20,8 +45,9 @@ export default function MobileMenu() {
           className="
             rounded-lg
             p-2
-            transition
-            hover:bg-[var(--card)]
+            transition-colors
+            duration-200
+            hover:bg-[var(--surface)]
           "
         >
           <Menu size={26} />
@@ -30,65 +56,111 @@ export default function MobileMenu() {
         <ThemeToggle />
       </div>
 
-      {/* Overlay */}
-      {open && (
-        <div
-          className="
-            fixed
-            inset-0
-            z-40
-            bg-black/40
-            backdrop-blur-sm
-          "
-          onClick={() => setOpen(false)}
-        />
-      )}
+      <AnimatePresence>
+        {open && (
+          <>
+            {/* Backdrop */}
 
-      {/* Drawer */}
-      <aside
-        className={`
-          fixed
-          top-0
-          left-0
-          z-50
-          h-full
-          w-72
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={closeMenu}
+              className="
+                fixed
+                inset-0
+                z-40
 
-          bg-[var(--background)]
+                bg-black/40
 
-          border-r
-          border-[var(--border)]
+                backdrop-blur-sm
+              "
+            />
 
-          p-8
+            {/* Drawer */}
 
-          transition-transform
-          duration-300
+            <motion.aside
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{
+                type: "spring",
+                stiffness: 330,
+                damping: 32,
+              }}
+              className="
+                fixed
+                top-0
+                left-0
+                z-50
 
-          ${
-            open
-              ? "translate-x-0"
-              : "-translate-x-full"
-          }
-        `}
-      >
-        <div className="flex items-center justify-between">
-          <Brand />
+                flex
+                h-screen
+                w-[92vw]
+                max-w-[420px]
+                flex-col
 
-          <button
-            aria-label="Close navigation menu"
-            onClick={() => setOpen(false)}
-          >
-            <X />
-          </button>
-        </div>
+                border-r
+                border-[var(--border)]
 
-        <div className="mt-12">
-          <NavLinks
-            mobile
-            onNavigate={() => setOpen(false)}
+                bg-[var(--background)]
+
+                shadow-[10px_0_40px_rgba(0,0,0,0.25)]
+              "
+            >
+              {/* Header */}
+
+              <div
+                className="
+                  flex
+                  h-20
+                  items-center
+                  justify-between
+
+                  border-b
+                  border-[var(--border)]
+
+                  px-6
+                "
+              >
+                <Brand />
+
+                <button
+                  aria-label="Close navigation menu"
+                  onClick={closeMenu}
+                  className="
+                    rounded-lg
+                    p-2
+                    transition-colors
+                    duration-200
+                    hover:bg-[var(--surface)]
+                  "
+                >
+                  <X size={28} />
+                </button>
+              </div>
+
+              {/* Navigation */}
+
+              <div
+                className="
+                  flex-1
+
+                  px-8
+                  pt-10
+                  pb-16
+                "
+              >
+                <NavLinks
+                  mobile
+                  onNavigate={closeMenu}
                 />
-        </div>
-      </aside>
+              </div>
+            </motion.aside>
+          </>
+        )}
+      </AnimatePresence>
     </>
   );
 }

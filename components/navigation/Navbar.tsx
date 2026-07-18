@@ -14,12 +14,11 @@ export default function Navbar() {
         z-50
 
         border-b
-
         border-[var(--border)]
 
-        bg-[var(--background)]/80
+        bg-[var(--background)]/90
 
-        backdrop-blur
+        backdrop-blur-md
       "
     >
       <Container>
@@ -28,9 +27,8 @@ export default function Navbar() {
 
           {/* Desktop */}
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden items-center gap-8 md:flex">
             <NavLinks />
-
             <ThemeToggle />
           </div>
 

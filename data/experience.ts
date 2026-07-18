@@ -52,7 +52,7 @@ export const experiences: Experience[] = [
     current: true,
 
     description:
-      "Developing scalable web applications using modern frontend and backend technologies.",
+      "Developing scalable open source web applications using modern frontend and backend technologies.",
 
     achievements: [
       "Created a Kubernetes monitoring developer tool targeting and acquiring node status data to identify and isolate instances of node failure within k8 clusters",
@@ -97,7 +97,7 @@ export const experiences: Experience[] = [
     current: false,
 
     description:
-      "Providing direct client support and troubleshooting through voice and text channels to create a smooth user experience",
+      "Providing direct client support and troubleshooting through voice and text channels to create a smooth user experience.",
 
     achievements: [
       "Composed and enacted a training curriculum for new associates and authored documentation for clients and end users for multiple SaaS products expediting onboarding time with a 60% decrease in time for training.",
@@ -135,7 +135,7 @@ export const experiences: Experience[] = [
     current: false,
 
     description:
-      "Developing scalable web applications using modern frontend and backend technologies.",
+      "Providing real time support and guidance to foster a positive experience through in person and online interactions for client success.",
 
     achievements: [
       "Operated an omni-channel communication system in conjunction with a proprietary CRM to identify future business needs and provided technical expertise in implementing effective business solutions creating over 85% retention rate",

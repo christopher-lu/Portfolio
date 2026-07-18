@@ -18,10 +18,11 @@ export default function NavLinks({
 
   return (
     <nav
+      aria-label={mobile ? "Mobile navigation" : "Primary navigation"}
       className={
         mobile
-          ? "flex flex-col gap-6"
-          : "hidden md:flex items-center gap-8"
+          ? "flex flex-col items-start gap-8"
+          : "flex items-center gap-8"
       }
     >
       {navigation.map((item) => {
@@ -33,43 +34,40 @@ export default function NavLinks({
             href={item.href}
             onClick={onNavigate}
             aria-current={active ? "page" : undefined}
-            className={`
-              group
-              relative
-              w-fit
-              pb-1
-              text-base
-              font-medium
-              transition-colors
-              duration-300
+            className={[
+              "group",
+              "relative",
+              "transition-colors",
+              "duration-300",
 
-              ${
-                active
-                  ? "text-[var(--accent)]"
-                  : "text-[var(--foreground)] hover:text-[var(--accent)]"
-              }
-            `}
+              mobile
+                ? "text-xl font-semibold"
+                : "pb-1 text-base font-medium",
+
+              active
+                ? "text-[var(--accent)]"
+                : "text-[var(--foreground)] hover:text-[var(--accent)]",
+            ].join(" ")}
           >
             {item.label}
 
-            {/* Animated Underline */}
-            <span
-              className={`
-                absolute
-                left-0
-                -bottom-0.5
-                h-0.5
-                bg-[var(--accent)]
-                transition-all
-                duration-300
+            {!mobile && (
+              <span
+                className={[
+                  "absolute",
+                  "left-0",
+                  "-bottom-0.5",
+                  "h-0.5",
+                  "bg-[var(--accent)]",
+                  "transition-all",
+                  "duration-300",
 
-                ${
                   active
                     ? "w-full"
-                    : "w-0 group-hover:w-full"
-                }
-              `}
-            />
+                    : "w-0 group-hover:w-full",
+                ].join(" ")}
+              />
+            )}
           </Link>
         );
       })}

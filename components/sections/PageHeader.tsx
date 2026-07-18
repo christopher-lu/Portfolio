@@ -38,6 +38,7 @@ export default function PageHeader({
     <header
       className={`
         mx-auto
+        mb-16
         flex
         max-w-4xl
         flex-col
