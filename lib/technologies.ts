@@ -1,24 +1,116 @@
-import { FaAws, FaSalesforce } from "react-icons/fa6";
 import {
+  FaAws,
+  FaBootstrap,
+  FaGitAlt,
+  FaGithub,
+  FaSalesforce,
+} from "react-icons/fa6";
+
+import {
+  SiCss,
   SiDocker,
   SiExpress,
   SiFirebase,
   SiGrafana,
+  SiGraphql,
   SiGooglecloud,
   SiHelm,
+  SiHtml5,
   SiJavascript,
+  SiJest,
   SiJira,
   SiKubernetes,
+  SiMongodb,
   SiNextdotjs,
   SiNodedotjs,
+  SiPostgresql,
   SiPrometheus,
   SiReact,
+  SiRedux,
+  SiSass,
   SiTailwindcss,
+  SiTestinglibrary,
   SiTypescript,
+  SiWebpack,
   SiZendesk,
 } from "react-icons/si";
 
+import {
+  Boxes,
+  Cloud,
+  Code2,
+  Monitor,
+  Server,
+  Wrench,
+} from "lucide-react";
+
 import type { Technology } from "@/types/technology";
+
+export const technologyCategoryOrder = [
+  "frontend",
+  "backend",
+  "language",
+  "cloud",
+  "devops",
+  "tooling",
+] as const;
+
+export const technologyCategoryMetadata = {
+  frontend: {
+    title: "Frontend",
+    description:
+      "Modern user interfaces and client-side development.",
+    icon: Monitor,
+  },
+
+  backend: {
+    title: "Backend",
+    description:
+      "Server-side development, APIs, and databases.",
+    icon: Server,
+  },
+
+  language: {
+    title: "Languages",
+    description:
+      "Programming languages used throughout my projects.",
+    icon: Code2,
+  },
+
+  cloud: {
+    title: "Cloud",
+    description:
+      "Cloud platforms and managed infrastructure.",
+    icon: Cloud,
+  },
+
+  devops: {
+    title: "DevOps",
+    description:
+      "Containerization, orchestration, deployment, and monitoring.",
+    icon: Boxes,
+  },
+
+  tooling: {
+    title: "Tools & Workflow",
+    description:
+      "Testing, version control, build tooling, and project management.",
+    icon: Wrench,
+  },
+
+  platform: {
+    title: "Platforms",
+    description: "Enterprise software and customer-facing platforms.",
+    icon: Boxes,
+  },
+
+  support: {
+    title: "Customer Success",
+    description:
+      "Technical support and customer success experience.",
+    icon: Wrench,
+  },
+} as const;
 
 export const technologies = {
   React: {
@@ -192,6 +284,97 @@ export const technologies = {
     label: "Proprietary Voice and Chat Platform",
     category: "platform",
   },
+
+  Redux: {
+  label: "Redux",
+  icon: SiRedux,
+  href: "https://redux.js.org",
+  category: "frontend",
+},
+
+HTML5: {
+  label: "HTML5",
+  icon: SiHtml5,
+  href: "https://developer.mozilla.org/docs/Web/HTML",
+  category: "frontend",
+},
+
+CSS3: {
+  label: "CSS3",
+  icon: SiCss,
+  href: "https://developer.mozilla.org/docs/Web/CSS",
+  category: "frontend",
+},
+
+Sass: {
+  label: "Sass",
+  icon: SiSass,
+  href: "https://sass-lang.com",
+  category: "frontend",
+},
+
+Bootstrap: {
+  label: "Bootstrap",
+  icon: FaBootstrap,
+  href: "https://getbootstrap.com",
+  category: "frontend",
+},
+
+GraphQL: {
+  label: "GraphQL",
+  icon: SiGraphql,
+  href: "https://graphql.org",
+  category: "backend",
+},
+
+MongoDB: {
+  label: "MongoDB",
+  icon: SiMongodb,
+  href: "https://mongodb.com",
+  category: "backend",
+},
+
+PostgreSQL: {
+  label: "PostgreSQL",
+  icon: SiPostgresql,
+  href: "https://postgresql.org",
+  category: "backend",
+},  
+
+Git: {
+  label: "Git",
+  icon: FaGitAlt,
+  href: "https://git-scm.com",
+  category: "tooling",
+},
+
+GitHub: {
+  label: "GitHub",
+  icon: FaGithub,
+  href: "https://github.com",
+  category: "tooling",
+},
+
+Webpack: {
+  label: "Webpack",
+  icon: SiWebpack,
+  href: "https://webpack.js.org",
+  category: "tooling",
+},
+
+Jest: {
+  label: "Jest",
+  icon: SiJest,
+  href: "https://jestjs.io",
+  category: "tooling",
+},
+
+"React Testing Library": {
+  label: "React Testing Library",
+  icon: SiTestinglibrary,
+  href: "https://testing-library.com/docs/react-testing-library/intro",
+  category: "tooling",
+},
 } as const satisfies Record<string, Technology>;
 
 export type TechnologyName = keyof typeof technologies;
@@ -207,6 +390,40 @@ export function getTechnology(name: TechnologyName): Technology {
  * Returns the entire technology registry.
  * Useful for the Skills page, filters, and future navigation.
  */
-export function getTechnologies() {
+export function getTechnologies(): typeof technologies {
   return technologies;
+}
+
+export function getTechnologyNames(): TechnologyName[] {
+  return Object.keys(technologies) as TechnologyName[];
+}
+
+export function getTechnologyCategories(): Technology["category"][] {
+  return [
+    ...new Set(
+      Object.values(technologies).map(
+        (technology) => technology.category
+      ),
+    ),
+  ];
+}
+
+export function getTechnologiesByCategory(
+  category: Technology["category"]
+): TechnologyName[] {
+  return (Object.entries(technologies) as [TechnologyName, Technology][])
+    .filter(([, technology]) => technology.category === category)
+    .map(([name]) => name)
+    .sort((a, b) =>
+  technologies[a].label.localeCompare(
+    technologies[b].label
+  )
+);
+}
+
+
+export function getOrderedTechnologyCategories(): Technology["category"][] {
+  return technologyCategoryOrder.filter(
+    (category) => getTechnologiesByCategory(category).length > 0
+  );
 }

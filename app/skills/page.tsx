@@ -1,15 +1,11 @@
-import PageLayout from "@/components/layouts/PageLayout";
+import Container from "@/components/layouts/Container";
 
-import SkillsGrid from "@/components/skills/SkillsGrid";
+import SkillsSection from "@/components/skills/SkillsSection";
 
 export default function SkillsPage() {
   return (
-    <PageLayout
-      eyebrow="Skills"
-      title="Technical Skills"
-      description="Technologies, programming languages, frameworks, cloud platforms, and tools used to build scalable, production-ready software solutions."
-    >
-      <SkillsGrid />
-    </PageLayout>
+    <Container>
+      <SkillsSection />
+    </Container>
   );
 }

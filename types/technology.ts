@@ -6,11 +6,9 @@ export type TechnologyCategory =
   | "language"
   | "cloud"
   | "devops"
-  | "database"
   | "tooling"
   | "platform"
-  | "support"
-  | "other";
+  | "support";
 
 export interface Technology {
   label: string;

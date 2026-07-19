@@ -1,17 +1,29 @@
-import { skillCategories } from "@/data/skills";
+"use client";
+
+import { motion } from "framer-motion";
 
 import SkillCategory from "./SkillCategory";
 
+import { fadeUpContainer } from "@/lib/animations";
+import { getOrderedTechnologyCategories } from "@/lib/technologies";
+
 export default function SkillsGrid() {
+  const categories = getOrderedTechnologyCategories();
+
   return (
-    <div className="grid gap-8 lg:grid-cols-2">
-      {skillCategories.map((category) => (
+    <motion.div
+      variants={fadeUpContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      className="grid gap-6 md:grid-cols-2"
+    >
+      {categories.map((category) => (
         <SkillCategory
-          key={category.id}
-          title={category.title}
-          skills={category.skills}
+          key={category}
+          category={category}
         />
       ))}
-    </div>
+    </motion.div>
   );
 }
