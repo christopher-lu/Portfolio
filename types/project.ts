@@ -1,3 +1,5 @@
+import type { TechnologyName } from "@/lib/technologies";
+
 export type ProjectStatus =
   | "Completed"
   | "In Progress"
@@ -18,17 +20,32 @@ export interface Project {
   tagline: string;
   description: string;
 
+  /**
+   * One-sentence business or engineering impact.
+   */
+  impact?: string;
+
+  /**
+   * Image shown on project cards.
+   * Stored under /public/projects.
+   */
   image?: string;
 
-  technologies: string[];
+  technologies: TechnologyName[];
   highlights: string[];
 
   github?: string;
   demo?: string;
 
-  featured: boolean;
-
   status: ProjectStatus;
-
   category: ProjectCategory;
+
+  /**
+   * Lower numbers appear first.
+   * displayOrder === 1 becomes the featured project.
+   */
+  displayOrder: number;
+
+  startDate?: string;
+  endDate?: string;
 }

@@ -1,15 +1,13 @@
-import PageLayout from "@/components/layouts/PageLayout";
+import type { Metadata } from "next";
 
-import ProjectGrid from "@/components/projects/ProjectGrid";
+import ProjectsSection from "@/components/projects/ProjectsSection";
+
+export const metadata: Metadata = {
+  title: "Projects | Christopher Lu",
+  description:
+    "Explore software engineering projects built with React, Next.js, Kubernetes, Docker, TypeScript, Node.js, and cloud technologies.",
+};
 
 export default function ProjectsPage() {
-  return (
-    <PageLayout
-      eyebrow="Projects"
-      title="Featured Projects"
-      description="Applications demonstrating modern full-stack engineering, cloud-native architecture, and scalable software design."
-    >
-      <ProjectGrid />
-    </PageLayout>
-  );
+  return <ProjectsSection />;
 }

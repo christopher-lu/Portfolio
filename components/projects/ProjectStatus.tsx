@@ -1,45 +1,112 @@
-import type { ProjectStatus as ProjectStatusType } from "@/types/project";
+import Link from "next/link";
+import type { ReactNode } from "react";
 
-type ProjectStatusProps = {
-  status: ProjectStatusType;
+import { cn } from "@/lib/utils";
+
+type ButtonVariant =
+  | "primary"
+  | "secondary"
+  | "outline"
+  | "github"
+  | "success"
+  | "danger";
+
+interface ButtonProps {
+  href: string;
+  children: ReactNode;
+  variant?: ButtonVariant;
+  external?: boolean;
+  className?: string;
+}
+
+const baseClasses = `
+inline-flex
+items-center
+justify-center
+gap-2
+rounded-lg
+px-6
+py-3
+font-semibold
+
+transition-all
+duration-300
+
+focus:outline-none
+focus:ring-2
+focus:ring-[var(--accent)]
+focus:ring-offset-2
+dark:focus:ring-offset-[var(--background)]
+`;
+
+const variants: Record<ButtonVariant, string> = {
+  primary: `
+    bg-[var(--accent)]
+    text-white
+    hover:scale-105
+    hover:opacity-90
+  `,
+
+  secondary: `
+    border
+    border-[var(--border)]
+    bg-transparent
+    text-[var(--foreground)]
+    hover:bg-[var(--card)]
+  `,
+
+  outline: `
+    border
+    border-[var(--accent)]
+    bg-transparent
+    text-[var(--accent)]
+    hover:bg-[var(--accent)]
+    hover:text-white
+  `,
+
+  github: `
+    border
+    border-[var(--border)]
+    bg-transparent
+    text-[var(--foreground)]
+
+    hover:border-[var(--github)]
+    hover:bg-[var(--github)]
+    hover:text-[var(--background)]
+  `,
+
+  success: `
+    bg-emerald-600
+    text-white
+    hover:bg-emerald-700
+  `,
+
+  danger: `
+    bg-red-600
+    text-white
+    hover:bg-red-700
+  `,
 };
 
-const statusStyles: Record<ProjectStatusType, string> = {
-  Completed: `
-    bg-[var(--status-success-bg)]
-    text-[var(--status-success-fg)]
-  `,
-
-  "In Progress": `
-    bg-[var(--status-warning-bg)]
-    text-[var(--status-warning-fg)]
-  `,
-
-  Planned: `
-    bg-[var(--status-neutral-bg)]
-    text-[var(--status-neutral-fg)]
-  `,
-};
-
-export default function ProjectStatus({
-  status,
-}: ProjectStatusProps) {
+export default function Button({
+  href,
+  children,
+  variant = "primary",
+  external = false,
+  className,
+}: ButtonProps) {
   return (
-    <span
-      className={[
-        "inline-flex",
-        "items-center",
-        "rounded-full",
-        "px-3",
-        "py-1",
-        "text-xs",
-        "font-semibold",
-        "transition-colors",
-        "duration-300",
-        statusStyles[status],
-      ].join(" ")}
+    <Link
+      href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
+      className={cn(
+        baseClasses,
+        variants[variant],
+        className
+      )}
     >
-      {status}
-    </span>
+      {children}
+    </Link>
   );
 }

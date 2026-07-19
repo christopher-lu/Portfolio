@@ -1,26 +1,25 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
-type CardProps = {
+import { cn } from "@/lib/utils";
+
+interface CardProps {
   children: ReactNode;
   className?: string;
-};
+}
 
 export default function Card({
   children,
-  className = "",
+  className,
 }: CardProps) {
   return (
     <div
-      className={`
+      className={cn(
+        `
         rounded-2xl
-
         border
         border-[var(--border)]
-
         bg-[var(--card)]
-
         p-6
-
         shadow-sm
 
         transition-all
@@ -29,9 +28,9 @@ export default function Card({
         hover:-translate-y-2
         hover:scale-[1.01]
         hover:shadow-xl
-
-        ${className}
-      `}
+        `,
+        className
+      )}
     >
       {children}
     </div>

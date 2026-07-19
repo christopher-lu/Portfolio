@@ -1,27 +1,38 @@
-import { useMemo } from "react";
+"use client";
+
+import FeaturedProject from "@/components/projects/FeaturedProject";
+import ProjectCard from "@/components/projects/ProjectCard";
 
 import { projects } from "@/data/projects";
-import ProjectCard from "./ProjectCard";
 
 export default function ProjectGrid() {
-  const sortedProjects = useMemo(
-    () =>
-      [...projects].sort(
-        (a, b) => Number(b.featured) - Number(a.featured)
-      ),
-    []
+  const sortedProjects = [...projects].sort(
+    (a, b) => a.displayOrder - b.displayOrder
   );
 
+  const [featuredProject, ...otherProjects] =
+    sortedProjects;
+
   return (
-    <section aria-label="Projects">
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
-        {sortedProjects.map((project) => (
-          <ProjectCard
-            key={project.id}
-            project={project}
-          />
-        ))}
-      </div>
-    </section>
+    <>
+      <FeaturedProject project={featuredProject} />
+
+      {otherProjects.length > 0 && (
+        <>
+          <h2 className="mb-8 text-3xl font-bold">
+            Additional Projects
+          </h2>
+
+          <div className="grid gap-8 md:grid-cols-2">
+            {otherProjects.map((project) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </>
   );
 }

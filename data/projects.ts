@@ -2,6 +2,46 @@ import type { Project } from "@/types/project";
 
 export const projects: Project[] = [
   {
+    id: "klusterbud",
+
+    title: "KlusterBud",
+
+    tagline: "Kubernetes monitoring platform",
+
+    description:
+      "A full-stack Kubernetes observability platform enabling developers to monitor replica set health, detect anomalies, and visualize Prometheus metrics through an intuitive dashboard.",
+
+    impact:
+      "Improved Kubernetes debugging by surfacing replica set health, Prometheus metrics, and anomaly detection in one developer-focused interface.",
+
+    technologies: [
+      "React",
+      "Node.js",
+      "Express",
+      "Docker",
+      "Kubernetes",
+      "Helm",
+      "Prometheus",
+      "Grafana",
+      "AWS",
+    ],
+
+    highlights: [
+      "Custom PromQL queries against live Prometheus instances",
+      "Visualization of replica set anomalies",
+      "Continuous monitoring of Kubernetes workloads",
+    ],
+
+    github: "https://github.com/oslabs-beta/KlusterBud",
+
+    status: "Completed",
+
+    category: "Full Stack",
+
+    displayOrder: 1,
+  },
+
+  {
     id: "portfolio",
 
     title: "Developer Portfolio",
@@ -9,7 +49,10 @@ export const projects: Project[] = [
     tagline: "Modern portfolio built with Next.js",
 
     description:
-      "A responsive developer portfolio showcasing projects, technical skills, and professional experience.",
+      "A responsive portfolio showcasing software engineering projects, publications, technical skills, and professional experience.",
+
+    impact:
+      "Designed a reusable component architecture emphasizing accessibility, responsiveness, and maintainability.",
 
     technologies: [
       "Next.js",
@@ -20,59 +63,16 @@ export const projects: Project[] = [
 
     highlights: [
       "Reusable component architecture",
-      "Dark & Light Theme",
-      "Responsive Design",
+      "Dark & Light theme support",
+      "Responsive design",
     ],
 
     github: "https://github.com/christopher-lu/portfolio",
 
-
-    featured: true,
-
     status: "Completed",
 
     category: "Frontend",
-  },
 
-  {
-    id: "staffing-platform",
-
-    title: "Klusterbud",
-
-    tagline: "Kubernetes monitoring tool",
-
-    description:
-      "Monitoring tool for detecting anomolies within replica sets of Kubernetes clusters.",
-
-    
-
-    technologies: [
-      "Kubernetes",
-      "Docker",
-      "Helm",
-      "Grafana",
-      "Prometheus",
-      "React",
-      "Node.js",
-      "Express",
-      "AWS",
-      
-      
-    ],
-
-    highlights: [
-      "Custom PromQL queries to running Prometheus instances",
-      "Visulaization of replica set anomlies detected",
-      "Continuous monitoring of selected replica sets"
-      
-    ],
-
-    github: "https://github.com/oslabs-beta/KlusterBud",
-
-    featured: true,
-
-    status: "Completed",
-
-    category: "Full Stack",
+    displayOrder: 2,
   },
 ];

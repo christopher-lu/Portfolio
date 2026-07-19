@@ -1,171 +1,109 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
-import { ExternalLink } from "lucide-react";
-import { FaGithub } from "react-icons/fa6";
+import ProjectLinks from "@/components/projects/project-card/ProjectLinks";
+import ProjectStatus from "@/components/projects/project-card/ProjectStatus";
 
-import Badge from "@/components/ui/Badge";
-import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
-import Heading from "@/components/ui/Heading";
-import Text from "@/components/ui/Text";
+import TechStack from "@/components/ui/TechStack";
 
-import ProjectHighlights from "./ProjectHighlights";
-import ProjectStatus from "./ProjectStatus";
+import { cardHover } from "@/lib/animations";
 
 import type { Project } from "@/types/project";
 
-type ProjectCardProps = {
+interface ProjectCardProps {
   project: Project;
-};
+}
 
 export default function ProjectCard({
   project,
 }: ProjectCardProps) {
   return (
-    <Card
-      className="
-        flex
-        h-full
-        flex-col
-        overflow-hidden
-        transition-all
-        duration-300
-        hover:-translate-y-0.5
-        hover:shadow-lg
-      "
+    <motion.article
+      whileHover={cardHover}
+      className="h-full"
     >
-      {/* Project Preview */}
-
-      {project.image ? (
-        <Image
-          src={project.image}
-          alt={project.title}
-          width={800}
-          height={450}
-          className="
-            mb-6
-            w-full
-            rounded-xl
-            object-cover
-            transition-transform
-            duration-300
-            hover:scale-[1.02]
-          "
-        />
-      ) : (
-        <div
-          className="
-            mb-6
-            flex
-            aspect-video
-            items-center
-            justify-center
-            rounded-xl
-            border
-            border-dashed
-            border-[var(--border)]
-            bg-[var(--surface)]
-            text-sm
-            text-[var(--muted)]
-          "
-        >
-          Project Preview Coming Soon
-        </div>
-      )}
-
-      {/* Header */}
-
-      <div className="flex items-center justify-between">
-        <ProjectStatus status={project.status} />
-
-        <Text variant="small">
-          {project.category}
-        </Text>
-      </div>
-
-      {/* Title */}
-
-      <Heading
-        level={3}
-        className="mt-5"
-      >
-        {project.title}
-      </Heading>
-
-      {/* Tagline */}
-
-      <Text
-        className="
-          mt-2
-          font-medium
-          text-[var(--accent)]
-        "
-      >
-        {project.tagline}
-      </Text>
-
-      {/* Description */}
-
-      <Text
-        variant="muted"
-        className="mt-5 flex-grow"
-      >
-        {project.description}
-      </Text>
-
-      {/* Highlights */}
-
-      <div className="mt-6">
-        <ProjectHighlights
-          highlights={project.highlights}
-        />
-      </div>
-
-      {/* Technologies */}
-
-      <div className="mt-6 flex flex-wrap gap-2">
-        {project.technologies.map((tech) => (
-          <Badge
-            key={tech}
-            className="
-              transition-colors
-              duration-200
-              hover:border-[var(--accent)]
-              hover:text-[var(--accent)]
-            "
-          >
-            {tech}
-          </Badge>
-        ))}
-      </div>
-
-      {/* Actions */}
-
-      {(project.github || project.demo) && (
-        <div className="mt-8 flex gap-3">
-          {project.github && (
-            <Button
-              href={project.github}
-              variant="github"
-              external
+      <Card className="flex h-full flex-col">
+        <div className="mb-6 overflow-hidden rounded-xl border border-[var(--border)]">
+          {project.image ? (
+            <Image
+              src={project.image}
+              alt={`${project.title} screenshot`}
+              width={1200}
+              height={675}
+              sizes="(max-width:768px) 100vw, (max-width:1280px) 50vw, 33vw"
+              className="h-56 w-full object-cover"
+            />
+          ) : (
+            <div
+              className="
+                flex
+                h-56
+                items-center
+                justify-center
+                bg-[var(--muted)]
+                text-sm
+                text-[var(--muted-foreground)]
+              "
             >
-              <FaGithub className="h-4 w-4" />
-              GitHub
-            </Button>
-          )}
-
-          {project.demo && (
-            <Button
-              href={project.demo}
-              variant="primary"
-              external
-            >
-              <ExternalLink className="h-4 w-4" />
-              Live Demo
-            </Button>
+              Screenshot Coming Soon
+            </div>
           )}
         </div>
-      )}
-    </Card>
+
+        <div className="mb-4 flex items-start justify-between gap-4">
+          <div>
+            <h3 className="text-2xl font-bold">
+              {project.title}
+            </h3>
+
+            <p className="mt-1 text-sm text-[var(--primary)]">
+              {project.tagline}
+            </p>
+          </div>
+
+          <ProjectStatus status={project.status} />
+        </div>
+
+        {project.impact && (
+          <div className="mb-5 rounded-lg border-l-4 border-[var(--primary)] bg-[var(--muted)] p-4">
+            <p className="italic">
+              {project.impact}
+            </p>
+          </div>
+        )}
+
+        <p className="mb-6 text-[var(--muted-foreground)]">
+          {project.description}
+        </p>
+
+        <section className="mb-6">
+          <h4 className="mb-3 font-semibold">
+            Highlights
+          </h4>
+
+          <ul className="list-disc space-y-2 pl-5 text-sm text-[var(--muted-foreground)]">
+            {project.highlights.map((highlight) => (
+              <li key={highlight}>
+                {highlight}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <div className="mt-auto space-y-6">
+          <TechStack
+            technologies={project.technologies}
+          />
+
+          <ProjectLinks
+            github={project.github}
+            demo={project.demo}
+          />
+        </div>
+      </Card>
+    </motion.article>
   );
 }
