@@ -1,15 +1,5 @@
-import PageLayout from "@/components/layouts/PageLayout";
-
-import ExperienceTimeline from "@/components/experience/ExperienceTimeline";
+import ExperienceSection from "@/components/experience/ExperienceSection";
 
 export default function ExperiencePage() {
-  return (
-    <PageLayout
-      eyebrow="Experience"
-      title="Professional Experience"
-      description="A timeline of my professional journey, highlighting leadership, technical expertise, and measurable impact across technology within start up and enterprise environments."
-    >
-      <ExperienceTimeline />
-    </PageLayout>
-  );
+  return <ExperienceSection />;
 }

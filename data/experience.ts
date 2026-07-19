@@ -2,153 +2,161 @@ import type { Experience } from "@/types/experience";
 
 export const experiences: Experience[] = [
   {
-    id: "current",
+    id: "tern-systems",
 
     company: "Tern Systems",
+    companyUrl: "https://ternsystems.com",
 
     role: "Full Stack Software Engineer",
+    employmentType: "Full-time",
 
     location: "New York, NY",
 
     startDate: "2024",
-
     endDate: "Present",
-
     current: true,
 
     description:
-      "Developing scalable web applications using modern frontend and backend technologies.",
+      "Developing scalable full-stack web applications using modern frontend frameworks, backend APIs, and cloud technologies.",
 
     achievements: [
-      "Optimized navigation efficency between the application and website using Next.js shallow routing, reudcing unnessecary page reoloads by 33% and improving load times by 25%, while maintaining accurate URL state updates for a seamless user experience",
+      "Optimized navigation efficiency between the application and website using Next.js shallow routing, reducing unnecessary page reloads by 33% while improving page load times by 25% and maintaining accurate URL state updates.",
 
-      "Improved billing accuracy by 60%+ and decreased manual tax errors by 40% by automating tax calculations within payment routes based on client zip codes using an external tax API",
+      "Improved billing accuracy by more than 60% and reduced manual tax errors by 40% by automating tax calculations through an external tax API integrated into payment workflows.",
 
-      "Applied Tailwind CSS and mobile-first design principles to enhance responsiveness, cutting CSS file size by 40% and accelerating development time by 30% for a seamless multi-device experience.",
+      "Applied Tailwind CSS and mobile-first design principles to improve responsiveness, reducing CSS bundle size by 40% and accelerating frontend development by 30%.",
     ],
 
     technologies: [
-      "React",
       "Next.js",
+      "React",
       "TypeScript",
       "Node.js",
-      "GCP",
+      "Tailwind CSS",
+      "REST APIs",
       "Firebase",
+      "Google Cloud Platform",
     ],
   },
-    {
-    id: "currentOpenSource",
+
+  {
+    id: "oslabs",
 
     company: "OSLabs",
+    companyUrl: "https://opensourcelabs.io",
 
     role: "Software Engineer",
+    employmentType: "Open Source",
 
     location: "New York, NY",
 
     startDate: "2023",
-
     endDate: "Present",
-
     current: true,
 
     description:
-      "Developing scalable open source web applications using modern frontend and backend technologies.",
+      "Developing open-source observability tools that simplify Kubernetes monitoring for software engineers and SRE teams.",
 
     achievements: [
-      "Created a Kubernetes monitoring developer tool targeting and acquiring node status data to identify and isolate instances of node failure within k8 clusters",
+      "Created KlusterBud, an open-source Kubernetes monitoring platform that identifies node failures and surfaces Kubernetes cluster health metrics through an intuitive dashboard.",
 
-      "Leveraged Prometheus and its query language, PromQL in order to generate queries reflecting node health status in a result dependant drop down to fetch targeted status metrics for users involving selecing a specific replica set to monitor and presenting any abnormal spikes in CPU usage above 5% average range back to the client",
+      "Leveraged Prometheus and PromQL to generate targeted Kubernetes health queries, enabling engineers to monitor replica sets and identify abnormal CPU utilization above established thresholds.",
 
-      "Implemented modernized React techniques, including custom hooks, to manage complex state for K8 Observabilty Dashboards,rendering CPU usage irregularities for SRE teams",
+      "Implemented reusable React components and custom hooks to manage complex application state powering Kubernetes observability dashboards.",
 
-      "Increased anomaly detection accuracy by 10% over Kubectl by refining PromQL-based scraping intervals, allowing SRE teams to mitigate node failures before service disruption ",
+      "Improved anomaly detection accuracy by 10% over kubectl by optimizing PromQL scraping intervals, allowing SRE teams to identify node failures before service disruption.",
 
-      "Engineered the Kubernetes Integration Platform using Node.js and Express, ingesting a stream of k8 cluster CPU utilization, network latency, and pod runtime metrics for SRE teams to monitor their microservices at scales achieving a 20% reduction in average response time due to efficient routing and management of HTTP requests",
+      "Engineered a Kubernetes integration platform using Node.js and Express that processed CPU utilization, network latency, and pod runtime metrics, reducing average API response times by 20%.",
 
-      "Employed Docker images to bundle the application along with its dependencies, enhancing workflow and leveraging its isolation capabilities to mitigate potential conflicts within the application when run on more than 1 device",
+      "Containerized the application with Docker to improve portability, simplify deployments, and eliminate dependency conflicts across development environments.",
     ],
 
     technologies: [
-      "Kubernetes",
-      "Docker",
-      "Helm",
-      "Grafana",
-      "Prometheus",
       "React",
+      "JavaScript",
       "Node.js",
       "Express",
+      "Docker",
+      "Kubernetes",
+      "Helm",
+      "Prometheus",
+      "Grafana",
       "AWS",
     ],
   },
 
   {
-    id: "pastLoadsmart",
+    id: "loadsmart",
 
     company: "Loadsmart",
+    companyUrl: "https://loadsmart.com",
 
     role: "Customer Support Analyst II",
+    employmentType: "Full-time",
 
-    location: "Based in Chicago, IL (Remote)",
+    location: "Remote (Chicago, IL)",
 
     startDate: "2022",
-
     endDate: "2023",
-
     current: false,
 
     description:
-      "Providing direct client support and troubleshooting through voice and text channels to create a smooth user experience.",
+      "Delivered technical SaaS support while partnering with engineering and product teams to improve customer experience and platform adoption.",
 
     achievements: [
-      "Composed and enacted a training curriculum for new associates and authored documentation for clients and end users for multiple SaaS products expediting onboarding time with a 60% decrease in time for training.",
+      "Designed and implemented a training curriculum for new associates while authoring customer-facing documentation, reducing onboarding time by approximately 60%.",
 
-      "Resolved 95%+ of client support tickets within an hour by streamlining communication via Jira, Zendesk, Lattice, and Salesforce, boosting customer satisfaction and operational efficency.",
+      "Resolved more than 95% of client support tickets within one hour using Jira, Zendesk, Salesforce, and Lattice, improving customer satisfaction and operational efficiency.",
 
-      "Supported transition and migration with a 70%+ retention from acquired SaaS product to a newly deployed solution and provided development feedback for UI/UX prior to production deployment of new features for scaling",
+      "Supported customer migrations from an acquired SaaS platform to a newly deployed solution, achieving a retention rate exceeding 70% while providing UI and UX feedback before production releases.",
 
-      "Initated API key rotation and generation for client integration to their native workflows.",
+      "Generated and rotated API keys for enterprise customer integrations, enabling secure communication between customer systems and internal services.",
 
-      "Spearheaded and authored a standard of metrics to gauge workload balances and identify areas of improvement and success within current workflow to upkeep SLAs amongst the client base leading to a 10%+ in client engagement and satisfaction",
+      "Established workload metrics and SLA reporting standards that increased customer engagement and satisfaction by more than 10%.",
     ],
 
     technologies: [
+      "REST APIs",
       "Zendesk",
       "Jira",
-      "Lattice",
       "Salesforce",
+      "Lattice",
       "VoIP",
     ],
   },
+
   {
-    id: "pastApple",
+    id: "apple",
 
     company: "Apple",
+    companyUrl: "https://apple.com",
 
-    role: "Specialist/Tier 1 Customer Support (Product, Business)",
+    role: "Technical Specialist",
+    employmentType: "Full-time",
 
     location: "New York, NY",
 
     startDate: "2018",
-
     endDate: "2022",
-
     current: false,
 
     description:
-      "Providing real time support and guidance to foster a positive experience through in person and online interactions for client success.",
+      "Provided technical support, customer education, and business solutions across Apple's hardware and software ecosystem.",
 
     achievements: [
-      "Operated an omni-channel communication system in conjunction with a proprietary CRM to identify future business needs and provided technical expertise in implementing effective business solutions creating over 85% retention rate",
+      "Leveraged proprietary CRM platforms and omni-channel communication systems to identify customer needs and deliver tailored business solutions that contributed to an 85% customer retention rate.",
 
-      "Delivered live technical training on Apple hardware and software, ensuring 80%+ proficiency among customers and team members, leading to increased product adoption and customer retention",
+      "Delivered live technical training covering Apple hardware, software, and services, achieving product proficiency rates above 80% among customers and team members.",
 
-      "Coordinated an initiative to encourage development in growth amongst team members to identify areas of opportunity in current workflows in which interdepartmental cross training benefitting the client experience leading to a client satisfaction of experience by 5%",
+      "Led cross-functional coaching initiatives that encouraged knowledge sharing and workflow improvements, increasing overall customer satisfaction by 5%.",
     ],
 
     technologies: [
-      "Proprietary CRM",
-      "Proprietary Voice and Chat platform",
+      "Apple Ecosystem",
+      "Technical Support",
+      "CRM",
       "Salesforce",
+      "Proprietary Voice and Chat Platform",
     ],
   },
 ];

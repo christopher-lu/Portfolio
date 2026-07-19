@@ -1,95 +1,164 @@
-import Card from "@/components/ui/Card";
+"use client";
 
+import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  Building2,
+  Calendar,
+  ExternalLink,
+  MapPin,
+} from "lucide-react";
+
+import TechStack from "@/components/ui/TechStack";
+import { cardHover } from "@/lib/animations";
 import type { Experience } from "@/types/experience";
 
-type Props = {
+interface ExperienceCardProps {
   experience: Experience;
-};
+}
 
 export default function ExperienceCard({
   experience,
-}: Props) {
+}: ExperienceCardProps) {
+  const {
+    company,
+    companyUrl,
+    role,
+    employmentType,
+    location,
+    startDate,
+    endDate,
+    description,
+    achievements,
+    technologies,
+  } = experience;
+
   return (
-    <Card className="flex h-full flex-col">
-      {/* Header */}
+    <motion.article
+      whileHover={cardHover}
+      className="
+        rounded-2xl
+        border
+        border-[var(--border)]
+        bg-[var(--surface)]
+        p-6
+        shadow-sm
+        transition-shadow
+        duration-300
+        hover:shadow-lg
+      "
+    >
+      <header className="space-y-3">
+        <h3 className="text-2xl font-bold">{role}</h3>
 
-      <div className="flex flex-col justify-between gap-2 md:flex-row md:items-start">
-        <div>
-          <h3 className="text-2xl font-bold">
-            {experience.role}
-          </h3>
+        {companyUrl ? (
+          <Link
+            href={companyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              inline-flex
+              items-center
+              gap-2
+              text-lg
+              font-semibold
+              text-blue-600
+              transition-colors
+              hover:text-blue-500
+            "
+          >
+            <Building2 className="h-5 w-5" />
+            <span>{company}</span>
+            <ExternalLink className="h-4 w-4" />
+          </Link>
+        ) : (
+          <div className="inline-flex items-center gap-2 text-lg font-semibold">
+            <Building2 className="h-5 w-5" />
+            <span>{company}</span>
+          </div>
+        )}
 
-          <p className="mt-1 text-lg font-medium text-[var(--accent)]">
-            {experience.company}
-          </p>
+        <div
+          className="
+            flex
+            flex-wrap
+            items-center
+            gap-x-5
+            gap-y-2
+            text-sm
+            text-[var(--muted-foreground)]
+          "
+        >
+          <div className="inline-flex items-center gap-1.5">
+            <Calendar className="h-4 w-4" />
+            <span>
+              {startDate} – {endDate}
+            </span>
+          </div>
 
-          <p className="text-sm text-[var(--muted-foreground)]">
-            {experience.location}
-          </p>
-        </div>
+          <div className="inline-flex items-center gap-1.5">
+            <MapPin className="h-4 w-4" />
+            <span>{location}</span>
+          </div>
 
-        <div className="text-sm text-[var(--muted-foreground)] md:text-right">
-          <p>
-            {experience.startDate} – {experience.endDate}
-          </p>
-
-          {experience.current && (
-            <span className="font-medium text-[var(--accent)]">
-              Current
+          {employmentType && (
+            <span
+              className="
+                rounded-full
+                border
+                border-[var(--border)]
+                px-2
+                py-0.5
+                text-xs
+                font-medium
+              "
+            >
+              {employmentType}
             </span>
           )}
         </div>
-      </div>
+      </header>
 
-      {/* Description */}
-
-      <p className="mt-6 text-[var(--muted-foreground)]">
-        {experience.description}
+      <p className="mt-6 leading-7 text-[var(--muted-foreground)]">
+        {description}
       </p>
 
-      {/* Achievements */}
-
-      <div className="mt-6">
-        <h4 className="mb-3 font-semibold">
-          Key Achievements
+      <section className="mt-6">
+        <h4 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[var(--muted-foreground)]">
+          Highlights
         </h4>
 
-        <ul className="space-y-2">
-          {experience.achievements.map((achievement) => (
+        <ul className="space-y-3">
+          {achievements.map((achievement) => (
             <li
               key={achievement}
-              className="flex items-start gap-2"
+              className="flex items-start gap-3"
             >
-              <span className="mt-1 text-[var(--accent)]">
-                •
-              </span>
+              <span
+                className="
+                  mt-2
+                  h-2
+                  w-2
+                  shrink-0
+                  rounded-full
+                  bg-blue-500
+                "
+                aria-hidden="true"
+              />
 
-              <span>{achievement}</span>
+              <span className="leading-7">{achievement}</span>
             </li>
           ))}
         </ul>
-      </div>
+      </section>
 
-      {/* Technologies */}
+      <section className="mt-8">
+        <h4 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[var(--muted-foreground)]">
+          Technologies
+        </h4>
 
-      <div className="mt-6 flex flex-wrap gap-2">
-        {experience.technologies.map((tech) => (
-          <span
-            key={tech}
-            className="
-              rounded-full
-              border
-              border-[var(--border)]
-              bg-[var(--surface)]
-              px-3
-              py-1
-              text-sm
-            "
-          >
-            {tech}
-          </span>
-        ))}
-      </div>
-    </Card>
+        <TechStack technologies={technologies} />
+      </section>
+    </motion.article>
   );
 }
