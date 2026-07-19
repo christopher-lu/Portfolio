@@ -21,8 +21,8 @@ export const navigation: NavigationItem[] = [
     href: "/projects",
   },
   {
-    label: "Publications",
-    href: "/publications",
+    label: "Writing",
+    href: "/writing",
   },
   {
     label: "Contact",

@@ -204,6 +204,11 @@ export const technologies = {
     category: "cloud",
   },
 
+  Cloud: {
+  label: "Cloud",
+  category: "cloud",
+  },
+
   AWS: {
     label: "AWS",
     icon: FaAws,

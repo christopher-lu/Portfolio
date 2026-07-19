@@ -1,24 +1,45 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import useMounted from "@/hooks/useMounted";
 
 export default function ThemeToggle() {
-  const mounted = useMounted();
+  const { resolvedTheme, setTheme } = useTheme();
 
-  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => {
+      setMounted(true);
+    });
+
+    return () => cancelAnimationFrame(id);
+  }, []);
 
   if (!mounted) {
     return (
-      <div className="h-12 w-12 rounded-full border border-[var(--border)] bg-[var(--card)]" />
+      <div
+        className="
+          h-12
+          w-12
+          rounded-full
+          border
+          border-[var(--border)]
+          bg-[var(--card)]
+        "
+      />
     );
   }
 
+  const darkMode = resolvedTheme === "dark";
+
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      aria-label="Toggle Theme"
+      type="button"
+      onClick={() => setTheme(darkMode ? "light" : "dark")}
+      aria-label="Toggle theme"
       className="
         flex
         h-12
@@ -37,10 +58,10 @@ export default function ThemeToggle() {
         active:scale-95
       "
     >
-      {theme === "dark" ? (
+      {darkMode ? (
         <Sun className="h-5 w-5 text-yellow-400" />
       ) : (
-        <Moon className="h-5 w-5 text-slate-700 dark:text-black-200" />
+        <Moon className="h-5 w-5 text-slate-700 dark:text-slate-200" />
       )}
     </button>
   );
