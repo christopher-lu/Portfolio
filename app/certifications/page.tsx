@@ -7,7 +7,7 @@ export default function CertificationsPage() {
     <PageLayout
       eyebrow="Certifications"
       title="Professional Certifications"
-      description="Industry certifications demonstrating expertise in cloud computing, software engineering, AI, and modern development practices."
+      description="Professional certifications earned and planned across cloud computing, software engineering, AI, and modern development."
     >
       <CertificationGrid />
     </PageLayout>

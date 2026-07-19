@@ -3,7 +3,10 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
+import ProjectStatus from "@/components/projects/project-card/ProjectStatus";
+
 import Button from "@/components/ui/Button";
+import Callout from "@/components/ui/Callout";
 import Card from "@/components/ui/Card";
 import TechStack from "@/components/ui/TechStack";
 
@@ -25,7 +28,14 @@ export default function FeaturedProject({
     >
       <Card className="overflow-hidden p-0">
         <div className="grid lg:grid-cols-2">
-          <div className="flex items-center justify-center bg-[var(--muted)]">
+          <div
+            className="
+              flex
+              items-center
+              justify-center
+              bg-[color-mix(in_srgb,var(--card)_96%,var(--foreground)_4%)]
+            "
+          >
             {project.image ? (
               <Image
                 src={project.image}
@@ -33,11 +43,20 @@ export default function FeaturedProject({
                 width={1400}
                 height={900}
                 priority
-                sizes="(max-width:1024px)100vw,50vw"
+                sizes="(max-width:1024px) 100vw, 50vw"
                 className="h-full w-full object-cover"
               />
             ) : (
-              <div className="flex h-[420px] w-full items-center justify-center text-[var(--muted-foreground)]">
+              <div
+                className="
+                  flex
+                  h-[420px]
+                  w-full
+                  items-center
+                  justify-center
+                  text-[var(--muted-foreground)]
+                "
+              >
                 Screenshot Coming Soon
               </div>
             )}
@@ -48,23 +67,29 @@ export default function FeaturedProject({
               Featured Project
             </span>
 
-            <h2 className="text-4xl font-bold">
-              {project.title}
-            </h2>
+            <div className="flex items-start justify-between gap-6">
+              <div className="min-w-0">
+                <h2 className="text-4xl font-bold">
+                  {project.title}
+                </h2>
 
-            <p className="mt-2 text-lg text-[var(--primary)]">
-              {project.tagline}
-            </p>
-
-            {project.impact && (
-              <div className="mt-6 rounded-lg border-l-4 border-[var(--primary)] bg-[var(--muted)] p-4">
-                <p className="italic">
-                  {project.impact}
+                <p className="mt-2 text-lg text-[var(--primary)]">
+                  {project.tagline}
                 </p>
               </div>
+
+              <div className="shrink-0">
+                <ProjectStatus status={project.status} />
+              </div>
+            </div>
+
+            {project.impact && (
+              <Callout className="mt-6">
+                {project.impact}
+              </Callout>
             )}
 
-            <p className="mt-6 text-[var(--muted-foreground)] leading-7">
+            <p className="mt-6 leading-7 text-[var(--muted-foreground)]">
               {project.description}
             </p>
 

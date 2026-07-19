@@ -2,46 +2,43 @@ import type { Certification } from "@/types/certification";
 
 export const certifications: Certification[] = [
   {
-    id: "aws-sa",
+    id: "aws-ccp",
 
-    name: "AWS Certified Solutions Architect – Associate",
+    title: "AWS Certified Cloud Practitioner",
 
     issuer: "Amazon Web Services",
 
-    issued: "2025",
+    issuerHref:
+      "https://aws.amazon.com/certification/",
 
-    expires: "2028",
-
-    credentialId: "ABC123456",
+    issueDate: "2026-01",
 
     skills: [
       "AWS",
       "Cloud",
-      "Architecture",
-      "Networking",
     ],
-
-    url: "https://www.credly.com/",
 
     featured: true,
   },
 
   {
-    id: "azure-ai",
+    id: "coursera-professional-certificate",
 
-    name: "Microsoft Certified: Azure AI Engineer Associate",
+    title: "Professional Certificate (Placeholder)",
 
-    issuer: "Microsoft",
+    issuer: "Coursera",
 
-    issued: "2024",
+    issuerHref:
+      "https://www.coursera.org",
+
+    issueDate: "2026-06",
 
     skills: [
-      "Azure",
-      "AI",
-      "Machine Learning",
+      "Cloud",
+      "AWS",
+      "React",
+      "TypeScript",
     ],
-
-    url: "https://learn.microsoft.com/",
 
     featured: true,
   },

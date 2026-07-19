@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import ProjectLinks from "@/components/projects/project-card/ProjectLinks";
 import ProjectStatus from "@/components/projects/project-card/ProjectStatus";
 
+import Callout from "@/components/ui/Callout";
 import Card from "@/components/ui/Card";
 import TechStack from "@/components/ui/TechStack";
 
@@ -43,7 +44,7 @@ export default function ProjectCard({
                 h-56
                 items-center
                 justify-center
-                bg-[var(--muted)]
+                bg-[color-mix(in_srgb,var(--card)_96%,var(--foreground)_4%)]
                 text-sm
                 text-[var(--muted-foreground)]
               "
@@ -68,11 +69,9 @@ export default function ProjectCard({
         </div>
 
         {project.impact && (
-          <div className="mb-5 rounded-lg border-l-4 border-[var(--primary)] bg-[var(--muted)] p-4">
-            <p className="italic">
-              {project.impact}
-            </p>
-          </div>
+          <Callout className="mb-5">
+            {project.impact}
+          </Callout>
         )}
 
         <p className="mb-6 text-[var(--muted-foreground)]">

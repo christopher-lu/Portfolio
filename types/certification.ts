@@ -1,19 +1,23 @@
+import type { TechnologyName } from "@/lib/technologies";
+
 export interface Certification {
   id: string;
 
-  name: string;
+  title: string;
 
   issuer: string;
 
-  issued: string;
+  issuerHref?: string;
 
-  expires?: string;
+  issueDate: string;
+
+  expirationDate?: string;
 
   credentialId?: string;
 
-  skills: string[];
+  credentialUrl?: string;
 
-  url?: string;
+  skills: TechnologyName[];
 
-  featured: boolean;
+  featured?: boolean;
 }

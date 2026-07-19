@@ -1,84 +1,117 @@
+import {
+  Award,
+  Building2,
+  Calendar,
+  ExternalLink,
+} from "lucide-react";
+
+import AnimatedCard from "@/components/ui/AnimatedCard";
+import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
+import TechBadge from "@/components/ui/TechBadge";
+
+import { formatMonthYear } from "@/lib/formatters";
 
 import type { Certification } from "@/types/certification";
 
-type Props = {
+interface CertificationCardProps {
   certification: Certification;
-};
+}
 
 export default function CertificationCard({
   certification,
-}: Props) {
+}: CertificationCardProps) {
   return (
-    <Card className="flex h-full flex-col">
-      {/* Header */}
+    <AnimatedCard>
+      <Card className="flex h-full flex-col">
+        <div className="space-y-6">
+          <div className="space-y-4">
+            <Badge
+              variant="secondary"
+              className="inline-flex w-fit items-center gap-2"
+            >
+              <Award className="h-4 w-4" />
 
-      <div className="flex items-start justify-between">
-        <span className="text-sm font-medium text-[var(--accent)]">
-          {certification.issuer}
-        </span>
+              <span>Certification</span>
+            </Badge>
 
-        <span className="text-sm text-[var(--muted-foreground)]">
-          {certification.issued}
-        </span>
-      </div>
+            <h3 className="text-2xl font-semibold">
+              {certification.title}
+            </h3>
 
-      {/* Title */}
+            <div className="space-y-2 text-sm text-[var(--muted-foreground)]">
+              <div className="flex items-center gap-2">
+                <Building2 className="h-4 w-4 shrink-0" />
 
-      <h3 className="mt-5 text-2xl font-bold">
-        {certification.name}
-      </h3>
+                {certification.issuerHref ? (
+                  <a
+                    href={certification.issuerHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      inline-flex
+                      items-center
+                      gap-1
+                      transition-colors
+                      hover:text-[var(--accent)]
+                    "
+                  >
+                    <span>{certification.issuer}</span>
 
-      {/* Credential */}
+                    <ExternalLink className="h-3 w-3" />
+                  </a>
+                ) : (
+                  <span>{certification.issuer}</span>
+                )}
+              </div>
 
-      {certification.credentialId && (
-        <p className="mt-2 text-sm text-[var(--muted-foreground)]">
-          Credential ID: {certification.credentialId}
-        </p>
-      )}
+              <div className="flex items-center gap-2">
+                <Calendar className="h-4 w-4 shrink-0" />
 
-      {/* Expiration */}
+                <span>
+                  {formatMonthYear(certification.issueDate)}
+                </span>
+              </div>
 
-      {certification.expires && (
-        <p className="mt-2 text-sm text-[var(--muted-foreground)]">
-          Expires: {certification.expires}
-        </p>
-      )}
+              {certification.credentialId && (
+                <div className="text-xs text-[var(--muted)]">
+                  Credential ID: {certification.credentialId}
+                </div>
+              )}
+            </div>
+          </div>
 
-      {/* Skills */}
-
-      <div className="mt-6 flex flex-wrap gap-2">
-        {certification.skills.map((skill) => (
-          <span
-            key={skill}
-            className="
-              rounded-full
-              border
-              border-[var(--border)]
-              bg-[var(--surface)]
-              px-3
-              py-1
-              text-sm
-            "
-          >
-            {skill}
-          </span>
-        ))}
-      </div>
-
-      {/* Link */}
-
-      {certification.url && (
-        <div className="mt-auto pt-8">
-          <Button
-            href={certification.url}
-            external
-          >
-            View Credential
-          </Button>
+          <div className="flex flex-wrap gap-2">
+            {certification.skills.map((technology) => (
+              <TechBadge
+                key={technology}
+                name={technology}
+                clickable
+              />
+            ))}
+          </div>
         </div>
-      )}
-    </Card>
+
+        <div className="mt-auto pt-8">
+          {certification.credentialUrl ? (
+            <Button
+              href={certification.credentialUrl}
+              external
+              className="w-fit"
+            >
+              Verify Credential
+            </Button>
+          ) : (
+            <Badge
+              variant="outline"
+              className="w-fit"
+            >
+              Planned Certification
+            </Badge>
+          )}
+        </div>
+      </Card>
+    </AnimatedCard>
   );
 }
