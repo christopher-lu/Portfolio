@@ -27,6 +27,8 @@
   --border: #d4d4d8;
 
   --muted: #71717a;
+  --muted-foreground: #52525b;
+  --muted-background: #f4f4f5;
 
   --accent: #2563eb;
 
@@ -58,6 +60,8 @@
   --border: #3f3f46;
 
   --muted: #a1a1aa;
+  --muted-foreground: #d4d4d8;
+  --muted-background: #27272a;
 
   --accent: #60a5fa;
 

@@ -1,14 +1,13 @@
-import PageLayout from "@/components/layouts/PageLayout";
-import ContactMethods from "@/components/contact/ContactMethods";
+import type { Metadata } from "next";
+
+import ContactSection from "@/components/contact/ContactSection";
+
+export const metadata: Metadata = {
+  title: "Contact | Christopher Lu",
+  description:
+    "Get in touch with Christopher Lu for software engineering opportunities, collaborations, or professional networking.",
+};
 
 export default function ContactPage() {
-  return (
-    <PageLayout
-      eyebrow="Contact"
-      title="Let's Connect"
-      description="Whether you're looking to collaborate on a project, discuss software engineering, healthcare technology, cloud architecture, or AI, I'd love to hear from you."
-    >
-      <ContactMethods />
-    </PageLayout>
-  );
+  return <ContactSection />;
 }

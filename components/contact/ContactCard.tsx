@@ -1,49 +1,57 @@
-import Link from "next/link";
+"use client";
+
+import type { LucideIcon } from "lucide-react";
 
 import Card from "@/components/ui/Card";
 
-import { LucideIcon } from "lucide-react";
-import { IconType } from "react-icons";
-
-type Props = {
-  icon: LucideIcon | IconType;
-  label: string;
-  value: string;
-  href?: string;
-};
+interface ContactCardProps {
+  title: string;
+  description: string;
+  buttonLabel: string;
+  icon: LucideIcon;
+}
 
 export default function ContactCard({
+  title,
+  description,
+  buttonLabel,
   icon: Icon,
-  label,
-  value,
-  href,
-}: Props) {
-  const card = (
-    <Card className="group flex h-full flex-col items-center justify-center rounded-3xl p-10 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-      <div className="mb-6 rounded-full bg-[var(--surface)] p-5 transition-transform duration-300 group-hover:scale-110">
-        <Icon className="h-8 w-8 text-[var(--accent)]" />
+}: ContactCardProps) {
+  return (
+    <Card className="group flex h-full flex-col justify-between transition-shadow duration-200 hover:shadow-lg">
+      <div>
+        <div className="mb-6 flex items-center gap-4">
+          <div className="rounded-xl bg-[var(--secondary)] p-3 text-[var(--primary)]">
+            <Icon className="h-6 w-6" />
+          </div>
+
+          <h3 className="text-2xl font-semibold">
+            {title}
+          </h3>
+        </div>
+
+        <p className="leading-7 text-[var(--muted-foreground)]">
+          {description}
+        </p>
       </div>
 
-      <h3 className="text-xl font-semibold">
-        {label}
-      </h3>
-
-      <p className="mt-2 break-all text-[var(--muted)]">
-        {value}
-      </p>
+      <div className="mt-8">
+        <span className="
+            inline-flex
+            rounded-lg
+            bg-[var(--accent)]
+            px-4
+            py-2
+            text-sm
+            font-medium
+            text-white
+            transition-colors
+            duration-200
+            group-hover:brightness-110
+            ">
+          {buttonLabel}
+        </span>
+      </div>
     </Card>
-  );
-
-  if (!href) return card;
-
-  return (
-    <Link
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="block"
-    >
-      {card}
-    </Link>
   );
 }

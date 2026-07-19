@@ -1,6 +1,9 @@
 import Badge from "@/components/ui/Badge";
 import { cn } from "@/lib/utils";
-import { getTechnology, type TechnologyName } from "@/lib/technologies";
+import {
+  getTechnology,
+  type TechnologyName,
+} from "@/lib/technologies";
 
 interface TechBadgeProps {
   name: TechnologyName;
@@ -19,6 +22,7 @@ export default function TechBadge({
 
   const content = (
     <Badge
+      variant="secondary"
       className={cn(
         "gap-2 transition-colors duration-200",
         clickable &&

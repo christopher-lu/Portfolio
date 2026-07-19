@@ -6,11 +6,11 @@ export const personal: Personal = {
   title: "Full Stack Software Engineer",
 
   tagline:
-    "Building scalable cloud-native applications, AI-powered solutions that improve people's lives.",
+    "Building scalable cloud-native applications and AI-powered solutions that improve peoples lives.",
 
   bio: `
 I am a full-stack software engineer passionate about designing scalable,
-secure, and maintainable software solutions.
+secure,and maintainable software solutions.
 
 My experience spans healthcare technology, enterprise software,
 cloud architecture, artificial intelligence, and modern web development.
@@ -28,9 +28,17 @@ learning and sharing knowledge with others.
 
   location: "New York, NY",
 
-  website: "https://yourdomain.com",
+  website: "",
 
   resume: "/Christopher_Lu_Resume.pdf",
+
+  social: {
+    email: "lu.christopher.m@gmail.com",
+
+    github: "https://github.com/christopher-lu",
+
+    linkedin: "https://www.linkedin.com/in/christopher-lu19/",
+  },
 
   stats: [
     {

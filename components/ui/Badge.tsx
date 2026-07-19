@@ -23,9 +23,11 @@ const variants: Record<BadgeVariant, string> = {
   `,
 
   secondary: `
-    bg-[var(--muted)]
-    text-[var(--foreground)]
-  `,
+    border
+    border-[var(--border)]
+    bg-transparent
+    text-[var(--muted-foreground)]
+`,
 
   success: `
     bg-emerald-600
