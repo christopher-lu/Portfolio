@@ -41,8 +41,9 @@ export interface Project {
   category: ProjectCategory;
 
   /**
+   * Controls display priority.
    * Lower numbers appear first.
-   * displayOrder === 1 becomes the featured project.
+   * displayOrder === 1 is used as the Featured Project.
    */
   displayOrder: number;
 

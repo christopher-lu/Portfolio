@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Calendar, GraduationCap, MapPin } from "lucide-react";
 
-import Card from "@/components/ui/Card";
+import HighlightsList from "@/components/ui/HighlightsList";
 
 import { cardHover } from "@/lib/animations";
 
@@ -89,7 +89,7 @@ export default function EducationCard({
         </div>
       </header>
 
-      <p className="mt-4 font-medium">
+      <p className="mt-3 font-medium">
         {fieldOfStudy}
       </p>
 
@@ -98,43 +98,7 @@ export default function EducationCard({
       </p>
 
       <section className="mt-6">
-        <h4
-          className="
-            mb-3
-            text-sm
-            font-semibold
-            uppercase
-            tracking-wide
-            text-[var(--muted-foreground)]
-          "
-        >
-          Highlights
-        </h4>
-
-        <ul className="space-y-3">
-          {highlights.map((item) => (
-            <li
-              key={item}
-              className="flex items-start gap-3"
-            >
-              <span
-                className="
-                  mt-2
-                  h-2
-                  w-2
-                  shrink-0
-                  rounded-full
-                  bg-blue-500
-                "
-                aria-hidden="true"
-              />
-
-              <span className="leading-7">
-                {item}
-              </span>
-            </li>
-          ))}
-        </ul>
+        <HighlightsList items={highlights} />
       </section>
     </motion.article>
   );

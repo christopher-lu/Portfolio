@@ -1,6 +1,6 @@
 "use client";
 
-import FeaturedProject from "@/components/projects/FeaturedProject";
+import FeaturedProject from "@/components/projects/FeaturedProjectCard";
 import ProjectCard from "@/components/projects/ProjectCard";
 
 import { projects } from "@/data/projects";

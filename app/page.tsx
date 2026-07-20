@@ -1,21 +1,11 @@
-import Container from "@/components/ui/Container";
-import Section from "@/components/ui/Section";
-
-import PageHeader from "@/components/sections/PageHeader";
-
-import { personal } from "@/data/personal";
+import FeaturedWork from "@/components/home/FeaturedWork";
+import Hero from "@/components/home/Hero";
 
 export default function HomePage() {
   return (
-    <Container>
-      <Section>
-        <PageHeader
-          title={personal.name}
-          subtitle={personal.title}
-          description={personal.tagline}
-          size="hero"
-        />
-      </Section>
-    </Container>
+    <>
+      <Hero />
+      <FeaturedWork />
+    </>
   );
 }

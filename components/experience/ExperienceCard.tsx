@@ -9,8 +9,12 @@ import {
   MapPin,
 } from "lucide-react";
 
+import HighlightsList from "@/components/ui/HighlightsList";
+import SectionHeading from "@/components/ui/SectionHeading";
 import TechStack from "@/components/ui/TechStack";
+
 import { cardHover } from "@/lib/animations";
+
 import type { Experience } from "@/types/experience";
 
 interface ExperienceCardProps {
@@ -49,7 +53,9 @@ export default function ExperienceCard({
       "
     >
       <header className="space-y-3">
-        <h3 className="text-2xl font-bold">{role}</h3>
+        <h3 className="text-2xl font-bold">
+          {role}
+        </h3>
 
         {companyUrl ? (
           <Link
@@ -68,12 +74,15 @@ export default function ExperienceCard({
             "
           >
             <Building2 className="h-5 w-5" />
+
             <span>{company}</span>
+
             <ExternalLink className="h-4 w-4" />
           </Link>
         ) : (
           <div className="inline-flex items-center gap-2 text-lg font-semibold">
             <Building2 className="h-5 w-5" />
+
             <span>{company}</span>
           </div>
         )}
@@ -91,6 +100,7 @@ export default function ExperienceCard({
         >
           <div className="inline-flex items-center gap-1.5">
             <Calendar className="h-4 w-4" />
+
             <span>
               {startDate} – {endDate}
             </span>
@@ -98,6 +108,7 @@ export default function ExperienceCard({
 
           <div className="inline-flex items-center gap-1.5">
             <MapPin className="h-4 w-4" />
+
             <span>{location}</span>
           </div>
 
@@ -124,38 +135,13 @@ export default function ExperienceCard({
       </p>
 
       <section className="mt-6">
-        <h4 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[var(--muted-foreground)]">
-          Highlights
-        </h4>
-
-        <ul className="space-y-3">
-          {achievements.map((achievement) => (
-            <li
-              key={achievement}
-              className="flex items-start gap-3"
-            >
-              <span
-                className="
-                  mt-2
-                  h-2
-                  w-2
-                  shrink-0
-                  rounded-full
-                  bg-blue-500
-                "
-                aria-hidden="true"
-              />
-
-              <span className="leading-7">{achievement}</span>
-            </li>
-          ))}
-        </ul>
+        <HighlightsList items={achievements} />
       </section>
 
       <section className="mt-8">
-        <h4 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[var(--muted-foreground)]">
+        <SectionHeading>
           Technologies
-        </h4>
+        </SectionHeading>
 
         <TechStack technologies={technologies} />
       </section>

@@ -1,47 +1,24 @@
 import type { ReactNode } from "react";
 
-import Container from "@/components/layouts/Container";
 import { cn } from "@/lib/utils";
 
-interface SectionProps {
-  id?: string;
-  title?: string;
-  description?: string;
+interface SectionHeadingProps {
   children: ReactNode;
   className?: string;
 }
 
-export default function Section({
-  id,
-  title,
-  description,
+export default function SectionHeading({
   children,
   className,
-}: SectionProps) {
+}: SectionHeadingProps) {
   return (
-    <section
-      id={id}
-      className={cn("py-16 md:py-20", className)}
+    <h4
+      className={cn(
+        "mb-3 text-sm font-semibold uppercase tracking-wide text-[var(--muted-foreground)]",
+        className
+      )}
     >
-      <Container>
-        {(title || description) && (
-          <header className="mb-12 max-w-3xl">
-            {title && (
-              <h2 className="text-4xl font-bold tracking-tight">
-                {title}
-              </h2>
-            )}
-
-            {description && (
-              <p className="mt-4 text-lg text-[var(--muted-foreground)]">
-                {description}
-              </p>
-            )}
-          </header>
-        )}
-
-        {children}
-      </Container>
-    </section>
+      {children}
+    </h4>
   );
 }

@@ -3,24 +3,26 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-import ProjectStatus from "@/components/projects/project-card/ProjectStatus";
-
-import Button from "@/components/ui/Button";
-import Callout from "@/components/ui/Callout";
-import Card from "@/components/ui/Card";
-import TechStack from "@/components/ui/TechStack";
-
 import { cardHover } from "@/lib/animations";
 
 import type { Project } from "@/types/project";
 
-interface FeaturedProjectProps {
+import Card from "@/components/ui/Card";
+import Callout from "@/components/ui/Callout";
+import Button from "@/components/ui/Button";
+import TechStack from "@/components/ui/TechStack";
+import HighlightsList from "@/components/ui/HighlightsList";
+import SectionHeading from "@/components/ui/SectionHeading";
+
+import ProjectStatus from "@/components/projects/project-card/ProjectStatus";
+
+interface FeaturedProjectCardProps {
   project: Project;
 }
 
-export default function FeaturedProject({
+export default function FeaturedProjectCard({
   project,
-}: FeaturedProjectProps) {
+}: FeaturedProjectCardProps) {
   return (
     <motion.article
       whileHover={cardHover}
@@ -28,14 +30,7 @@ export default function FeaturedProject({
     >
       <Card className="overflow-hidden p-0">
         <div className="grid lg:grid-cols-2">
-          <div
-            className="
-              flex
-              items-center
-              justify-center
-              bg-[color-mix(in_srgb,var(--card)_96%,var(--foreground)_4%)]
-            "
-          >
+          <div className="flex items-center justify-center bg-[color-mix(in_srgb,var(--card)_96%,var(--foreground)_4%)]">
             {project.image ? (
               <Image
                 src={project.image}
@@ -47,40 +42,29 @@ export default function FeaturedProject({
                 className="h-full w-full object-cover"
               />
             ) : (
-              <div
-                className="
-                  flex
-                  h-[420px]
-                  w-full
-                  items-center
-                  justify-center
-                  text-[var(--muted-foreground)]
-                "
-              >
+              <div className="flex h-[420px] w-full items-center justify-center text-[var(--muted-foreground)]">
                 Screenshot Coming Soon
               </div>
             )}
           </div>
 
           <div className="flex flex-col p-8 lg:p-10">
-            <span className="mb-3 text-sm font-semibold uppercase tracking-wider text-[var(--primary)]">
-              Featured Project
+            <span className="mb-3 text-sm font-semibold uppercase tracking-widest text-[var(--accent)]">
+              Case Study
             </span>
 
             <div className="flex items-start justify-between gap-6">
               <div className="min-w-0">
-                <h2 className="text-4xl font-bold">
+                <h2 className="text-4xl font-bold tracking-tight">
                   {project.title}
                 </h2>
 
-                <p className="mt-2 text-lg text-[var(--primary)]">
+                <p className="mt-2 text-lg text-[var(--accent)]">
                   {project.tagline}
                 </p>
               </div>
 
-              <div className="shrink-0">
-                <ProjectStatus status={project.status} />
-              </div>
+              <ProjectStatus status={project.status} />
             </div>
 
             {project.impact && (
@@ -89,34 +73,24 @@ export default function FeaturedProject({
               </Callout>
             )}
 
-            <p className="mt-6 leading-7 text-[var(--muted-foreground)]">
+            <p className="mt-6 leading-8 text-[var(--muted-foreground)]">
               {project.description}
             </p>
 
             <div className="mt-8">
-              <h3 className="mb-3 font-semibold">
-                Highlights
-              </h3>
-
-              <ul className="space-y-2 text-[var(--muted-foreground)]">
-                {project.highlights.map((highlight) => (
-                  <li
-                    key={highlight}
-                    className="flex items-start gap-2"
-                  >
-                    <span className="mt-1 text-[var(--primary)]">
-                      •
-                    </span>
-
-                    <span>{highlight}</span>
-                  </li>
-                ))}
-              </ul>
+              <HighlightsList
+                items={project.highlights}
+              />
             </div>
 
             <div className="mt-8">
+              <SectionHeading>
+                Technologies
+              </SectionHeading>
+
               <TechStack
                 technologies={project.technologies}
+                className="mt-3"
               />
             </div>
 
