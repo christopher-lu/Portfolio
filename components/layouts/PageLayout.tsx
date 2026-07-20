@@ -6,10 +6,11 @@ import Section from "@/components/ui/Section";
 import PageHeader from "@/components/sections/PageHeader";
 
 type PageLayoutProps = {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   subtitle?: string;
   description: string;
+  align?: "left" | "center";
   children: ReactNode;
 };
 
@@ -18,6 +19,7 @@ export default function PageLayout({
   title,
   subtitle,
   description,
+  align = "left",
   children,
 }: PageLayoutProps) {
   return (
@@ -28,6 +30,7 @@ export default function PageLayout({
           title={title}
           subtitle={subtitle}
           description={description}
+          align={align}
         />
 
         {children}

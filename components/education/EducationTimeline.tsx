@@ -4,7 +4,7 @@ import { education } from "@/data/education";
 
 export default function EducationTimeline() {
   return (
-    <div className="relative mx-auto mt-16 max-w-5xl">
+    <div className="relative mt-12 max-w-5xl">
       <div
         className="
           absolute

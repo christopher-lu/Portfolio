@@ -1,5 +1,7 @@
 import { ReactNode } from "react";
 
+import { cn } from "@/lib/utils";
+
 type PageHeaderProps = {
   eyebrow?: string;
   title: string;
@@ -15,35 +17,20 @@ export default function PageHeader({
   title,
   subtitle,
   description,
-  align = "center",
+  align = "left",
   size = "page",
   children,
 }: PageHeaderProps) {
-  const alignment =
-    align === "center"
-      ? "text-center items-center"
-      : "text-left items-start";
-
-  const titleSize =
-    size === "hero"
-      ? "text-5xl md:text-7xl"
-      : "text-4xl md:text-5xl";
-
-  const subtitleSize =
-    size === "hero"
-      ? "text-2xl md:text-3xl"
-      : "text-xl md:text-2xl";
+  const centered = align === "center";
 
   return (
     <header
-      className={`
-        mx-auto
-        mb-16
-        flex
-        max-w-4xl
-        flex-col
-        ${alignment}
-      `}
+      className={cn(
+        "mb-16 flex flex-col",
+        centered
+          ? "mx-auto max-w-4xl items-center text-center"
+          : "max-w-3xl items-start text-left"
+      )}
     >
       {eyebrow && (
         <p
@@ -60,24 +47,24 @@ export default function PageHeader({
       )}
 
       <h1
-        className={`
-          mt-3
-          font-extrabold
-          tracking-tight
-          ${titleSize}
-        `}
+        className={cn(
+          "mt-3 font-extrabold tracking-tight",
+          size === "hero"
+            ? "text-5xl md:text-7xl"
+            : "text-4xl md:text-5xl"
+        )}
       >
         {title}
       </h1>
 
       {subtitle && (
         <h2
-          className={`
-            mt-4
-            font-semibold
-            text-[var(--muted)]
-            ${subtitleSize}
-          `}
+          className={cn(
+            "mt-4 font-semibold text-[var(--muted-foreground)]",
+            size === "hero"
+              ? "text-2xl md:text-3xl"
+              : "text-xl md:text-2xl"
+          )}
         >
           {subtitle}
         </h2>
@@ -90,7 +77,7 @@ export default function PageHeader({
             max-w-2xl
             text-lg
             leading-8
-            text-[var(--muted)]
+            text-[var(--muted-foreground)]
           "
         >
           {description}
@@ -99,13 +86,12 @@ export default function PageHeader({
 
       {children && (
         <div
-          className="
-            mt-10
-            flex
-            flex-wrap
-            justify-center
-            gap-4
-          "
+          className={cn(
+            "mt-10 flex flex-wrap gap-4",
+            centered
+              ? "justify-center"
+              : "justify-start"
+          )}
         >
           {children}
         </div>

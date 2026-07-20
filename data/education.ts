@@ -2,51 +2,52 @@ import type { Education } from "@/types/education";
 
 export const education: Education[] = [
   {
-    id: "masters",
+    id: "codesmith",
 
-    institution: "University Name",
+    institution: "Codesmith",
 
-    degree: "Master of Science",
+    program: "Software Engineering Immersive",
 
-    fieldOfStudy: "Computer Science",
+    fieldOfStudy: "Full Stack Software Engineering",
 
     location: "New York, NY",
 
-    startDate: "2022",
+    startDate: "2023",
 
-    endDate: "2024",
+    endDate: "2023",
 
     description:
-      "Focused on software engineering, cloud computing, and distributed systems.",
+      "Completed an advanced software engineering immersive focused on full stack application development, computer science fundamentals, scalable system design, and collaborative Agile software development through project-based learning.",
 
-    achievements: [
-      "Graduate Research Assistant",
-      "Dean's List",
-      "Graduate with Honors",
+    highlights: [
+      "Built production-scale full stack applications using React, Next.js, TypeScript, Node.js, Express.js, PostgreSQL, and MongoDB",
+      "Collaborated in Agile engineering teams using Git workflows, pair programming, and code reviews",
+      "Designed and deployed scalable applications featuring REST APIs, authentication, database design, and modern software engineering best practices",
     ],
   },
 
   {
-    id: "bachelors",
+    id: "stony-brook",
 
-    institution: "University Name",
+    institution: "Stony Brook University",
 
-    degree: "Bachelor of Science",
+    program: "Undergraduate Biology Program",
 
-    fieldOfStudy: "Information Technology",
+    fieldOfStudy: "Biology",
 
-    location: "New York, NY",
+    location: "Stony Brook, NY",
 
-    startDate: "2018",
+    startDate: "2008",
 
-    endDate: "2022",
+    endDate: "2013",
 
     description:
-      "Coursework emphasized software development, databases, and networking.",
+      "Completed undergraduate coursework in Biology, developing a strong foundation in analytical thinking, scientific research, data interpretation, and evidence-based problem solving.",
 
-    achievements: [
-      "Capstone Project",
-      "Academic Scholarship",
+    highlights: [
+      "Completed undergraduate coursework in Biology",
+      "Developed analytical and quantitative problem-solving skills",
+      "Applied scientific methodology through laboratory coursework",
     ],
   },
 ];

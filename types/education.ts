@@ -3,7 +3,7 @@ export interface Education {
 
   institution: string;
 
-  degree: string;
+  program: string;
 
   fieldOfStudy: string;
 
@@ -15,5 +15,5 @@ export interface Education {
 
   description: string;
 
-  achievements: string[];
+  highlights: string[];
 }

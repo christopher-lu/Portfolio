@@ -1,15 +1,14 @@
 import PageLayout from "@/components/layouts/PageLayout";
 
-import EducationTimeline from "@/components/education/EducationTimeline";
+import EducationList from "@/components/education/EducationList";
 
 export default function EducationPage() {
   return (
     <PageLayout
-      eyebrow="Education"
       title="Education"
-      description="Academic background, degrees, and achievements that have shaped my technical foundation."
+      description="A foundation in scientific problem solving complemented by immersive training in modern full stack software engineering."
     >
-      <EducationTimeline />
+      <EducationList />
     </PageLayout>
   );
 }
