@@ -3,7 +3,8 @@ import { Inter } from "next/font/google";
 
 import "./globals.css";
 
-import  ThemeProvider  from "@/providers/ThemeProvider";
+import ThemeProvider from "@/providers/ThemeProvider";
+import Navbar from "@/components/navigation/Navbar";
 import { siteConfig } from "@/data/siteConfig";
 
 const inter = Inter({
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: siteConfig.socialImage,
+        url: new URL(siteConfig.socialImage, siteConfig.url).toString(),
         width: 1200,
         height: 630,
         alt: siteConfig.name,
@@ -68,7 +69,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [siteConfig.socialImage],
+    images: [
+      new URL(siteConfig.socialImage, siteConfig.url).toString(),
+    ],
   },
 };
 
@@ -80,7 +83,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <Navbar />
+
+          <main className="pt-20">
+            {children}
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );
