@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-type BadgeVariant =
+export type BadgeVariant =
   | "primary"
   | "secondary"
   | "success"
@@ -14,6 +14,7 @@ interface BadgeProps {
   children: ReactNode;
   variant?: BadgeVariant;
   className?: string;
+  icon?: ReactNode;
 }
 
 const variants: Record<BadgeVariant, string> = {
@@ -27,7 +28,7 @@ const variants: Record<BadgeVariant, string> = {
     border-[var(--border)]
     bg-transparent
     text-[var(--muted-foreground)]
-`,
+  `,
 
   success: `
     bg-emerald-600
@@ -56,6 +57,7 @@ export default function Badge({
   children,
   variant = "primary",
   className,
+  icon,
 }: BadgeProps) {
   return (
     <span
@@ -63,17 +65,21 @@ export default function Badge({
         `
         inline-flex
         items-center
+        gap-1.5
         rounded-full
-        px-3
+        px-3.5
         py-1
         text-xs
         font-semibold
+        tracking-wide
         transition-colors
         `,
         variants[variant],
         className
       )}
     >
+      {icon}
+
       {children}
     </span>
   );

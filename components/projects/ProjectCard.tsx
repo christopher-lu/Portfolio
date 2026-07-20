@@ -1,13 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 
+import ProjectImage from "@/components/projects/ProjectImage";
 import ProjectLinks from "@/components/projects/project-card/ProjectLinks";
-import ProjectStatus from "@/components/projects/project-card/ProjectStatus";
 
 import Callout from "@/components/ui/Callout";
 import HighlightsList from "@/components/ui/HighlightsList";
+import StatusBadge from "@/components/ui/StatusBadge";
 import TechStack from "@/components/ui/TechStack";
 
 import { cardHover } from "@/lib/animations";
@@ -40,30 +40,10 @@ export default function ProjectCard({
       "
     >
       <div className="mb-6 overflow-hidden rounded-xl border border-[var(--border)]">
-        {project.image ? (
-          <Image
-            src={project.image}
-            alt={`${project.title} screenshot`}
-            width={1200}
-            height={675}
-            sizes="(max-width:768px) 100vw, (max-width:1280px) 50vw, 33vw"
-            className="h-56 w-full object-cover"
-          />
-        ) : (
-          <div
-            className="
-              flex
-              h-56
-              items-center
-              justify-center
-              bg-[color-mix(in_srgb,var(--card)_96%,var(--foreground)_4%)]
-              text-sm
-              text-[var(--muted-foreground)]
-            "
-          >
-            Screenshot Coming Soon
-          </div>
-        )}
+        <ProjectImage
+          image={project.image}
+          title={project.title}
+        />
       </div>
 
       <header className="mb-6 flex items-start justify-between gap-4">
@@ -77,7 +57,7 @@ export default function ProjectCard({
           </p>
         </div>
 
-        <ProjectStatus status={project.status} />
+        <StatusBadge status={project.status} />
       </header>
 
       {project.impact && (

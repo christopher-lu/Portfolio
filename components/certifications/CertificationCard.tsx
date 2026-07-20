@@ -1,19 +1,10 @@
-import {
-  Award,
-  Building2,
-  Calendar,
-  ExternalLink,
-} from "lucide-react";
+import type { Certification } from "@/types/certification";
 
-import AnimatedCard from "@/components/ui/AnimatedCard";
-import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
-import TechBadge from "@/components/ui/TechBadge";
-
-import { formatMonthYear } from "@/lib/formatters";
-
-import type { Certification } from "@/types/certification";
+import SectionHeading from "@/components/ui/SectionHeading";
+import StatusBadge from "@/components/ui/StatusBadge";
+import TechStack from "@/components/ui/TechStack";
 
 interface CertificationCardProps {
   certification: Certification;
@@ -23,95 +14,61 @@ export default function CertificationCard({
   certification,
 }: CertificationCardProps) {
   return (
-    <AnimatedCard>
-      <Card className="flex h-full flex-col">
-        <div className="space-y-6">
-          <div className="space-y-4">
-            <Badge
-              variant="secondary"
-              className="inline-flex w-fit items-center gap-2"
-            >
-              <Award className="h-4 w-4" />
+    <Card className="flex h-full flex-col p-8">
+      <header className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+        <div className="min-w-0 space-y-2">
+          <h2 className="text-2xl font-bold tracking-tight">
+            {certification.title}
+          </h2>
 
-              <span>Certification</span>
-            </Badge>
+          <p className="text-lg text-[var(--accent)]">
+            {certification.issuer}
+          </p>
 
-            <h3 className="text-2xl font-semibold">
-              {certification.title}
-            </h3>
-
-            <div className="space-y-2 text-sm text-[var(--muted-foreground)]">
-              <div className="flex items-center gap-2">
-                <Building2 className="h-4 w-4 shrink-0" />
-
-                {certification.issuerHref ? (
-                  <a
-                    href={certification.issuerHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-                      inline-flex
-                      items-center
-                      gap-1
-                      transition-colors
-                      hover:text-[var(--accent)]
-                    "
-                  >
-                    <span>{certification.issuer}</span>
-
-                    <ExternalLink className="h-3 w-3" />
-                  </a>
-                ) : (
-                  <span>{certification.issuer}</span>
-                )}
-              </div>
-
-              <div className="flex items-center gap-2">
-                <Calendar className="h-4 w-4 shrink-0" />
-
-                <span>
-                  {formatMonthYear(certification.issueDate)}
-                </span>
-              </div>
-
-              {certification.credentialId && (
-                <div className="text-xs text-[var(--muted)]">
-                  Credential ID: {certification.credentialId}
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className="flex flex-wrap gap-2">
-            {certification.skills.map((technology) => (
-              <TechBadge
-                key={technology}
-                name={technology}
-                clickable
-              />
-            ))}
-          </div>
+          <p className="text-sm text-[var(--muted-foreground)]">
+            {certification.issued}
+          </p>
         </div>
 
-        <div className="mt-auto pt-8">
-          {certification.credentialUrl ? (
+        <StatusBadge
+          status={certification.status}
+          className="shrink-0 self-start"
+        />
+      </header>
+
+      <div className="mt-8 flex flex-1 flex-col">
+        <section>
+          <SectionHeading>
+            Description
+          </SectionHeading>
+
+          <p className="mt-3 leading-7 text-[var(--muted-foreground)]">
+            {certification.description}
+          </p>
+        </section>
+
+        <section className="mt-8">
+          <SectionHeading>
+            Technologies
+          </SectionHeading>
+
+          <TechStack
+            technologies={certification.technologies}
+            className="mt-3"
+          />
+        </section>
+
+        {certification.credentialUrl && (
+          <div className="mt-10">
             <Button
               href={certification.credentialUrl}
               external
-              className="w-fit"
             >
-              Verify Credential
+              View Credential
             </Button>
-          ) : (
-            <Badge
-              variant="outline"
-              className="w-fit"
-            >
-              Planned Certification
-            </Badge>
-          )}
-        </div>
-      </Card>
-    </AnimatedCard>
+          </div>
+        )}
+      </div>
+    </Card>
   );
 }

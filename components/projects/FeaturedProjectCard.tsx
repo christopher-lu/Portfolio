@@ -1,20 +1,20 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
+
+import ProjectImage from "@/components/projects/ProjectImage";
+
+import Button from "@/components/ui/Button";
+import Callout from "@/components/ui/Callout";
+import Card from "@/components/ui/Card";
+import HighlightsList from "@/components/ui/HighlightsList";
+import SectionHeading from "@/components/ui/SectionHeading";
+import StatusBadge from "@/components/ui/StatusBadge";
+import TechStack from "@/components/ui/TechStack";
 
 import { cardHover } from "@/lib/animations";
 
 import type { Project } from "@/types/project";
-
-import Card from "@/components/ui/Card";
-import Callout from "@/components/ui/Callout";
-import Button from "@/components/ui/Button";
-import TechStack from "@/components/ui/TechStack";
-import HighlightsList from "@/components/ui/HighlightsList";
-import SectionHeading from "@/components/ui/SectionHeading";
-
-import ProjectStatus from "@/components/projects/project-card/ProjectStatus";
 
 interface FeaturedProjectCardProps {
   project: Project;
@@ -31,21 +31,11 @@ export default function FeaturedProjectCard({
       <Card className="overflow-hidden p-0">
         <div className="grid lg:grid-cols-2">
           <div className="flex items-center justify-center bg-[color-mix(in_srgb,var(--card)_96%,var(--foreground)_4%)]">
-            {project.image ? (
-              <Image
-                src={project.image}
-                alt={`${project.title} screenshot`}
-                width={1400}
-                height={900}
-                priority
-                sizes="(max-width:1024px) 100vw, 50vw"
-                className="h-full w-full object-cover"
-              />
-            ) : (
-              <div className="flex h-[420px] w-full items-center justify-center text-[var(--muted-foreground)]">
-                Screenshot Coming Soon
-              </div>
-            )}
+            <ProjectImage
+              image={project.image}
+              title={project.title}
+              variant="featured"
+            />
           </div>
 
           <div className="flex flex-col p-8 lg:p-10">
@@ -64,7 +54,7 @@ export default function FeaturedProjectCard({
                 </p>
               </div>
 
-              <ProjectStatus status={project.status} />
+              <StatusBadge status={project.status} />
             </div>
 
             {project.impact && (

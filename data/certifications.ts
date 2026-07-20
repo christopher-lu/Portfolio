@@ -1,45 +1,57 @@
 import type { Certification } from "@/types/certification";
 
-export const certifications: Certification[] = [
+const certificationData: Certification[] = [
   {
-    id: "aws-ccp",
+    id: "aws-cloud-practitioner",
 
     title: "AWS Certified Cloud Practitioner",
 
     issuer: "Amazon Web Services",
 
-    issuerHref:
-      "https://aws.amazon.com/certification/",
+    issued: "Planned · 2026",
 
-    issueDate: "2026-01",
+    description:
+      "Validates foundational knowledge of AWS Cloud concepts, core services, security, pricing, and architectural best practices.",
 
-    skills: [
+    technologies: [
       "AWS",
-      "Cloud",
+      "IAM",
+      "EC2",
+      "S3",
+      "VPC",
     ],
 
-    featured: true,
+    status: "Planned",
+
+    displayOrder: 1,
   },
 
   {
-    id: "coursera-professional-certificate",
+    id: "google-cloud-developer",
 
-    title: "Professional Certificate (Placeholder)",
+    title:
+      "Google Professional Cloud Developer",
 
-    issuer: "Coursera",
+    issuer: "Google Cloud",
 
-    issuerHref:
-      "https://www.coursera.org",
+    issued: "Future Goal",
 
-    issueDate: "2026-06",
+    description:
+      "Demonstrates the ability to build, deploy, and maintain scalable cloud-native applications using Google Cloud Platform.",
 
-    skills: [
-      "Cloud",
-      "AWS",
-      "React",
-      "TypeScript",
+    technologies: [
+      "Google Cloud",
+      "Docker",
+      "Kubernetes",
     ],
 
-    featured: true,
+    status: "Planned",
+
+    displayOrder: 2,
   },
 ];
+
+export const certifications =
+  certificationData.sort(
+    (a, b) => a.displayOrder - b.displayOrder
+  );

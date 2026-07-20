@@ -35,7 +35,7 @@ export const experiences: Experience[] = [
       "Tailwind CSS",
       "REST APIs",
       "Firebase",
-      "Google Cloud Platform",
+      "Google Cloud",
     ],
   },
 

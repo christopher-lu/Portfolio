@@ -27,7 +27,7 @@ export default function SkillCategory({
   return (
     <AnimatedCard>
       <Card className="h-full">
-        <div className="space-y-8">
+        <div className="flex h-full flex-col gap-8">
           <div className="space-y-3">
             <div className="flex items-center gap-3">
               <div className="rounded-lg bg-[var(--secondary)] p-2 text-[var(--accent)]">

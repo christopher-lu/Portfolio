@@ -197,12 +197,12 @@ export const technologies = {
     category: "cloud",
   },
 
-  "Google Cloud Platform": {
-    label: "Google Cloud Platform",
-    icon: SiGooglecloud,
-    href: "https://cloud.google.com",
-    category: "cloud",
-  },
+ "Google Cloud": {
+  label: "Google Cloud",
+  icon: SiGooglecloud,
+  href: "https://cloud.google.com",
+  category: "cloud",
+},
 
   Cloud: {
   label: "Cloud",
@@ -215,6 +215,30 @@ export const technologies = {
     href: "https://aws.amazon.com",
     category: "cloud",
   },
+
+  IAM: {
+  label: "IAM",
+  href: "https://aws.amazon.com/iam",
+  category: "cloud",
+},
+
+EC2: {
+  label: "EC2",
+  href: "https://aws.amazon.com/ec2",
+  category: "cloud",
+},
+
+S3: {
+  label: "S3",
+  href: "https://aws.amazon.com/s3",
+  category: "cloud",
+},
+
+VPC: {
+  label: "VPC",
+  href: "https://aws.amazon.com/vpc",
+  category: "cloud",
+},
 
   "Tailwind CSS": {
     label: "Tailwind CSS",

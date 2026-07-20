@@ -1,5 +1,10 @@
 import type { TechnologyName } from "@/lib/technologies";
 
+export type CertificationStatus =
+  | "Earned"
+  | "In Progress"
+  | "Planned";
+
 export interface Certification {
   id: string;
 
@@ -7,17 +12,15 @@ export interface Certification {
 
   issuer: string;
 
-  issuerHref?: string;
+  issued: string;
 
-  issueDate: string;
+  description: string;
 
-  expirationDate?: string;
-
-  credentialId?: string;
+  technologies: TechnologyName[];
 
   credentialUrl?: string;
 
-  skills: TechnologyName[];
+  status: CertificationStatus;
 
-  featured?: boolean;
+  displayOrder: number;
 }
