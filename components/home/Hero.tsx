@@ -15,15 +15,11 @@ export default function Hero() {
           </h1>
 
           <p className="mt-6 text-2xl font-semibold">
-            Full Stack Software Engineer
+            A Full Stack Software Engineer
           </p>
 
           <p className="mt-8 text-lg leading-8 text-[var(--muted-foreground)]">
-            I build scalable web applications, cloud-native developer
-            tools, and modern user experiences with React, Next.js,
-            TypeScript, Node.js, and Kubernetes. I enjoy solving
-            complex engineering problems through thoughtful
-            architecture, clean code, and intuitive user experiences.
+            I build scalable web applications, cloud-native developer tools, and modern user experiences with React, Next.js, TypeScript, Node.js, and Kubernetes. I enjoy solving complex engineering problems through thoughtful architecture, clean code, and intuitive user experiences.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">

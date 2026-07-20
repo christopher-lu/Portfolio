@@ -3,13 +3,15 @@ import Button from "@/components/ui/Button";
 interface ProjectLinksProps {
   github?: string;
   demo?: string;
+  website?: string;
 }
 
 export default function ProjectLinks({
   github,
   demo,
+  website,
 }: ProjectLinksProps) {
-  if (!github && !demo) return null;
+  if (!github && !demo &&!website) return null;
 
   return (
     <div className="flex flex-wrap gap-3 pt-2">
@@ -32,6 +34,18 @@ export default function ProjectLinks({
           Live Demo
         </Button>
       )}
+
+      {website && (
+        <Button
+          href={website}
+          variant="github"
+          external
+        >
+          Website
+        </Button>
+      )}
+
+      
     </div>
   );
 }

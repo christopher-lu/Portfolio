@@ -103,6 +103,16 @@ export default function FeaturedProjectCard({
                   Live Demo
                 </Button>
               )}
+
+              {project.website && (
+                <Button
+                  href={project.website}
+                  variant="github"
+                  external
+                >
+                  View Website
+                </Button>
+              )}
             </div>
           </div>
         </div>

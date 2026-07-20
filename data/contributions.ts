@@ -44,9 +44,9 @@ export const contributions: Contribution[] = [
 
     organization: "CaseBlink Software Engineering Speaker Series",
 
-    date: "2026-01", // Placeholder
+    date: "2023-12",
 
-    description: "Description coming soon.",
+    description: "A discussion on the implementation of GraphQL and REST with focus on the key differences and trade offs of utilization.",
 
     href: "#",
 

@@ -5,7 +5,7 @@ export const experiences: Experience[] = [
     id: "tern-systems",
 
     company: "Tern Systems",
-    companyUrl: "https://ternsystems.com",
+    companyUrl: "https://tern.ac",
 
     role: "Full Stack Software Engineer",
     employmentType: "Full-time",
@@ -131,7 +131,7 @@ export const experiences: Experience[] = [
     company: "Apple",
     companyUrl: "https://apple.com",
 
-    role: "Technical Specialist",
+    role: "Specialist (Product, Business, & Tier 1 Voice/Chat Support)",
     employmentType: "Full-time",
 
     location: "New York, NY",

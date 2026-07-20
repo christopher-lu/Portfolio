@@ -4,13 +4,13 @@ export default function JourneyCard() {
   return (
     <AboutCard title="My Journey">
       <p>
-        My career began in healthcare after studying Biology at Stony Brook
+        My career began with having a passion for improving peoples lives through studying Biology at Stony Brook
         University, where I developed a strong appreciation for analytical
         thinking, attention to detail, and solving complex problems.
       </p>
 
       <p>
-        Those experiences naturally led me to software engineering, where I
+        Through my career journey pivoting into providing technology based solutions to business clients and general consumers, I
         discovered a passion for building tools that improve workflows,
         automate repetitive tasks, and create meaningful user experiences.
       </p>

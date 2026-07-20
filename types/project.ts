@@ -36,6 +36,7 @@ export interface Project {
 
   github?: string;
   demo?: string;
+  website?:string;
 
   status: ProjectStatus;
   category: ProjectCategory;

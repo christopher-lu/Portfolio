@@ -6,14 +6,13 @@ export const personal: Personal = {
   title: "Full Stack Software Engineer",
 
   tagline:
-    "Building scalable cloud-native applications and AI-powered solutions that improve peoples lives.",
+    "Building scalable cloud-native applications and web development that improve peoples lives.",
 
   bio: `
 I am a full-stack software engineer passionate about designing scalable,
 secure,and maintainable software solutions.
 
-My experience spans healthcare technology, enterprise software,
-cloud architecture, artificial intelligence, and modern web development.
+My experience encompasses modern web development and cloud architecture, 
 
 I enjoy transforming complex business requirements into intuitive,
 high-performance applications while emphasizing clean architecture,
@@ -47,7 +46,7 @@ learning and sharing knowledge with others.
     },
     {
       label: "Projects",
-      value: "5+",
+      value: "2+",
     },
     {
       label: "Publications",
