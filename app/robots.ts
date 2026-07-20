@@ -1,12 +1,14 @@
 import type { MetadataRoute } from "next";
 
-//replace sitemap with deployed url
+import { siteConfig } from "@/data/siteConfig";
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://YOUR-DOMAIN.vercel.app/sitemap.xml",
+    sitemap: `${siteConfig.url}/sitemap.xml`,
+    host: siteConfig.url,
   };
 }

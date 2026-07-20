@@ -3,18 +3,18 @@ import { Inter } from "next/font/google";
 
 import "./globals.css";
 
+import  ThemeProvider  from "@/providers/ThemeProvider";
 import { siteConfig } from "@/data/siteConfig";
 
 const inter = Inter({
   subsets: ["latin"],
-  display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
 
   title: {
-    default: `${siteConfig.name} | ${siteConfig.title}`,
+    default: siteConfig.title,
     template: `%s | ${siteConfig.name}`,
   },
 
@@ -26,63 +26,49 @@ export const metadata: Metadata = {
 
   authors: [
     {
-      name: siteConfig.name,
-      url: siteConfig.url,
+      name: siteConfig.author,
     },
   ],
 
-  creator: siteConfig.name,
+  creator: siteConfig.author,
 
-  publisher: siteConfig.name,
+  publisher: siteConfig.author,
 
   alternates: {
-    canonical: "/",
+    canonical: siteConfig.url,
   },
 
   robots: {
     index: true,
     follow: true,
-
     googleBot: {
       index: true,
       follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
     },
   },
 
   openGraph: {
     type: "website",
-
-    url: siteConfig.url,
-
-    siteName: siteConfig.name,
-
-    title: `${siteConfig.name} | ${siteConfig.title}`,
-
-    description: siteConfig.description,
-
     locale: siteConfig.locale,
-
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: siteConfig.title,
+    description: siteConfig.description,
     images: [
       {
-        url: "/opengraph-image",
+        url: siteConfig.socialImage,
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} Portfolio`,
+        alt: siteConfig.name,
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-
-    title: `${siteConfig.name} | ${siteConfig.title}`,
-
+    title: siteConfig.title,
     description: siteConfig.description,
-
-    images: ["/opengraph-image"],
+    images: [siteConfig.socialImage],
   },
 };
 
@@ -94,10 +80,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        {/* ThemeProvider */}
-        {/* Navbar */}
-        {children}
-        {/* Footer */}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
