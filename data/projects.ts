@@ -34,7 +34,7 @@ export const projects: Project[] = [
 
     github: "https://github.com/oslabs-beta/KlusterBud",
 
-    website: "https://klusterbud.com",
+    website: "",
 
     status: "Completed",
 

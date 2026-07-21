@@ -6,9 +6,11 @@ import "./globals.css";
 import ThemeProvider from "@/providers/ThemeProvider";
 import Navbar from "@/components/navigation/Navbar";
 import { siteConfig } from "@/data/siteConfig";
+import StructuredData from "@/components/seo/StructuredData";
 
 const inter = Inter({
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -84,6 +86,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider>
+          <StructuredData />
+
           <Navbar />
 
           <main className="pt-20">
