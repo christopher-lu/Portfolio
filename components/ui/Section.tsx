@@ -21,7 +21,10 @@ export default function Section({
   return (
     <section
       id={id}
-      className={cn("py-16 md:py-20", className)}
+      className={cn(
+        "pt-8 pb-16 md:pt-10 md:pb-20",
+        className
+      )}
     >
       <Container>
         {(title || description) && (
