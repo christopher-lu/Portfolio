@@ -33,6 +33,7 @@ export default function FeaturedProjectCard({
           <div className="flex items-center justify-center bg-[color-mix(in_srgb,var(--card)_96%,var(--foreground)_4%)]">
             <ProjectImage
               image={project.image}
+              video={project.video}
               title={project.title}
               variant="featured"
             />
@@ -98,6 +99,7 @@ export default function FeaturedProjectCard({
               {project.demo && (
                 <Button
                   href={project.demo}
+                  variant="github"
                   external
                 >
                   Live Demo

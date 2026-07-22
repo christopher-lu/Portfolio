@@ -6,6 +6,7 @@ type ProjectImageVariant = "card" | "featured";
 
 interface ProjectImageProps {
   image?: string;
+  video?: string;
   title: string;
   variant?: ProjectImageVariant;
 }

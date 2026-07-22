@@ -30,6 +30,7 @@ export interface Project {
    * Stored under /public/projects.
    */
   image?: string;
+  video?: string;
 
   technologies: TechnologyName[];
   highlights: string[];

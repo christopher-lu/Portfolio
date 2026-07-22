@@ -29,7 +29,7 @@ learning and sharing knowledge with others.
 
   website: "",
 
-  resume: "/Christopher_Lu_Resume.pdf",
+  resume: "/resume/Christopher_Lu_SWE2026.pdf",
 
   social: {
     email: "lu.christopher.m@gmail.com",

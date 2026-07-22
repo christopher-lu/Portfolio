@@ -6,6 +6,8 @@ export const projects: Project[] = [
 
     title: "KlusterBud",
 
+    image: "/images/projects/klusterbuddash.webp",
+
     tagline: "Kubernetes monitoring platform",
 
     description:
@@ -34,6 +36,8 @@ export const projects: Project[] = [
 
     github: "https://github.com/oslabs-beta/KlusterBud",
 
+    demo: "/videos/projects/klusterbuddemo.mp4",
+
     website: "",
 
     status: "Completed",
@@ -47,6 +51,8 @@ export const projects: Project[] = [
     id: "portfolio",
 
     title: "Developer Portfolio",
+
+    image: "/images/projects/portfolio.webp",
 
     tagline: "Modern portfolio built with Next.js",
 

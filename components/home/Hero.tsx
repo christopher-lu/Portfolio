@@ -28,7 +28,7 @@ export default function Hero() {
             </Button>
 
             <Button
-              href="/resume/Christopher_Lu_Resume.pdf"
+              href="/resume/Christopher_Lu_SWE2026.pdf"
               variant="outline"
             >
               Resume
