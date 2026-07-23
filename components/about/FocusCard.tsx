@@ -10,6 +10,8 @@ export default function FocusCard() {
         observability tooling.
       </p>
 
+      <p>Additionally I am furthering my knowledge on the implementation of AI within workflows. Whether it is creating agents to live within the workspace to utilizing it as a tool to support and enhance workflows.</p>
+
       <p>
         I enjoy projects that combine intuitive user experiences with reliable
         backend systems, allowing teams to build, deploy, and maintain software
