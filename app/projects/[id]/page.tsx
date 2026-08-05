@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import BackLink from "@/components/navigation/BackLink";
 
 import Container from "@/components/layouts/Container";
 import EngineeringStory from "@/components/engineering-story/EngineeringStory";
@@ -33,7 +34,10 @@ export default function ProjectPage({
   }
 
   return (
-    <Container className="space-y-20 py-20">
+    <Container className="space-y-24 py-20">
+        <BackLink href="/projects">
+            Back to Projects
+        </BackLink>
       <ProjectHeader project={project} />
 
       <ProjectOverview project={project} />

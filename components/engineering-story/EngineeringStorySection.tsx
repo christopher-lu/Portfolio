@@ -1,21 +1,20 @@
-interface EngineeringStorySectionProps {
-  title: string;
+import type { EngineeringStorySection as StorySection } from "@/types/engineering-story";
 
-  content: string;
+interface EngineeringStorySectionProps {
+  section: StorySection;
 }
 
 export default function EngineeringStorySection({
-  title,
-  content,
+  section,
 }: EngineeringStorySectionProps) {
   return (
-    <section className="space-y-3">
+    <section className="space-y-4">
       <h3 className="text-2xl font-semibold tracking-tight">
-        {title}
+        {section.title}
       </h3>
 
       <p className="leading-8 text-[var(--muted-foreground)]">
-        {content}
+        {section.body}
       </p>
     </section>
   );

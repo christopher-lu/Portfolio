@@ -137,8 +137,8 @@ export const projects: Project[] = [
 
           title: "Problem",
 
-          content:
-            "Debugging Kubernetes clusters typically requires switching between kubectl, Prometheus, and Grafana, forcing developers to piece together cluster health across multiple tools."
+          body:
+            "Debugging Kubernetes clusters often requires developers to switch between kubectl, Prometheus, and Grafana to understand pod health and cluster behavior. This fragmented workflow increases context switching and slows down incident investigation, particularly for developers who may not be Kubernetes experts.",
         },
 
         {
@@ -148,10 +148,10 @@ export const projects: Project[] = [
 
           title: "Results",
 
-          content:
-            "KlusterBud consolidated observability into a single dashboard, allowing developers to monitor replica health, visualize Prometheus metrics, and identify anomalies without leaving the application."
-        }
-      ]
+          body:
+            "KlusterBud consolidated cluster health, replica status, and Prometheus metrics into a unified interface, allowing developers to monitor workloads and identify anomalies without constantly switching between multiple observability tools.",
+        },
+      ],
     },
 
     resources: [

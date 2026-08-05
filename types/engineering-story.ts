@@ -15,7 +15,7 @@ export interface EngineeringStorySection {
 
   title: string;
 
-  content: string;
+  body: string;
 
   featured?: boolean;
 }

@@ -1,3 +1,5 @@
+import SectionHeading from "@/components/ui/SectionHeading";
+
 import EngineeringStorySection from "./EngineeringStorySection";
 
 import type { EngineeringStory as EngineeringStoryType } from "@/types/engineering-story";
@@ -10,14 +12,17 @@ export default function EngineeringStory({
   story,
 }: EngineeringStoryProps) {
   return (
-    <div className="space-y-12">
+    <section className="space-y-16">
+      <SectionHeading>
+        Engineering Insights
+      </SectionHeading>
+
       {story.sections.map((section) => (
         <EngineeringStorySection
           key={section.id}
-          title={section.title}
-          content={section.content}
+          section={section}
         />
       ))}
-    </div>
+    </section>
   );
 }
