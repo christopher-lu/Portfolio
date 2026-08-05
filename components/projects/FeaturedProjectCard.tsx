@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import ProjectImage from "@/components/projects/ProjectImage";
 import ProjectLinks from "@/components/projects/project-card/ProjectLinks";
-import { projectStatusConfig } from "@/lib/status/projectStatus";
+import { projectStatusConfig } from "@/lib/status";
 
 import Callout from "@/components/ui/Callout";
 import Card from "@/components/ui/Card";
