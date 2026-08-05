@@ -21,12 +21,15 @@ import {
   SiJira,
   SiKubernetes,
   SiMongodb,
+  SiNestjs,
   SiNextdotjs,
   SiNodedotjs,
   SiPostgresql,
+  SiPrisma,
   SiPrometheus,
   SiReact,
   SiRedux,
+  SiRedis,
   SiSass,
   SiTailwindcss,
   SiTestinglibrary,
@@ -49,11 +52,15 @@ import type { Technology } from "@/types/technology";
 export const technologyCategoryOrder = [
   "frontend",
   "backend",
+  "mobile",
   "language",
   "cloud",
   "devops",
   "tooling",
+  "platform",
+  "support",
 ] as const;
+
 
 export const technologyCategoryMetadata = {
   frontend: {
@@ -68,6 +75,13 @@ export const technologyCategoryMetadata = {
     description:
       "Server-side development, APIs, and databases.",
     icon: Server,
+  },
+
+  mobile: {
+    title: "Mobile",
+    description:
+      "Cross-platform mobile application development.",
+    icon: Monitor,
   },
 
   language: {
@@ -120,6 +134,18 @@ export const technologies = {
     category: "frontend",
   },
 
+  "React Native": {
+    label: "React Native",
+    href: "https://reactnative.dev",
+    category: "mobile",
+  },
+
+  Expo: {
+    label: "Expo",
+    href: "https://expo.dev",
+    category: "mobile",
+  },
+
   "Next.js": {
     label: "Next.js",
     icon: SiNextdotjs,
@@ -152,6 +178,33 @@ export const technologies = {
     label: "Express",
     icon: SiExpress,
     href: "https://expressjs.com",
+    category: "backend",
+  },
+
+  NestJS: {
+    label: "NestJS",
+    icon: SiNestjs,
+    href: "https://nestjs.com",
+    category: "backend",
+  },
+
+  Prisma: {
+    label: "Prisma",
+    icon: SiPrisma,
+    href: "https://www.prisma.io",
+    category: "backend",
+  },
+
+  Redis: {
+    label: "Redis",
+    icon: SiRedis,
+    href: "https://redis.io",
+    category: "backend",
+  },
+
+  JWT: {
+    label: "JWT",
+    href: "https://jwt.io",
     category: "backend",
   },
 

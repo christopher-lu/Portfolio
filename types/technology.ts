@@ -3,6 +3,7 @@ import type { IconType } from "react-icons";
 export type TechnologyCategory =
   | "frontend"
   | "backend"
+  | "mobile"
   | "language"
   | "cloud"
   | "devops"

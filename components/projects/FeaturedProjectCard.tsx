@@ -3,8 +3,9 @@
 import { motion } from "framer-motion";
 
 import ProjectImage from "@/components/projects/ProjectImage";
+import ProjectLinks from "@/components/projects/project-card/ProjectLinks";
+import { projectStatusConfig } from "@/lib/status/projectStatus";
 
-import Button from "@/components/ui/Button";
 import Callout from "@/components/ui/Callout";
 import Card from "@/components/ui/Card";
 import HighlightsList from "@/components/ui/HighlightsList";
@@ -32,8 +33,8 @@ export default function FeaturedProjectCard({
         <div className="grid lg:grid-cols-2">
           <div className="flex items-center justify-center bg-[color-mix(in_srgb,var(--card)_96%,var(--foreground)_4%)]">
             <ProjectImage
-              image={project.image}
-              video={project.video}
+              image={project.media?.cover ?? project.image}
+              video={project.media?.video ?? project.video}
               title={project.title}
               variant="featured"
             />
@@ -55,7 +56,10 @@ export default function FeaturedProjectCard({
                 </p>
               </div>
 
-              <StatusBadge status={project.status} />
+              <StatusBadge
+                status={project.status}
+                config={projectStatusConfig}
+              />
             </div>
 
             {project.impact && (
@@ -85,37 +89,10 @@ export default function FeaturedProjectCard({
               />
             </div>
 
-            <div className="mt-auto flex flex-wrap gap-4 pt-10">
-              {project.github && (
-                <Button
-                  href={project.github}
-                  variant="github"
-                  external
-                >
-                  View GitHub
-                </Button>
-              )}
-
-              {project.demo && (
-                <Button
-                  href={project.demo}
-                  variant="github"
-                  external
-                >
-                  Live Demo
-                </Button>
-              )}
-
-              {project.website && (
-                <Button
-                  href={project.website}
-                  variant="github"
-                  external
-                >
-                  View Website
-                </Button>
-              )}
-            </div>
+            <ProjectLinks
+              resources={project.resources}
+              className="mt-auto pt-10"
+            />
           </div>
         </div>
       </Card>

@@ -1,4 +1,5 @@
 import type { Certification } from "@/types/certification";
+import { certificationStatusConfig } from "@/lib/status/certificationStatus";
 
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
@@ -32,6 +33,7 @@ export default function CertificationCard({
 
         <StatusBadge
           status={certification.status}
+          config={certificationStatusConfig}
           className="shrink-0 self-start"
         />
       </header>

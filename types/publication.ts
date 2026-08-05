@@ -1,13 +1,21 @@
+import type { TechnologyName } from "@/lib/technologies";
+
+export type PublicationType =
+  | "Research Paper"
+  | "Technical Article"
+  | "White Paper"
+  | "Conference";
+
+export type PublicationStatus =
+  | "Published"
+  | "Draft";
+
 export interface Publication {
   id: string;
 
   title: string;
 
-  type:
-    | "Research Paper"
-    | "Technical Article"
-    | "White Paper"
-    | "Conference";
+  type: PublicationType;
 
   publisher: string;
 
@@ -15,9 +23,11 @@ export interface Publication {
 
   summary: string;
 
-  technologies: string[];
+  technologies: TechnologyName[];
 
   url?: string;
 
   featured: boolean;
+
+  status: PublicationStatus;
 }

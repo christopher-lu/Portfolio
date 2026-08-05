@@ -1,5 +1,6 @@
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
+import { publicationStatusConfig } from "@/lib/status/publicationStatus";
 
 import type { Publication } from "@/types/publication";
 
