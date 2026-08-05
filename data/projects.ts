@@ -126,6 +126,34 @@ export const projects: Project[] = [
 
     metrics: [],
 
+    engineeringStory: {
+      featured: true,
+
+      sections: [
+        {
+          id: "problem",
+
+          type: "problem",
+
+          title: "Problem",
+
+          content:
+            "Debugging Kubernetes clusters typically requires switching between kubectl, Prometheus, and Grafana, forcing developers to piece together cluster health across multiple tools."
+        },
+
+        {
+          id: "results",
+
+          type: "results",
+
+          title: "Results",
+
+          content:
+            "KlusterBud consolidated observability into a single dashboard, allowing developers to monitor replica health, visualize Prometheus metrics, and identify anomalies without leaving the application."
+        }
+      ]
+    },
+
     resources: [
       {
         type: "github",

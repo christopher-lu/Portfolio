@@ -1,4 +1,5 @@
 import type { TechnologyName } from "@/lib/technologies";
+import type { EngineeringStory } from "./engineering-story";
 
 export type ProjectStatus =
   | "Completed"
@@ -62,6 +63,8 @@ export interface Project {
   metrics?: ProjectMetric[];
 
   media?: ProjectMedia;
+
+  engineeringStory?: EngineeringStory;
 
   resources?: ProjectResource[];
 
