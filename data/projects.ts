@@ -1,4 +1,9 @@
 import type { Project } from "@/types/project";
+import {
+    klusterbudStory,
+    didtStory,
+    portfolioStory,
+} from "./engineering-stories";
 
 export const projects: Project[] = [
   {
@@ -54,6 +59,8 @@ export const projects: Project[] = [
     ],
 
     metrics: [],
+
+    engineeringStory: didtStory,
 
     resources: [
       {
@@ -126,33 +133,7 @@ export const projects: Project[] = [
 
     metrics: [],
 
-    engineeringStory: {
-      featured: true,
-
-      sections: [
-        {
-          id: "problem",
-
-          type: "problem",
-
-          title: "Problem",
-
-          body:
-            "Debugging Kubernetes clusters often requires developers to switch between kubectl, Prometheus, and Grafana to understand pod health and cluster behavior. This fragmented workflow increases context switching and slows down incident investigation, particularly for developers who may not be Kubernetes experts.",
-        },
-
-        {
-          id: "results",
-
-          type: "results",
-
-          title: "Results",
-
-          body:
-            "KlusterBud consolidated cluster health, replica status, and Prometheus metrics into a unified interface, allowing developers to monitor workloads and identify anomalies without constantly switching between multiple observability tools.",
-        },
-      ],
-    },
+    engineeringStory: klusterbudStory,
 
     resources: [
       {
@@ -210,6 +191,8 @@ export const projects: Project[] = [
     ],
 
     metrics: [],
+
+    engineeringStory: portfolioStory,
 
     resources: [
       {

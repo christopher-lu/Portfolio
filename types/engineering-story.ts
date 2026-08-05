@@ -9,19 +9,25 @@ export type EngineeringStorySectionType =
   | "gallery";
 
 export interface EngineeringStorySection {
-  id: string;
+  readonly id: string;
 
-  type: EngineeringStorySectionType;
+  readonly type: EngineeringStorySectionType;
 
-  title: string;
+  readonly title: string;
 
-  body: string;
+  readonly body: string;
 
-  featured?: boolean;
+  readonly featured?: boolean;
 }
 
 export interface EngineeringStory {
-  featured?: boolean;
+  readonly featured?: boolean;
 
-  sections: EngineeringStorySection[];
+  /**
+   * Short summary used for previews, SEO,
+   * related content, and future cards.
+   */
+  readonly summary?: string;
+
+  readonly sections: readonly EngineeringStorySection[];
 }
