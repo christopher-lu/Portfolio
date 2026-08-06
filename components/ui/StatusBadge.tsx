@@ -1,20 +1,22 @@
 import Badge from "@/components/ui/Badge";
 
-import {
-  statusConfig,
-  type Status,
-} from "@/lib/status";
+interface StatusConfig {
+  label: string;
+  variant: React.ComponentProps<typeof Badge>["variant"];
+}
 
-interface StatusBadgeProps {
-  status: Status;
+interface StatusBadgeProps<T extends string> {
+  status: T;
+  config: Record<T, StatusConfig>;
   className?: string;
 }
 
-export default function StatusBadge({
+export default function StatusBadge<T extends string>({
   status,
+  config,
   className,
-}: StatusBadgeProps) {
-  const { variant, label } = statusConfig[status];
+}: StatusBadgeProps<T>) {
+  const { label, variant } = config[status];
 
   return (
     <Badge

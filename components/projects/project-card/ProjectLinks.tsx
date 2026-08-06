@@ -1,37 +1,43 @@
+import clsx from "clsx";
+
 import Button from "@/components/ui/Button";
 
+import type { ProjectResource } from "@/types/project";
+
 interface ProjectLinksProps {
-  github?: string;
-  demo?: string;
+  resources?: ProjectResource[];
+  className?: string;
 }
 
 export default function ProjectLinks({
-  github,
-  demo,
+  resources = [],
+  className,
 }: ProjectLinksProps) {
-  if (!github && !demo) return null;
+  if (resources.length === 0) {
+    return null;
+  }
 
   return (
-    <div className="flex flex-wrap gap-3 pt-2">
-      {github && (
+    <div
+      className={clsx(
+        "flex flex-wrap gap-3 pt-2",
+        className
+      )}
+    >
+      {resources.map((resource) => (
         <Button
-          href={github}
-          variant="github"
+          key={`${resource.type}-${resource.label}`}
+          href={resource.href}
+          variant={
+            resource.type === "github"
+              ? "github"
+              : "primary"
+          }
           external
         >
-          GitHub
+          {resource.label}
         </Button>
-      )}
-
-      {demo && (
-        <Button
-          href={demo}
-          variant="primary"
-          external
-        >
-          Live Demo
-        </Button>
-      )}
+      ))}
     </div>
   );
 }

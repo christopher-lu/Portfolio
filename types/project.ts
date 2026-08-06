@@ -1,17 +1,44 @@
 import type { TechnologyName } from "@/lib/technologies";
+import type { EngineeringStory } from "./engineering-story";
+import type { ArchitectureDiagram } from "./architecture";
 
 export type ProjectStatus =
   | "Completed"
   | "In Progress"
-  | "Planned";
+  | "MVP"
+  | "Production"
+  | "Archived";
 
 export type ProjectCategory =
   | "Frontend"
   | "Backend"
   | "Full Stack"
-  | "Mobile"
-  | "AI"
-  | "Healthcare";
+  | "Open Source"
+  | "Mobile";
+
+export type ProjectResourceType =
+  | "github"
+  | "website"
+  | "demo"
+  | "documentation";
+
+export interface ProjectMetric {
+  label: string;
+  value: string;
+}
+
+export interface ProjectMedia {
+  cover?: string;
+  poster?: string;
+  video?: string;
+  gallery?: string[];
+}
+
+export interface ProjectResource {
+  type: ProjectResourceType;
+  label: string;
+  href: string;
+}
 
 export interface Project {
   id: string;
@@ -19,36 +46,40 @@ export interface Project {
   title: string;
   tagline: string;
   description: string;
-
-  /**
-   * One-sentence business or engineering impact.
-   */
   impact?: string;
 
-  /**
-   * Image shown on project cards.
-   * Stored under /public/projects.
+  category: ProjectCategory;
+  status: ProjectStatus;
+
+  featured?: boolean;
+
+  featuredPriority?: number;
+
+  displayOrder: number;
+
+  technologies: TechnologyName[];
+
+  highlights: string[];
+
+  metrics?: ProjectMetric[];
+
+  media?: ProjectMedia;
+
+  architecture?: ArchitectureDiagram;
+
+  engineeringStory?: EngineeringStory;
+
+  resources?: ProjectResource[];
+
+  /*
+   * Legacy fields.
+   * Remove after Project migration is complete.
    */
+
   image?: string;
   video?: string;
 
-  technologies: TechnologyName[];
-  highlights: string[];
-
   github?: string;
   demo?: string;
-  website?:string;
-
-  status: ProjectStatus;
-  category: ProjectCategory;
-
-  /**
-   * Controls display priority.
-   * Lower numbers appear first.
-   * displayOrder === 1 is used as the Featured Project.
-   */
-  displayOrder: number;
-
-  startDate?: string;
-  endDate?: string;
+  website?: string;
 }

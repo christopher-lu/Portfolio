@@ -13,7 +13,7 @@ export const publications: Publication[] = [
     published: "2023",
 
     summary:
-      "How the developer tool Klusterbud supports a more streamlined workflow for detecting anomolies within your Kubernetes cluster.",
+      "How the developer tool KlusterBud supports a more streamlined workflow for detecting anomalies within Kubernetes clusters.",
 
     technologies: [
       "Kubernetes",
@@ -26,8 +26,11 @@ export const publications: Publication[] = [
       "Express",
     ],
 
-    url: "https://medium.com/@AMitchell-Smith/klusterbud-k8s-anomaly-detection-made-simple-060ca496aebc",
+    url:
+      "https://medium.com/@AMitchell-Smith/klusterbud-k8s-anomaly-detection-made-simple-060ca496aebc",
 
     featured: true,
+
+    status: "Published",
   },
 ];

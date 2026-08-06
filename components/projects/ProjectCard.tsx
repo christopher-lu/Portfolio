@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 import ProjectImage from "@/components/projects/ProjectImage";
 import ProjectLinks from "@/components/projects/project-card/ProjectLinks";
+import { projectStatusConfig } from "@/lib/status";
 
 import Callout from "@/components/ui/Callout";
 import HighlightsList from "@/components/ui/HighlightsList";
@@ -41,7 +42,8 @@ export default function ProjectCard({
     >
       <div className="mb-6 overflow-hidden rounded-xl border border-[var(--border)]">
         <ProjectImage
-          image={project.image}
+          image={project.media?.cover ?? project.image}
+          video={project.media?.video ?? project.video}
           title={project.title}
         />
       </div>
@@ -57,7 +59,10 @@ export default function ProjectCard({
           </p>
         </div>
 
-        <StatusBadge status={project.status} />
+        <StatusBadge
+          status={project.status}
+          config={projectStatusConfig}
+        />
       </header>
 
       {project.impact && (
@@ -80,9 +85,7 @@ export default function ProjectCard({
         />
 
         <ProjectLinks
-          github={project.github}
-          demo={project.demo}
-        //   website={project.website}
+          resources={project.resources}
         />
       </div>
     </motion.article>

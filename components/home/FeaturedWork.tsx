@@ -4,12 +4,19 @@ import Button from "@/components/ui/Button";
 
 import { projects } from "@/data/projects";
 
-export default function FeaturedWork() {
-  const featuredProject = projects.find(
-    (project) => project.displayOrder === 1
-  );
+const MAX_FEATURED_PROJECTS = 1;
 
-  if (!featuredProject) {
+export default function FeaturedWork() {
+  const featuredProjects = projects
+    .filter((project) => project.featured)
+    .sort(
+      (a, b) =>
+        (a.featuredPriority ?? Number.MAX_SAFE_INTEGER) -
+        (b.featuredPriority ?? Number.MAX_SAFE_INTEGER)
+    )
+    .slice(0, MAX_FEATURED_PROJECTS);
+
+  if (featuredProjects.length === 0) {
     return null;
   }
 
@@ -18,22 +25,28 @@ export default function FeaturedWork() {
       <Container>
         <header className="mb-12 max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-widest text-[var(--accent)]">
-            Selected Work
+            Featured Work
           </p>
 
           <h2 className="mt-3 text-4xl font-bold tracking-tight">
-            Featured Work
+            Selected Projects
           </h2>
 
           <p className="mt-4 text-lg leading-8 text-[var(--muted-foreground)]">
-            A closer look at one of my favorite projects,
-            showcasing modern full stack engineering,
-            cloud-native infrastructure, and thoughtful
-            developer experiences.
+            A collection of projects highlighting full-stack engineering,
+            cloud-native infrastructure, scalable application architecture,
+            and modern user experiences.
           </p>
         </header>
 
-        <FeaturedProjectCard project={featuredProject} />
+        <div className="space-y-16">
+          {featuredProjects.map((project) => (
+            <FeaturedProjectCard
+              key={project.id}
+              project={project}
+            />
+          ))}
+        </div>
 
         <div className="mt-12 flex justify-center">
           <Button href="/projects" variant="outline">
