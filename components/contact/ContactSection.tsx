@@ -53,7 +53,7 @@ const contacts = [
     title: "Resume",
     description:
       "Download my latest resume to learn more about my experience and technical background.",
-    buttonLabel: "Download Resume",
+    buttonLabel: "View Resume",
     href: personal.resume,
     icon: FileText,
     external: true,

@@ -15,7 +15,7 @@ export default function ResumeButton({
       href="/Christopher_Lu_Resume.pdf"
       variant={variant}
     >
-      Download Resume
+      View Resume
     </Button>
   );
 }
