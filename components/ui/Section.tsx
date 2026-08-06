@@ -1,14 +1,27 @@
-import type { ReactNode } from "react";
+import type {
+  ComponentPropsWithoutRef,
+  ReactNode,
+} from "react";
 
 import Container from "@/components/layouts/Container";
 import { cn } from "@/lib/utils";
 
+type HeadingTag = "h1" | "h2" | "h3";
+
 interface SectionProps {
   id?: string;
+
   title?: string;
+
   description?: string;
+
   children: ReactNode;
+
   className?: string;
+
+  as?: HeadingTag;
+
+  headingProps?: ComponentPropsWithoutRef<HeadingTag>;
 }
 
 export default function Section({
@@ -17,7 +30,11 @@ export default function Section({
   description,
   children,
   className,
+  as = "h2",
+  headingProps,
 }: SectionProps) {
+  const Heading = as;
+
   return (
     <section
       id={id}
@@ -30,9 +47,12 @@ export default function Section({
         {(title || description) && (
           <header className="mb-12 max-w-3xl">
             {title && (
-              <h2 className="text-4xl font-bold tracking-tight">
+              <Heading
+                className="text-4xl font-bold tracking-tight"
+                {...headingProps}
+              >
                 {title}
-              </h2>
+              </Heading>
             )}
 
             {description && (

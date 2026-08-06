@@ -31,7 +31,12 @@ export default function TechBadge({
         className
       )}
     >
-      {Icon && <Icon className="h-4 w-4 shrink-0" />}
+      {Icon && (
+        <Icon
+          aria-hidden="true"
+          className="h-4 w-4 shrink-0"
+        />
+      )}
 
       <span>{technology.label}</span>
     </Badge>
@@ -43,7 +48,15 @@ export default function TechBadge({
         href={technology.href}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`View ${technology.label} documentation`}
+        aria-label={`Open ${technology.label} documentation in a new tab`}
+        className="
+          rounded-md
+          focus-visible:outline-none
+          focus-visible:ring-2
+          focus-visible:ring-[var(--accent)]
+          focus-visible:ring-offset-2
+          focus-visible:ring-offset-[var(--background)]
+        "
       >
         {content}
       </a>

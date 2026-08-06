@@ -19,6 +19,7 @@ export default function AboutSection() {
   return (
     <Section
       id="about"
+      as="h1"
       title="About"
       description="A little about who I am, how I approach engineering, and what continues to motivate me as a software developer."
     >

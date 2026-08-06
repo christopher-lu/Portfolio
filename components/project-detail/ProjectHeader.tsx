@@ -1,6 +1,6 @@
 import ProjectImage from "@/components/projects/ProjectImage";
-import StatusBadge from "@/components/ui/StatusBadge";
 import ProjectLinks from "@/components/projects/project-card/ProjectLinks";
+import StatusBadge from "@/components/ui/StatusBadge";
 
 import { projectStatusConfig } from "@/lib/status";
 
@@ -16,11 +16,15 @@ export default function ProjectHeader({
   return (
     <header className="space-y-8">
       <ProjectImage
-        image={project.image}
-        video={project.video}
+        image={project.media?.cover ?? project.image}
+        video={project.media?.video ?? project.video}
         title={project.title}
         variant="featured"
-      />
+        placeholderTitle={project.media?.placeholderTitle}
+        placeholderDescription={
+            project.media?.placeholderDescription
+        }
+        />
 
       <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
         <div className="space-y-3">
@@ -41,7 +45,8 @@ export default function ProjectHeader({
 
       <ProjectLinks
         resources={project.resources}
-      />
+        resourceNotice={project.resourceNotice}
+        />
     </header>
   );
 }

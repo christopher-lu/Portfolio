@@ -16,7 +16,7 @@ export const projects: Project[] = [
   {
     id: "didt",
 
-    title: "DIDT",
+    title: "Did I Do That (DIDT)",
 
     tagline: "Cross-platform digital habit tracking ecosystem",
 
@@ -36,10 +36,13 @@ export const projects: Project[] = [
 
     displayOrder: 1,
 
-    image: "/images/projects/didt.webp",
+    image: undefined,
 
     media: {
-      cover: "/images/projects/didt.webp",
+      placeholderTitle: "Project Preview",
+
+      placeholderDescription:
+        "UI currently under active development. Screenshots will be published as major milestones are completed.",
     },
 
     technologies: [
@@ -71,21 +74,27 @@ export const projects: Project[] = [
 
     engineeringStory: didtStory,
 
+    resourceNotice:
+      "Source code is currently private while Did I Do That (DIDT) is under active development. Public repositories will be released as development milestones are completed.",
+
     resources: [
       {
         type: "github",
         label: "Backend API",
         href: "https://github.com/christopher-lu/didt-backend",
+        public: false,
       },
       {
         type: "github",
         label: "Web App",
         href: "https://github.com/christopher-lu/didt-web",
+        public: false,
       },
       {
         type: "github",
         label: "Mobile App",
         href: "https://github.com/christopher-lu/didt-mobile",
+        public: false,
       },
     ],
   },
@@ -146,16 +155,20 @@ export const projects: Project[] = [
 
     engineeringStory: klusterbudStory,
 
+    resourceNotice: undefined,
+
     resources: [
       {
         type: "github",
         label: "Repository",
         href: "https://github.com/oslabs-beta/KlusterBud",
+        public: true,
       },
       {
         type: "demo",
         label: "Demo",
         href: "/videos/projects/klusterbuddemo.mp4",
+        public: true,
       },
     ],
   },
@@ -207,11 +220,14 @@ export const projects: Project[] = [
 
     engineeringStory: portfolioStory,
 
+    resourceNotice: undefined,
+
     resources: [
       {
         type: "github",
         label: "Repository",
         href: "https://github.com/christopher-lu/Portfolio",
+        public: true,
       },
     ],
   },

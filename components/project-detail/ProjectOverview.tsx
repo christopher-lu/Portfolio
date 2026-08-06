@@ -21,7 +21,7 @@ export default function ProjectOverview({
       )}
 
       <section>
-        <SectionHeading>
+        <SectionHeading as="h2">
           Overview
         </SectionHeading>
 
@@ -31,19 +31,17 @@ export default function ProjectOverview({
       </section>
 
       <section>
-        <SectionHeading>
-            Highlights
+        <SectionHeading as="h2">
+          Highlights
         </SectionHeading>
 
-        <div className="mt-4">
-            <HighlightsList
-            items={project.highlights}
-            />
-        </div>
+        <HighlightsList
+          items={project.highlights}
+        />
       </section>
 
       <section>
-        <SectionHeading>
+        <SectionHeading as="h2">
           Technologies
         </SectionHeading>
 

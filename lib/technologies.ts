@@ -123,7 +123,7 @@ export const technologyCategoryMetadata = {
   support: {
     title: "Customer Success",
     description:
-      "Customer success experience and technical support.",
+      "Customer success and technical support experience.",
     icon: Headset,
   },
 } as const;

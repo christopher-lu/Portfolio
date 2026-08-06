@@ -13,9 +13,9 @@ export default function AboutCard({
 }: AboutCardProps) {
   return (
     <Card className="h-full">
-      <h3 className="mb-4 text-2xl font-semibold">
+      <h2 className="mb-4 text-2xl font-semibold">
         {title}
-      </h3>
+      </h2>
 
       <div className="space-y-4 leading-7 text-[var(--muted-foreground)]">
         {children}

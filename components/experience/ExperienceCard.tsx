@@ -53,15 +53,16 @@ export default function ExperienceCard({
       "
     >
       <header className="space-y-3">
-        <h3 className="text-2xl font-bold">
+        <h2 className="text-2xl font-bold">
           {role}
-        </h3>
+        </h2>
 
         {companyUrl ? (
           <Link
             href={companyUrl}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`Visit ${company} website`}
             className="
               inline-flex
               items-center
@@ -73,15 +74,24 @@ export default function ExperienceCard({
               hover:text-blue-500
             "
           >
-            <Building2 className="h-5 w-5" />
+            <Building2
+              aria-hidden="true"
+              className="h-5 w-5"
+            />
 
             <span>{company}</span>
 
-            <ExternalLink className="h-4 w-4" />
+            <ExternalLink
+              aria-hidden="true"
+              className="h-4 w-4"
+            />
           </Link>
         ) : (
           <div className="inline-flex items-center gap-2 text-lg font-semibold">
-            <Building2 className="h-5 w-5" />
+            <Building2
+              aria-hidden="true"
+              className="h-5 w-5"
+            />
 
             <span>{company}</span>
           </div>
@@ -99,7 +109,10 @@ export default function ExperienceCard({
           "
         >
           <div className="inline-flex items-center gap-1.5">
-            <Calendar className="h-4 w-4" />
+            <Calendar
+              aria-hidden="true"
+              className="h-4 w-4"
+            />
 
             <span>
               {startDate} – {endDate}
@@ -107,7 +120,10 @@ export default function ExperienceCard({
           </div>
 
           <div className="inline-flex items-center gap-1.5">
-            <MapPin className="h-4 w-4" />
+            <MapPin
+              aria-hidden="true"
+              className="h-4 w-4"
+            />
 
             <span>{location}</span>
           </div>
@@ -135,11 +151,15 @@ export default function ExperienceCard({
       </p>
 
       <section className="mt-6">
+        <SectionHeading as="h3">
+          Key Achievements
+        </SectionHeading>
+
         <HighlightsList items={achievements} />
       </section>
 
       <section className="mt-8">
-        <SectionHeading>
+        <SectionHeading as="h3">
           Technologies
         </SectionHeading>
 
