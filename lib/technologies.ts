@@ -42,8 +42,10 @@ import {
   Boxes,
   Cloud,
   Code2,
+  Headset,
   Monitor,
   Server,
+  Smartphone,
   Wrench,
 } from "lucide-react";
 
@@ -81,7 +83,7 @@ export const technologyCategoryMetadata = {
     title: "Mobile",
     description:
       "Cross-platform mobile application development.",
-    icon: Monitor,
+    icon: Smartphone,
   },
 
   language: {
@@ -121,8 +123,8 @@ export const technologyCategoryMetadata = {
   support: {
     title: "Customer Success",
     description:
-      "Technical support and customer success experience.",
-    icon: Wrench,
+      "Customer success experience and technical support.",
+    icon: Headset,
   },
 } as const;
 

@@ -1,8 +1,15 @@
 import type { Project } from "@/types/project";
+
 import {
-    klusterbudStory,
-    didtStory,
-    portfolioStory,
+  didtArchitecture,
+  klusterbudArchitecture,
+  portfolioArchitecture,
+} from "./architecture";
+
+import {
+  didtStory,
+  klusterbudStory,
+  portfolioStory,
 } from "./engineering-stories";
 
 export const projects: Project[] = [
@@ -59,6 +66,8 @@ export const projects: Project[] = [
     ],
 
     metrics: [],
+
+    architecture: didtArchitecture,
 
     engineeringStory: didtStory,
 
@@ -133,6 +142,8 @@ export const projects: Project[] = [
 
     metrics: [],
 
+    architecture: klusterbudArchitecture,
+
     engineeringStory: klusterbudStory,
 
     resources: [
@@ -168,13 +179,13 @@ export const projects: Project[] = [
 
     featured: false,
 
+    displayOrder: 3,
+
     image: "/images/projects/portfolio.webp",
 
     media: {
       cover: "/images/projects/portfolio.webp",
     },
-
-    displayOrder: 3,
 
     technologies: [
       "Next.js",
@@ -191,6 +202,8 @@ export const projects: Project[] = [
     ],
 
     metrics: [],
+
+    architecture: portfolioArchitecture,
 
     engineeringStory: portfolioStory,
 

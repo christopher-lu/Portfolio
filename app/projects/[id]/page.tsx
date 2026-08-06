@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
-import BackLink from "@/components/navigation/BackLink";
 
-import Container from "@/components/layouts/Container";
+import { ArchitectureDiagram } from "@/components/architecture";
 import EngineeringStory from "@/components/engineering-story/EngineeringStory";
-
+import Container from "@/components/layouts/Container";
+import BackLink from "@/components/navigation/BackLink";
 import ProjectHeader from "@/components/project-detail/ProjectHeader";
 import ProjectOverview from "@/components/project-detail/ProjectOverview";
 
@@ -35,12 +35,29 @@ export default function ProjectPage({
 
   return (
     <Container className="space-y-24 py-20">
-        <BackLink href="/projects">
-            Back to Projects
-        </BackLink>
+      {/* Navigation */}
+
+      <BackLink href="/projects">
+        Back to Projects
+      </BackLink>
+
+      {/* Project Header */}
+
       <ProjectHeader project={project} />
 
+      {/* Project Overview */}
+
       <ProjectOverview project={project} />
+
+      {/* System Architecture */}
+
+      {project.architecture && (
+        <ArchitectureDiagram
+          diagram={project.architecture}
+        />
+      )}
+
+      {/* Engineering Story */}
 
       {project.engineeringStory && (
         <EngineeringStory
