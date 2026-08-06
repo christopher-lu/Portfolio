@@ -12,10 +12,11 @@ type ButtonVariant =
   | "danger";
 
 interface ButtonProps {
-  href: string;
+  href?: string;
   children: ReactNode;
   variant?: ButtonVariant;
   external?: boolean;
+  disabled?: boolean;
   className?: string;
 }
 
@@ -32,11 +33,11 @@ font-semibold
 transition-all
 duration-300
 
-focus:outline-none
-focus:ring-2
-focus:ring-[var(--accent)]
-focus:ring-offset-2
-dark:focus:ring-offset-[var(--background)]
+focus-visible:outline-none
+focus-visible:ring-2
+focus-visible:ring-[var(--accent)]
+focus-visible:ring-offset-2
+focus-visible:ring-offset-[var(--background)]
 `;
 
 const variants: Record<ButtonVariant, string> = {
@@ -93,18 +94,40 @@ export default function Button({
   children,
   variant = "primary",
   external = false,
+  disabled = false,
   className,
 }: ButtonProps) {
+  const classes = cn(
+    baseClasses,
+    variants[variant],
+    disabled &&
+      `
+      cursor-not-allowed
+      opacity-50
+      grayscale
+      pointer-events-none
+      `,
+    className
+  );
+
+  if (disabled || !href) {
+    return (
+      <button
+        type="button"
+        disabled
+        className={classes}
+      >
+        {children}
+      </button>
+    );
+  }
+
   return (
     <Link
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      className={cn(
-        baseClasses,
-        variants[variant],
-        className
-      )}
+      className={classes}
     >
       {children}
     </Link>

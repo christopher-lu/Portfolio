@@ -27,22 +27,33 @@ export default function SkillCategory({
   return (
     <AnimatedCard>
       <Card className="h-full">
-        <div className="flex h-full flex-col gap-8">
-          <div className="space-y-3">
+        <section
+          aria-labelledby={`${category}-heading`}
+          className="flex h-full flex-col gap-8"
+        >
+          <header className="space-y-3">
             <div className="flex items-center gap-3">
-              <div className="rounded-lg bg-[var(--secondary)] p-2 text-[var(--accent)]">
-                <Icon className="h-5 w-5" />
+              <div
+                className="rounded-lg bg-[var(--secondary)] p-2 text-[var(--accent)]"
+              >
+                <Icon
+                  aria-hidden="true"
+                  className="h-5 w-5"
+                />
               </div>
 
-              <h3 className="text-xl font-semibold">
+              <h2
+                id={`${category}-heading`}
+                className="text-xl font-semibold"
+              >
                 {metadata.title}
-              </h3>
+              </h2>
             </div>
 
             <p className="text-sm leading-6 text-[var(--muted-foreground)]">
               {metadata.description}
             </p>
-          </div>
+          </header>
 
           <div className="flex flex-wrap gap-3">
             {technologies.map((technology) => (
@@ -52,7 +63,7 @@ export default function SkillCategory({
               />
             ))}
           </div>
-        </div>
+        </section>
       </Card>
     </AnimatedCard>
   );

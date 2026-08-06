@@ -18,7 +18,7 @@ export default function EngineeringStory({
   return (
     <section className="space-y-12">
       <div className="space-y-3">
-        <SectionHeading>
+        <SectionHeading as="h2">
           Engineering Insights
         </SectionHeading>
 

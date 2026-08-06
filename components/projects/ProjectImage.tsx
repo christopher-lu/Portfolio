@@ -7,7 +7,12 @@ type ProjectImageVariant = "card" | "featured";
 interface ProjectImageProps {
   image?: string;
   video?: string;
+
+  placeholderTitle?: string;
+  placeholderDescription?: string;
+
   title: string;
+
   variant?: ProjectImageVariant;
 }
 
@@ -36,14 +41,28 @@ export default function ProjectImage({
   image,
   title,
   variant = "card",
+  placeholderTitle = "Project Preview",
+  placeholderDescription = "Screenshot coming soon.",
 }: ProjectImageProps) {
   const config = variants[variant];
 
   if (!image) {
+    if (variant === "featured") {
+      return (
+        <div className="flex h-64 w-full items-center justify-center bg-[color-mix(in_srgb,var(--card)_96%,var(--foreground)_4%)]">
+          <EmptyState
+            title={placeholderTitle}
+            description={placeholderDescription}
+            size="card"
+          />
+        </div>
+      );
+    }
+
     return (
       <EmptyState
-        title="Project Preview"
-        description="Screenshot coming soon."
+        title={placeholderTitle}
+        description={placeholderDescription}
         size={config.emptyState}
       />
     );

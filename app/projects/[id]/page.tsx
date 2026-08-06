@@ -14,9 +14,9 @@ import {
 } from "@/lib/projects";
 
 interface ProjectPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export function generateStaticParams() {
@@ -25,10 +25,12 @@ export function generateStaticParams() {
   }));
 }
 
-export default function ProjectPage({
+export default async function ProjectPage({
   params,
 }: ProjectPageProps) {
-  const project = getProjectById(params.id);
+  const { id } = await params;
+
+  const project = getProjectById(id);
 
   if (!project) {
     notFound();
@@ -36,21 +38,13 @@ export default function ProjectPage({
 
   return (
     <Container className="space-y-24 py-20">
-      {/* Navigation */}
-
       <BackLink href="/projects">
         Back to Projects
       </BackLink>
 
-      {/* Project Header */}
-
       <ProjectHeader project={project} />
 
-      {/* Project Overview */}
-
       <ProjectOverview project={project} />
-
-      {/* System Architecture */}
 
       {project.architecture && (
         <ArchitectureDiagram
@@ -58,17 +52,13 @@ export default function ProjectPage({
         />
       )}
 
-      {/* Engineering Story */}
-
       {project.engineeringStory && (
         <EngineeringStory
           story={project.engineeringStory}
         />
       )}
 
-      <RelatedProjects
-        currentProjectId={project.id}
-        />
+      <RelatedProjects currentProjectId={project.id} />
     </Container>
   );
 }

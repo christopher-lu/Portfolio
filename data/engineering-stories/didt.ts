@@ -4,7 +4,7 @@ export const didtStory: EngineeringStory = {
   featured: true,
 
   summary:
-    "A full-stack healthcare platform focused on streamlining communication and workflow between patients and providers.",
+    "The engineering journey behind designing a scalable cross-platform habit tracking ecosystem consisting of a shared NestJS backend, responsive Next.js web application, and React Native mobile application.",
 
   sections: [],
 };

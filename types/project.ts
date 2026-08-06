@@ -32,12 +32,16 @@ export interface ProjectMedia {
   poster?: string;
   video?: string;
   gallery?: string[];
+
+  placeholderTitle?: string;
+  placeholderDescription?: string;
 }
 
 export interface ProjectResource {
   type: ProjectResourceType;
   label: string;
   href: string;
+  public: boolean;
 }
 
 export interface Project {
@@ -70,6 +74,8 @@ export interface Project {
   engineeringStory?: EngineeringStory;
 
   resources?: ProjectResource[];
+
+  resourceNotice?: string;
 
   /*
    * Legacy fields.

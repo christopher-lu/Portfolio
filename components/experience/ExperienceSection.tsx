@@ -1,16 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { ComponentPropsWithoutRef } from "react";
 
 import ExperienceCard from "@/components/experience/ExperienceCard";
 import Container from "@/components/layouts/Container";
+
 import { experiences } from "@/data/experience";
 import {
   fadeUpContainer,
   fadeUpItem,
 } from "@/lib/animations";
 
-export default function ExperienceSection() {
+type HeadingTag = "h1" | "h2";
+
+interface ExperienceSectionProps {
+  headingAs?: HeadingTag;
+  headingProps?: ComponentPropsWithoutRef<HeadingTag>;
+}
+
+export default function ExperienceSection({
+  headingAs = "h1",
+  headingProps,
+}: ExperienceSectionProps) {
+  const Heading = headingAs;
+
   return (
     <Container>
       <section
@@ -18,12 +32,13 @@ export default function ExperienceSection() {
         className="py-16"
       >
         <header className="mb-12">
-          <h2
+          <Heading
             id="experience-heading"
             className="text-4xl font-bold tracking-tight"
+            {...headingProps}
           >
             Experience
-          </h2>
+          </Heading>
 
           <p className="mt-4 max-w-2xl text-[var(--muted-foreground)]">
             Building scalable web applications, developer tools, and
