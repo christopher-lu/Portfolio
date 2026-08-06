@@ -13,8 +13,8 @@ export const experiences: Experience[] = [
     location: "New York, NY",
 
     startDate: "2024",
-    endDate: "Present",
-    current: true,
+    endDate: "2026",
+    current: false,
 
     description:
       "Developing scalable full-stack web applications using modern frontend frameworks, backend APIs, and cloud technologies.",
