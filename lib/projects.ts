@@ -65,3 +65,19 @@ export function getProjectsByTechnology(
 export function getProjectIds(): string[] {
   return projects.map((project) => project.id);
 }
+
+export function getRelatedProjects(
+  currentProjectId: string,
+  limit = 2
+): Project[] {
+  return projects
+    .filter((project) => project.id !== currentProjectId)
+    .sort((a, b) => {
+      if (a.featured !== b.featured) {
+        return Number(b.featured) - Number(a.featured);
+      }
+
+      return a.displayOrder - b.displayOrder;
+    })
+    .slice(0, limit);
+}

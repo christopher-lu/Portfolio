@@ -6,6 +6,7 @@ import Container from "@/components/layouts/Container";
 import BackLink from "@/components/navigation/BackLink";
 import ProjectHeader from "@/components/project-detail/ProjectHeader";
 import ProjectOverview from "@/components/project-detail/ProjectOverview";
+import { RelatedProjects } from "@/components/related-projects";
 
 import {
   getProjectById,
@@ -64,6 +65,10 @@ export default function ProjectPage({
           story={project.engineeringStory}
         />
       )}
+
+      <RelatedProjects
+        currentProjectId={project.id}
+        />
     </Container>
   );
 }
