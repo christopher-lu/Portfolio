@@ -5,6 +5,7 @@ import EngineeringStory from "@/components/engineering-story/EngineeringStory";
 import Container from "@/components/layouts/Container";
 import BackLink from "@/components/navigation/BackLink";
 import ProjectHeader from "@/components/project-detail/ProjectHeader";
+import ProjectMediaGallery from "@/components/project-detail/ProjectMediaGallery";
 import ProjectOverview from "@/components/project-detail/ProjectOverview";
 import { RelatedProjects } from "@/components/related-projects";
 
@@ -45,6 +46,8 @@ export default async function ProjectPage({
       <ProjectHeader project={project} />
 
       <ProjectOverview project={project} />
+
+      <ProjectMediaGallery media={project.media} />
 
       {project.architecture && (
         <ArchitectureDiagram

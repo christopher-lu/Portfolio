@@ -27,14 +27,31 @@ export interface ProjectMetric {
   value: string;
 }
 
+export interface ProjectScreenshot {
+  src: string;
+  alt: string;
+  platform: "mobile" | "web";
+  caption?: string;
+}
+
 export interface ProjectMedia {
   cover?: string;
   poster?: string;
   video?: string;
   gallery?: string[];
 
+  /** Optional case-study media. Only reference assets that exist in /public. */
+  screenshots?: ProjectScreenshot[];
+  demoVideo?: string;
+
   placeholderTitle?: string;
   placeholderDescription?: string;
+}
+
+export interface ProjectMilestone {
+  platform: "Mobile" | "Backend" | "Web";
+  status: string;
+  description: string;
 }
 
 export interface ProjectResource {
@@ -66,6 +83,8 @@ export interface Project {
   highlights: string[];
 
   metrics?: ProjectMetric[];
+
+  milestones?: ProjectMilestone[];
 
   media?: ProjectMedia;
 
