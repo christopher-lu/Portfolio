@@ -3,7 +3,8 @@ import type { ArchitectureDiagram } from "@/types/architecture";
 export const didtArchitecture: ArchitectureDiagram = {
   title: "Cross-Platform System Architecture",
 
-  layers: [
+  // Each client connects directly to the same backend.
+  parallelClients: [
     {
       id: "mobile",
       title: "Mobile Application — Alpha",
@@ -14,6 +15,9 @@ export const didtArchitecture: ArchitectureDiagram = {
       title: "Web Application — In Development",
       details: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
     },
+  ],
+
+  layers: [
     {
       id: "backend",
       title: "Shared Backend API",
