@@ -56,8 +56,6 @@ export default function FeaturedProjectCard({
                 video={project.media?.video ?? project.video}
                 title={project.title}
                 variant="featured"
-                fit={project.media?.coverFit}
-                imageDimensions={project.media?.coverDimensions}
                 placeholderTitle={project.media?.placeholderTitle}
                 placeholderDescription={
                   project.media?.placeholderDescription
