@@ -37,12 +37,13 @@ export const projects: Project[] = [
     displayOrder: 1,
 
     media: {
-      placeholderTitle: "DIDT mobile alpha",
+      placeholderTitle: "DIDT Mobile Alpha",
 
       placeholderDescription:
         "Mobile alpha is functional and validated. Product screenshots and a walkthrough are being prepared.",
-      // Add real screenshot paths and a demoVideo after the assets are approved.
-      // See docs/didt-showcase-assets.md for the expected filenames and metadata.
+      // Add screenshots and demoVideo only when those media files exist.
+      // Use a separate composed landscape cover for project listing cards.
+      // See docs/didt-showcase-assets.md for the media contract.
     },
 
     milestones: [
@@ -60,7 +61,7 @@ export const projects: Project[] = [
       },
       {
         platform: "Web",
-        status: "Approaching alpha",
+        status: "Approaching Alpha",
         description:
           "Next.js client integrating the same authenticated API, dashboard, habits, categories, and history workflows.",
       },
