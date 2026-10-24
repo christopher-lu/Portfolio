@@ -1,3 +1,4 @@
+import ProjectMilestones from "@/components/project-detail/ProjectMilestones";
 import Callout from "@/components/ui/Callout";
 import HighlightsList from "@/components/ui/HighlightsList";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -14,6 +15,10 @@ export default function ProjectOverview({
 }: ProjectOverviewProps) {
   return (
     <div className="space-y-10">
+      {project.milestones && project.milestones.length > 0 && (
+        <ProjectMilestones milestones={project.milestones} />
+      )}
+
       {project.impact && (
         <Callout>
           {project.impact}

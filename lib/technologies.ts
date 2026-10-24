@@ -9,6 +9,7 @@ import {
 import {
   SiCss,
   SiDocker,
+  SiExpo,
   SiExpress,
   SiFirebase,
   SiGrafana,
@@ -138,12 +139,14 @@ export const technologies = {
 
   "React Native": {
     label: "React Native",
+    icon: SiReact,
     href: "https://reactnative.dev",
     category: "mobile",
   },
 
   Expo: {
     label: "Expo",
+    icon: SiExpo,
     href: "https://expo.dev",
     category: "mobile",
   },

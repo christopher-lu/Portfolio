@@ -18,13 +18,13 @@ export const projects: Project[] = [
 
     title: "Did I Do That (DIDT)",
 
-    tagline: "Cross-platform digital habit tracking ecosystem",
+    tagline: "Small habits. Daily wins. Lasting growth.",
 
     description:
-      "A full-stack habit tracking platform consisting of a responsive web application, native mobile application, and NestJS backend designed to help users build habits, monitor progress, and visualize long-term analytics across devices.",
+      "DIDT is a cross-platform habit tracking application built around quick daily tracking, recoverable habit management, and trustworthy progress. Its React Native mobile client has reached the alpha milestone, supported by a shared NestJS API and PostgreSQL database. The Next.js web client is being developed against the same backend contracts.",
 
     impact:
-      "Designed as a scalable multi-platform architecture with shared business logic powering both web and mobile experiences while emphasizing maintainability, accessibility, and long-term extensibility.",
+      "Delivered a validated mobile alpha backed by server-authoritative tracking, calendar-aware eligibility, history, and recovery workflows. The same API now supports ongoing web alpha development without duplicating core domain rules across clients.",
 
     category: "Full Stack",
 
@@ -36,14 +36,76 @@ export const projects: Project[] = [
 
     displayOrder: 1,
 
-    image: undefined,
-
     media: {
-      placeholderTitle: "Project Preview",
-
-      placeholderDescription:
-        "UI currently under active development. Screenshots will be published as major milestones are completed.",
+      cover: "/images/projects/didt/showcase-v3-today-overview.webp",
+      coverLayout: "banner",
+      // Seven coordinated 1672×941 showcase images; use the same first image for the featured cover.
+      screenshots: [
+        {
+          src: "/images/projects/didt/showcase-v3-today-overview.webp",
+          alt: "Today dashboard after completing daily habits",
+          platform: "showcase",
+          caption: "Daily Progress: See your day at a glance.",
+        },
+        {
+          src: "/images/projects/didt/showcase-v3-flexible-tracking.webp",
+          alt: "Flexible habit tracking with check-offs, amounts, steps, units, and priorities",
+          platform: "showcase",
+          caption: "Flexible Tracking: Check habits off or record amounts, choose or create your own units, set how much each tap adds, and keep your priorities in view.",
+        },
+        {
+          src: "/images/projects/didt/showcase-v3-history-calendar.webp",
+          alt: "Habit history calendar and monthly progress summary",
+          platform: "showcase",
+          caption: "History & Insights: Review progress and consistency over time.",
+        },
+        {
+          src: "/images/projects/didt/showcase-v3-create-habit.webp",
+          alt: "Create Habit form with categories, priority, and schedule",
+          platform: "showcase",
+          caption: "Create a Habit: Build a routine around your schedule and goals.",
+        },
+        {
+          src: "/images/projects/didt/showcase-v3-sign-in.webp",
+          alt: "Branded DIDT Sign In screen",
+          platform: "showcase",
+          caption: "Sign In: A simple entry to your daily routine.",
+        },
+        {
+          src: "/images/projects/didt/showcase-v3-create-account.webp",
+          alt: "DIDT Create Account registration screen",
+          platform: "showcase",
+          caption: "Create Account: Get started with your own routine.",
+        },
+        {
+          src: "/images/projects/didt/showcase-v3-appearance.webp",
+          alt: "DIDT Appearance preferences with different display themes",
+          platform: "showcase",
+          caption: "Appearance: Pick the look that feels right for you.",
+        },
+      ],
     },
+
+    milestones: [
+      {
+        platform: "Mobile",
+        status: "Alpha launched",
+        description:
+          "React Native and Expo client with habit management, daily tracking, history, recovery, and theme support.",
+      },
+      {
+        platform: "Backend",
+        status: "Functional",
+        description:
+          "Shared NestJS API with PostgreSQL/Prisma persistence and backend-owned tracking rules for mobile and web.",
+      },
+      {
+        platform: "Web",
+        status: "Approaching Alpha",
+        description:
+          "Next.js client integrating the same authenticated API, dashboard, habits, categories, and history workflows.",
+      },
+    ],
 
     technologies: [
       "Next.js",
@@ -56,16 +118,15 @@ export const projects: Project[] = [
       "React Native",
       "Expo",
       "Docker",
-      "AWS",
       "JWT",
       "REST APIs",
     ],
 
     highlights: [
-      "Cross-platform architecture with shared NestJS backend",
-      "Secure JWT authentication and role-based authorization",
-      "Real-time habit analytics and progress tracking",
-      "Responsive web and native mobile experiences",
+      "Validated React Native / Expo mobile alpha with shared NestJS backend",
+      "Backend-authoritative Today eligibility, Boolean and quantitative tracking",
+      "Calendar history, completion analytics, and 30-day lifecycle recovery",
+      "Next.js web application progressing toward the mobile alpha feature set",
     ],
 
     metrics: [],
@@ -75,7 +136,7 @@ export const projects: Project[] = [
     engineeringStory: didtStory,
 
     resourceNotice:
-      "Source code is currently private while Did I Do That (DIDT) is under active development. Public repositories will be released as development milestones are completed.",
+      "DIDT source repositories remain private during alpha development.",
 
     resources: [
       {
