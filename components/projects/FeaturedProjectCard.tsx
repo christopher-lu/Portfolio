@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 import ProjectImage from "@/components/projects/ProjectImage";
@@ -24,6 +25,9 @@ interface FeaturedProjectCardProps {
 export default function FeaturedProjectCard({
   project,
 }: FeaturedProjectCardProps) {
+  const bannerCover =
+    project.media?.coverLayout === "banner" ? project.media.cover : undefined;
+
   return (
     <article className="group mb-16">
       <Card className="overflow-hidden p-0">
@@ -32,21 +36,37 @@ export default function FeaturedProjectCard({
           className="block"
           aria-label={`View case study for ${project.title}`}
         >
-          <div className="grid lg:grid-cols-2">
-            <div className="flex items-center justify-center bg-[color-mix(in_srgb,var(--card)_96%,var(--foreground)_4%)]">
+          <div className={bannerCover ? "flex flex-col" : "grid lg:grid-cols-2"}>
+            {bannerCover ? (
+              <div className="w-full bg-[color-mix(in_srgb,var(--card)_96%,var(--foreground)_4%)] p-4 sm:p-6">
+                <Image
+                  src={bannerCover}
+                  alt={`${project.title} mobile alpha Today dashboard showcase`}
+                  width={1672}
+                  height={941}
+                  priority
+                  sizes="(max-width: 1280px) 100vw, 1120px"
+                  className="block h-auto w-full object-contain"
+                />
+              </div>
+            ) : (
+              <div className="flex items-center justify-center bg-[color-mix(in_srgb,var(--card)_96%,var(--foreground)_4%)]">
               <ProjectImage
                 image={project.media?.cover ?? project.image}
                 video={project.media?.video ?? project.video}
                 title={project.title}
                 variant="featured"
+                fit={project.media?.coverFit}
+                imageDimensions={project.media?.coverDimensions}
                 placeholderTitle={project.media?.placeholderTitle}
                 placeholderDescription={
                   project.media?.placeholderDescription
                 }
               />
             </div>
+            )}
 
-            <div className="flex flex-col p-8 lg:p-10">
+            <div className={bannerCover ? "mx-auto flex w-full max-w-4xl flex-col p-8 lg:p-10" : "flex flex-col p-8 lg:p-10"}>
               <span className="mb-3 text-sm font-semibold uppercase tracking-widest text-[var(--accent)]">
                 Case Study
               </span>

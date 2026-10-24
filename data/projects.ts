@@ -37,13 +37,53 @@ export const projects: Project[] = [
     displayOrder: 1,
 
     media: {
-      placeholderTitle: "DIDT Mobile Alpha",
-
-      placeholderDescription:
-        "Mobile alpha is functional and validated. Product screenshots and a walkthrough are being prepared.",
-      // Add screenshots and demoVideo only when those media files exist.
-      // Use a separate composed landscape cover for project listing cards.
-      // See docs/didt-showcase-assets.md for the media contract.
+      cover: "/images/projects/didt/showcase-v3-today-overview.webp",
+      coverLayout: "banner",
+      // Seven coordinated 1672×941 showcase images; use the same first image for the featured cover.
+      screenshots: [
+        {
+          src: "/images/projects/didt/showcase-v3-today-overview.webp",
+          alt: "Today dashboard after completing daily habits",
+          platform: "showcase",
+          caption: "Daily Progress: See your day at a glance.",
+        },
+        {
+          src: "/images/projects/didt/showcase-v3-flexible-tracking.webp",
+          alt: "Flexible habit tracking with check-offs, amounts, steps, units, and priorities",
+          platform: "showcase",
+          caption: "Flexible Tracking: Check habits off or record amounts, choose or create your own units, set how much each tap adds, and keep your priorities in view.",
+        },
+        {
+          src: "/images/projects/didt/showcase-v3-history-calendar.webp",
+          alt: "Habit history calendar and monthly progress summary",
+          platform: "showcase",
+          caption: "History & Insights: Review progress and consistency over time.",
+        },
+        {
+          src: "/images/projects/didt/showcase-v3-create-habit.webp",
+          alt: "Create Habit form with categories, priority, and schedule",
+          platform: "showcase",
+          caption: "Create a Habit: Build a routine around your schedule and goals.",
+        },
+        {
+          src: "/images/projects/didt/showcase-v3-sign-in.webp",
+          alt: "Branded DIDT Sign In screen",
+          platform: "showcase",
+          caption: "Sign In: A simple entry to your daily routine.",
+        },
+        {
+          src: "/images/projects/didt/showcase-v3-create-account.webp",
+          alt: "DIDT Create Account registration screen",
+          platform: "showcase",
+          caption: "Create Account: Get started with your own routine.",
+        },
+        {
+          src: "/images/projects/didt/showcase-v3-appearance.webp",
+          alt: "DIDT Appearance preferences with different display themes",
+          platform: "showcase",
+          caption: "Appearance: Pick the look that feels right for you.",
+        },
+      ],
     },
 
     milestones: [

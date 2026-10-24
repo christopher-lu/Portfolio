@@ -30,12 +30,15 @@ export interface ProjectMetric {
 export interface ProjectScreenshot {
   src: string;
   alt: string;
-  platform: "mobile" | "web";
+  platform: "mobile" | "web" | "showcase";
   caption?: string;
 }
 
 export interface ProjectMedia {
   cover?: string;
+  coverLayout?: "banner";
+  coverFit?: "cover" | "contain";
+  coverDimensions?: { width: number; height: number };
   poster?: string;
   video?: string;
   gallery?: string[];
