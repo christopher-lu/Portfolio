@@ -9,10 +9,7 @@ import ProjectDemoVideo from "@/components/project-detail/ProjectDemoVideo";
 import ProjectOverview from "@/components/project-detail/ProjectOverview";
 import { RelatedProjects } from "@/components/related-projects";
 
-import {
-  getProjectById,
-  getProjectIds,
-} from "@/lib/projects";
+import { getProjectById, getProjectIds } from "@/lib/projects";
 
 interface ProjectPageProps {
   params: Promise<{
@@ -26,9 +23,7 @@ export function generateStaticParams() {
   }));
 }
 
-export default async function ProjectPage({
-  params,
-}: ProjectPageProps) {
+export default async function ProjectPage({ params }: ProjectPageProps) {
   const { id } = await params;
 
   const project = getProjectById(id);
@@ -39,9 +34,7 @@ export default async function ProjectPage({
 
   return (
     <Container className="space-y-24 py-20">
-      <BackLink href="/projects">
-        Back to Projects
-      </BackLink>
+      <BackLink href="/projects">Back to Projects</BackLink>
 
       <ProjectHeader project={project} />
 
@@ -50,18 +43,17 @@ export default async function ProjectPage({
       <ProjectDemoVideo
         src={project.media?.demoVideo}
         poster={project.media?.poster}
+        heading={project.media?.demoVideoHeading}
+        description={project.media?.demoVideoDescription}
+        layout={project.media?.demoVideoLayout}
       />
 
       {project.architecture && (
-        <ArchitectureDiagram
-          diagram={project.architecture}
-        />
+        <ArchitectureDiagram diagram={project.architecture} />
       )}
 
       {project.engineeringStory && (
-        <EngineeringStory
-          story={project.engineeringStory}
-        />
+        <EngineeringStory story={project.engineeringStory} />
       )}
 
       <RelatedProjects currentProjectId={project.id} />

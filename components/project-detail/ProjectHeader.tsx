@@ -11,15 +11,23 @@ interface ProjectHeaderProps {
   project: Project;
 }
 
-export default function ProjectHeader({
-  project,
-}: ProjectHeaderProps) {
+export default function ProjectHeader({ project }: ProjectHeaderProps) {
   const screenshots = project.media?.screenshots ?? [];
 
   return (
     <header className="space-y-8">
       {screenshots.length > 0 ? (
-        <ProjectMediaGallery title={project.title} screenshots={screenshots} />
+        <div className="space-y-3">
+          <ProjectMediaGallery
+            title={project.title}
+            screenshots={screenshots}
+          />
+          {project.media?.showcaseDisclosure && (
+            <p className="text-center text-sm leading-6 text-[var(--muted-foreground)]">
+              {project.media.showcaseDisclosure}
+            </p>
+          )}
+        </div>
       ) : (
         <ProjectImage
           image={project.media?.cover ?? project.image}
@@ -33,19 +41,12 @@ export default function ProjectHeader({
 
       <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
         <div className="space-y-3">
-          <h1 className="text-5xl font-bold tracking-tight">
-            {project.title}
-          </h1>
+          <h1 className="text-5xl font-bold tracking-tight">{project.title}</h1>
 
-          <p className="text-xl text-[var(--accent)]">
-            {project.tagline}
-          </p>
+          <p className="text-xl text-[var(--accent)]">{project.tagline}</p>
         </div>
 
-        <StatusBadge
-          status={project.status}
-          config={projectStatusConfig}
-        />
+        <StatusBadge status={project.status} config={projectStatusConfig} />
       </div>
 
       <ProjectLinks

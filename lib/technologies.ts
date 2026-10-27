@@ -37,6 +37,10 @@ import {
   SiTypescript,
   SiWebpack,
   SiZendesk,
+  SiAndroidstudio,
+  SiRailway,
+  SiTanstack,
+  SiXcode,
 } from "react-icons/si";
 
 import {
@@ -64,47 +68,40 @@ export const technologyCategoryOrder = [
   "support",
 ] as const;
 
-
 export const technologyCategoryMetadata = {
   frontend: {
     title: "Frontend",
-    description:
-      "Modern user interfaces and client-side development.",
+    description: "Modern user interfaces and client-side development.",
     icon: Monitor,
   },
 
   backend: {
     title: "Backend",
-    description:
-      "Server-side development, APIs, and databases.",
+    description: "Server-side development, APIs, and databases.",
     icon: Server,
   },
 
   mobile: {
     title: "Mobile",
-    description:
-      "Cross-platform mobile application development.",
+    description: "Cross-platform mobile application development.",
     icon: Smartphone,
   },
 
   language: {
     title: "Languages",
-    description:
-      "Programming languages used throughout my projects.",
+    description: "Programming languages used throughout my projects.",
     icon: Code2,
   },
 
   cloud: {
     title: "Cloud",
-    description:
-      "Cloud platforms and managed infrastructure.",
+    description: "Cloud platforms and managed infrastructure.",
     icon: Cloud,
   },
 
   devops: {
     title: "DevOps",
-    description:
-      "Containerization, orchestration, deployment, and monitoring.",
+    description: "Containerization, orchestration, deployment, and monitoring.",
     icon: Boxes,
   },
 
@@ -123,8 +120,7 @@ export const technologyCategoryMetadata = {
 
   support: {
     title: "Customer Success",
-    description:
-      "Customer success and technical support experience.",
+    description: "Customer success and technical support experience.",
     icon: Headset,
   },
 } as const;
@@ -255,16 +251,16 @@ export const technologies = {
     category: "cloud",
   },
 
- "Google Cloud": {
-  label: "Google Cloud",
-  icon: SiGooglecloud,
-  href: "https://cloud.google.com",
-  category: "cloud",
-},
+  "Google Cloud": {
+    label: "Google Cloud",
+    icon: SiGooglecloud,
+    href: "https://cloud.google.com",
+    category: "cloud",
+  },
 
   Cloud: {
-  label: "Cloud",
-  category: "cloud",
+    label: "Cloud",
+    category: "cloud",
   },
 
   AWS: {
@@ -275,28 +271,28 @@ export const technologies = {
   },
 
   IAM: {
-  label: "IAM",
-  href: "https://aws.amazon.com/iam",
-  category: "cloud",
-},
+    label: "IAM",
+    href: "https://aws.amazon.com/iam",
+    category: "cloud",
+  },
 
-EC2: {
-  label: "EC2",
-  href: "https://aws.amazon.com/ec2",
-  category: "cloud",
-},
+  EC2: {
+    label: "EC2",
+    href: "https://aws.amazon.com/ec2",
+    category: "cloud",
+  },
 
-S3: {
-  label: "S3",
-  href: "https://aws.amazon.com/s3",
-  category: "cloud",
-},
+  S3: {
+    label: "S3",
+    href: "https://aws.amazon.com/s3",
+    category: "cloud",
+  },
 
-VPC: {
-  label: "VPC",
-  href: "https://aws.amazon.com/vpc",
-  category: "cloud",
-},
+  VPC: {
+    label: "VPC",
+    href: "https://aws.amazon.com/vpc",
+    category: "cloud",
+  },
 
   "Tailwind CSS": {
     label: "Tailwind CSS",
@@ -373,95 +369,134 @@ VPC: {
   },
 
   Redux: {
-  label: "Redux",
-  icon: SiRedux,
-  href: "https://redux.js.org",
-  category: "frontend",
-},
+    label: "Redux",
+    icon: SiRedux,
+    href: "https://redux.js.org",
+    category: "frontend",
+  },
 
-HTML5: {
-  label: "HTML5",
-  icon: SiHtml5,
-  href: "https://developer.mozilla.org/docs/Web/HTML",
-  category: "frontend",
-},
+  HTML5: {
+    label: "HTML5",
+    icon: SiHtml5,
+    href: "https://developer.mozilla.org/docs/Web/HTML",
+    category: "frontend",
+  },
 
-CSS3: {
-  label: "CSS3",
-  icon: SiCss,
-  href: "https://developer.mozilla.org/docs/Web/CSS",
-  category: "frontend",
-},
+  CSS3: {
+    label: "CSS3",
+    icon: SiCss,
+    href: "https://developer.mozilla.org/docs/Web/CSS",
+    category: "frontend",
+  },
 
-Sass: {
-  label: "Sass",
-  icon: SiSass,
-  href: "https://sass-lang.com",
-  category: "frontend",
-},
+  Sass: {
+    label: "Sass",
+    icon: SiSass,
+    href: "https://sass-lang.com",
+    category: "frontend",
+  },
 
-Bootstrap: {
-  label: "Bootstrap",
-  icon: FaBootstrap,
-  href: "https://getbootstrap.com",
-  category: "frontend",
-},
+  Bootstrap: {
+    label: "Bootstrap",
+    icon: FaBootstrap,
+    href: "https://getbootstrap.com",
+    category: "frontend",
+  },
 
-GraphQL: {
-  label: "GraphQL",
-  icon: SiGraphql,
-  href: "https://graphql.org",
-  category: "backend",
-},
+  GraphQL: {
+    label: "GraphQL",
+    icon: SiGraphql,
+    href: "https://graphql.org",
+    category: "backend",
+  },
 
-MongoDB: {
-  label: "MongoDB",
-  icon: SiMongodb,
-  href: "https://mongodb.com",
-  category: "backend",
-},
+  MongoDB: {
+    label: "MongoDB",
+    icon: SiMongodb,
+    href: "https://mongodb.com",
+    category: "backend",
+  },
 
-PostgreSQL: {
-  label: "PostgreSQL",
-  icon: SiPostgresql,
-  href: "https://postgresql.org",
-  category: "backend",
-},  
+  PostgreSQL: {
+    label: "PostgreSQL",
+    icon: SiPostgresql,
+    href: "https://postgresql.org",
+    category: "backend",
+  },
 
-Git: {
-  label: "Git",
-  icon: FaGitAlt,
-  href: "https://git-scm.com",
-  category: "tooling",
-},
+  Git: {
+    label: "Git",
+    icon: FaGitAlt,
+    href: "https://git-scm.com",
+    category: "tooling",
+  },
 
-GitHub: {
-  label: "GitHub",
-  icon: FaGithub,
-  href: "https://github.com",
-  category: "tooling",
-},
+  GitHub: {
+    label: "GitHub",
+    icon: FaGithub,
+    href: "https://github.com",
+    category: "tooling",
+  },
 
-Webpack: {
-  label: "Webpack",
-  icon: SiWebpack,
-  href: "https://webpack.js.org",
-  category: "tooling",
-},
+  Webpack: {
+    label: "Webpack",
+    icon: SiWebpack,
+    href: "https://webpack.js.org",
+    category: "tooling",
+  },
 
-Jest: {
-  label: "Jest",
-  icon: SiJest,
-  href: "https://jestjs.io",
-  category: "tooling",
-},
+  Jest: {
+    label: "Jest",
+    icon: SiJest,
+    href: "https://jestjs.io",
+    category: "tooling",
+  },
 
-"React Testing Library": {
-  label: "React Testing Library",
-  icon: SiTestinglibrary,
-  href: "https://testing-library.com/docs/react-testing-library/intro",
-  category: "tooling",
-},
+  "React Testing Library": {
+    label: "React Testing Library",
+    icon: SiTestinglibrary,
+    href: "https://testing-library.com/docs/react-testing-library/intro",
+    category: "tooling",
+  },
+  "TanStack Query": {
+    label: "TanStack Query",
+    icon: SiTanstack,
+    href: "https://tanstack.com/query/latest",
+    category: "frontend",
+  },
+
+  Metro: {
+    label: "Metro",
+    href: "https://metrobundler.dev",
+    category: "tooling",
+  },
+
+  Turbopack: {
+    label: "Turbopack",
+    href: "https://nextjs.org/docs/app/api-reference/turbopack",
+    category: "tooling",
+  },
+
+  Railway: {
+    label: "Railway",
+    icon: SiRailway,
+    href: "https://railway.com",
+    category: "cloud",
+  },
+
+  Xcode: {
+    label: "Xcode",
+    icon: SiXcode,
+    href: "https://developer.apple.com/xcode/",
+    category: "tooling",
+  },
+
+  "Android Studio": {
+    label: "Android Studio",
+    icon: SiAndroidstudio,
+    href: "https://developer.android.com/studio",
+    category: "tooling",
+  },
 } as const satisfies Record<string, Technology>;
 
 export type TechnologyName = keyof typeof technologies;
@@ -488,29 +523,22 @@ export function getTechnologyNames(): TechnologyName[] {
 export function getTechnologyCategories(): Technology["category"][] {
   return [
     ...new Set(
-      Object.values(technologies).map(
-        (technology) => technology.category
-      ),
+      Object.values(technologies).map((technology) => technology.category),
     ),
   ];
 }
 
 export function getTechnologiesByCategory(
-  category: Technology["category"]
+  category: Technology["category"],
 ): TechnologyName[] {
   return (Object.entries(technologies) as [TechnologyName, Technology][])
     .filter(([, technology]) => technology.category === category)
     .map(([name]) => name)
-    .sort((a, b) =>
-  technologies[a].label.localeCompare(
-    technologies[b].label
-  )
-);
+    .sort((a, b) => technologies[a].label.localeCompare(technologies[b].label));
 }
-
 
 export function getOrderedTechnologyCategories(): Technology["category"][] {
   return technologyCategoryOrder.filter(
-    (category) => getTechnologiesByCategory(category).length > 0
+    (category) => getTechnologiesByCategory(category).length > 0,
   );
 }

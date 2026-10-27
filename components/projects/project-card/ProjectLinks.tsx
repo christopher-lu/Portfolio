@@ -20,35 +20,21 @@ export default function ProjectLinks({
     return null;
   }
 
-  const hasPrivateResources = resources.some(
-    (resource) => !resource.public
-  );
+  const hasPrivateResources = resources.some((resource) => !resource.public);
 
   return (
     <div className="space-y-4">
-      <div
-        className={clsx(
-          "flex flex-wrap gap-3 pt-2",
-          className
-        )}
-      >
+      <div className={clsx("flex flex-wrap gap-3 pt-2", className)}>
         {resources.map((resource) => (
           <Button
             key={`${resource.type}-${resource.label}`}
             href={resource.public ? resource.href : undefined}
             disabled={!resource.public}
-            external={resource.public}
-            variant={
-              resource.type === "github"
-                ? "github"
-                : "primary"
-            }
+            external={resource.public && /^https?:\/\//.test(resource.href)}
+            variant={resource.type === "github" ? "github" : "primary"}
           >
             {!resource.public && (
-              <LockClosedIcon
-                aria-hidden="true"
-                className="h-4 w-4"
-              />
+              <LockClosedIcon aria-hidden="true" className="h-4 w-4" />
             )}
 
             {resource.label}
