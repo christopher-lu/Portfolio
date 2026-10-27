@@ -3,24 +3,13 @@ import type { EngineeringStory } from "./engineering-story";
 import type { ArchitectureDiagram } from "./architecture";
 
 export type ProjectStatus =
-  | "Completed"
-  | "In Progress"
-  | "MVP"
-  | "Production"
-  | "Archived";
+  "Completed" | "In Progress" | "MVP" | "Production" | "Archived";
 
 export type ProjectCategory =
-  | "Frontend"
-  | "Backend"
-  | "Full Stack"
-  | "Open Source"
-  | "Mobile";
+  "Frontend" | "Backend" | "Full Stack" | "Open Source" | "Mobile";
 
 export type ProjectResourceType =
-  | "github"
-  | "website"
-  | "demo"
-  | "documentation";
+  "github" | "website" | "demo" | "documentation";
 
 export interface ProjectMetric {
   label: string;
@@ -40,12 +29,16 @@ export interface ProjectMedia {
   coverFit?: "cover" | "contain";
   coverDimensions?: { width: number; height: number };
   poster?: string;
+  showcaseDisclosure?: string;
   video?: string;
   gallery?: string[];
 
   /** Optional case-study media. Only reference assets that exist in /public. */
   screenshots?: ProjectScreenshot[];
   demoVideo?: string;
+  demoVideoHeading?: string;
+  demoVideoDescription?: string;
+  demoVideoLayout?: "portrait" | "landscape";
 
   placeholderTitle?: string;
   placeholderDescription?: string;

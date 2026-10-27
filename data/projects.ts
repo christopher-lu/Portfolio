@@ -21,10 +21,10 @@ export const projects: Project[] = [
     tagline: "Small habits. Daily wins. Lasting growth.",
 
     description:
-      "DIDT is a cross-platform habit tracking application built around quick daily tracking, recoverable habit management, and trustworthy progress. Its React Native mobile client has reached the alpha milestone, supported by a shared NestJS API and PostgreSQL database. The Next.js web client is being developed against the same backend contracts.",
+      "DIDT is a cross-platform habit tracker designed to make daily check-ins quick and progress easy to understand. It supports check-off and quantity-based habits, flexible schedules, calendar history, and recoverable habit management. The React Native and Expo app uses a shared NestJS API backed by PostgreSQL, which the Next.js web client is also integrating.",
 
     impact:
-      "Delivered a validated mobile alpha backed by server-authoritative tracking, calendar-aware eligibility, history, and recovery workflows. The same API now supports ongoing web alpha development without duplicating core domain rules across clients.",
+      "Combined a simple daily workflow with reliable tracking rules, so users can change goals, correct entries, and restore deleted habits without distorting their progress. A shared NestJS backend supports consistent behavior across the mobile app and the web experience in development.",
 
     category: "Full Stack",
 
@@ -39,49 +39,63 @@ export const projects: Project[] = [
     media: {
       cover: "/images/projects/didt/showcase-v3-today-overview.webp",
       coverLayout: "banner",
+      showcaseDisclosure:
+        "The images above are composed product showcases. The working app demo below shows actual interactions captured in the iOS Simulator.",
+      demoVideo: "/videos/projects/didt-walkthrough.mp4",
+      poster: "/images/projects/didt/didt-walkthrough-poster.jpg",
+      demoVideoHeading: "Working App Demo",
+      demoVideoLayout: "portrait",
+      demoVideoDescription:
+        "Recorded directly from DIDT running in the iOS Simulator. The walkthrough shows category and habit creation, custom increments and units, progress corrections and undo, calendar history, deletion and restoration, and theme switching.",
       // Seven coordinated 1672×941 showcase images; use the same first image for the featured cover.
       screenshots: [
         {
           src: "/images/projects/didt/showcase-v3-today-overview.webp",
-          alt: "Today dashboard after completing daily habits",
+          alt: "DIDT Today dashboard showing scheduled habits and daily progress",
           platform: "showcase",
-          caption: "Daily Progress: See your day at a glance.",
+          caption:
+            "Daily Progress: Check scheduled habits and see progress at a glance.",
         },
         {
           src: "/images/projects/didt/showcase-v3-flexible-tracking.webp",
-          alt: "Flexible habit tracking with check-offs, amounts, steps, units, and priorities",
+          alt: "DIDT tracking options for check-off and quantity-based habits",
           platform: "showcase",
-          caption: "Flexible Tracking: Check habits off or record amounts, choose or create your own units, set how much each tap adds, and keep your priorities in view.",
+          caption:
+            "Flexible Tracking: Check habits off or record quantities, customize units and tap increments, and keep priorities in view.",
         },
         {
           src: "/images/projects/didt/showcase-v3-history-calendar.webp",
-          alt: "Habit history calendar and monthly progress summary",
+          alt: "DIDT history calendar with completed habits and a progress summary",
           platform: "showcase",
-          caption: "History & Insights: Review progress and consistency over time.",
+          caption:
+            "History & Insights: Explore past check-ins and patterns over time.",
         },
         {
           src: "/images/projects/didt/showcase-v3-create-habit.webp",
-          alt: "Create Habit form with categories, priority, and schedule",
+          alt: "DIDT habit creation screen with category, priority, and scheduling options",
           platform: "showcase",
-          caption: "Create a Habit: Build a routine around your schedule and goals.",
+          caption:
+            "Create a Habit: Set up a routine with the schedule and tracking options that fit your goal.",
         },
         {
           src: "/images/projects/didt/showcase-v3-sign-in.webp",
-          alt: "Branded DIDT Sign In screen",
+          alt: "DIDT sign-in screen",
           platform: "showcase",
-          caption: "Sign In: A simple entry to your daily routine.",
+          caption:
+            "Sign In: Return to your routines with a straightforward sign-in experience.",
         },
         {
           src: "/images/projects/didt/showcase-v3-create-account.webp",
-          alt: "DIDT Create Account registration screen",
+          alt: "DIDT account registration screen",
           platform: "showcase",
-          caption: "Create Account: Get started with your own routine.",
+          caption:
+            "Create Account: Set up an account to begin tracking your habits.",
         },
         {
           src: "/images/projects/didt/showcase-v3-appearance.webp",
-          alt: "DIDT Appearance preferences with different display themes",
+          alt: "DIDT appearance settings showing available themes",
           platform: "showcase",
-          caption: "Appearance: Pick the look that feels right for you.",
+          caption: "Appearance: Choose a theme that suits your preferences.",
         },
       ],
     },
@@ -91,25 +105,27 @@ export const projects: Project[] = [
         platform: "Mobile",
         status: "Alpha launched",
         description:
-          "React Native and Expo client with habit management, daily tracking, history, recovery, and theme support.",
+          "React Native and Expo app with daily tracking, habit management, calendar history, recovery, and theme support.",
       },
       {
         platform: "Backend",
         status: "Functional",
         description:
-          "Shared NestJS API with PostgreSQL/Prisma persistence and backend-owned tracking rules for mobile and web.",
+          "Shared NestJS REST API with Prisma and PostgreSQL, handling authentication, scheduling, tracking, and history for both clients.",
       },
       {
         platform: "Web",
         status: "Approaching Alpha",
         description:
-          "Next.js client integrating the same authenticated API, dashboard, habits, categories, and history workflows.",
+          "Next.js client integrating authentication, dashboard views, habits, categories, and history through the shared API.",
       },
     ],
 
     technologies: [
       "Next.js",
+      "Turbopack",
       "React",
+      "TanStack Query",
       "TypeScript",
       "Tailwind CSS",
       "NestJS",
@@ -117,16 +133,20 @@ export const projects: Project[] = [
       "Prisma",
       "React Native",
       "Expo",
+      "Metro",
+      "Xcode",
+      "Android Studio",
       "Docker",
+      "Railway",
       "JWT",
       "REST APIs",
     ],
 
     highlights: [
-      "Validated React Native / Expo mobile alpha with shared NestJS backend",
-      "Backend-authoritative Today eligibility, Boolean and quantitative tracking",
-      "Calendar history, completion analytics, and 30-day lifecycle recovery",
-      "Next.js web application progressing toward the mobile alpha feature set",
+      "Developed the React Native and Expo client for habit management and daily check-ins",
+      "Implemented schedule-aware check-off and quantity-based tracking with undo support",
+      "Built calendar history, completion analytics, and a 30-day habit recovery workflow",
+      "Extending shared API contracts and tracking rules to the Next.js web client",
     ],
 
     metrics: [],
@@ -136,9 +156,15 @@ export const projects: Project[] = [
     engineeringStory: didtStory,
 
     resourceNotice:
-      "DIDT source repositories remain private during alpha development.",
+      "DIDT's source repositories are private while the project is in development.",
 
     resources: [
+      {
+        type: "demo",
+        label: "Demo",
+        href: "/projects/didt#project-demo",
+        public: true,
+      },
       {
         type: "github",
         label: "Backend API",
@@ -190,6 +216,12 @@ export const projects: Project[] = [
     media: {
       cover: "/images/projects/klusterbuddash.webp",
       video: "/videos/projects/klusterbuddemo.mp4",
+      demoVideo: "/videos/projects/klusterbuddemo.mp4",
+      demoVideoHeading: "Working App Demo",
+      demoVideoLayout: "landscape",
+      demoVideoDescription:
+        "A recorded walkthrough of the KlusterBud interface and its Kubernetes monitoring workflow.",
+      poster: "/images/projects/klusterbuddash.webp",
     },
 
     technologies: [
@@ -228,7 +260,7 @@ export const projects: Project[] = [
       {
         type: "demo",
         label: "Demo",
-        href: "/videos/projects/klusterbuddemo.mp4",
+        href: "/projects/klusterbud#project-demo",
         public: true,
       },
     ],
@@ -261,12 +293,7 @@ export const projects: Project[] = [
       cover: "/images/projects/portfolio.webp",
     },
 
-    technologies: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-    ],
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
 
     highlights: [
       "Reusable component architecture",
