@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Inter } from "next/font/google";
 
 import "./globals.css";
@@ -71,9 +72,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [
-      new URL(siteConfig.socialImage, siteConfig.url).toString(),
-    ],
+    images: [new URL(siteConfig.socialImage, siteConfig.url).toString()],
   },
 };
 
@@ -90,10 +89,9 @@ export default function RootLayout({
 
           <Navbar />
 
-          <main>
-            {children}
-          </main>
+          <main>{children}</main>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
